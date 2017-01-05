@@ -46,3 +46,6 @@ sensor.motion_upstairs_hall_battery:
   friendly_name: Upstairs Hall Motion Sensor Battery
 sensor.motion_upstairs_hall_temperature:
   friendly_name: Upstairs Hall Motion Sensor Temperature
+
+
+
