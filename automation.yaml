@@ -1,0 +1,20 @@
+
+- alias: "Turn on toilet path at night"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_upstairs_hall_motion
+      to: 'on'
+  condition: 
+    - condition: time
+      after: "23:00"
+      before: "05:30"
+  action:
+    - service: script.timed_toilet_path_on
+
+- alias: "Living Room Motion"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_living_room_motion
+      to: 'on'
+  action:
+    - service: script.living_room_timed_on

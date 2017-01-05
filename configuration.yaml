@@ -1,0 +1,187 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: metric
+  time_zone: Europe/London
+  customize: !include customisations.yaml
+
+# Enables the frontend
+frontend:
+
+http:
+  api_password: asdf24ASDF2341nihc01 
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Weather Prediction
+sensor yr:
+  platform: yr
+
+# ------------- MQTT --------------- #
+
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+  client_id: home-assistant-1
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+# ------------ GROUPS -------------- #
+
+group:
+  sonos_all:
+    name: All Sonos
+    entities: 
+      - media_player.bedroom
+      - media_player.dining_room
+      - media_player.kitchen
+      - media_player.living_room
+  sonos_downstairs:
+    name: Downstairs Sonos
+    entities: 
+      - media_player.kitchen
+      - media_player.dining_room
+      - media_player.living_room
+  sonos_doorbell:
+    name: Doorbell Sonos
+    entities:
+      - media_player.dining_room
+      - media_player.kitchen
+  lights_living_room:
+    name: Living Room Lights
+    entities:
+      - light.hue_living_room
+  lights_kitchen:
+    name: Kitchen Lights
+    entities:
+      - light.hue_kitchen_1a
+      - light.hue_kitchen_1b
+      - light.hue_kitchen_1c
+  lights_downstairs_hall:
+    name: Downstairs Hall Lights
+    entities:
+      - light.hue_downstairs_hall
+  lights_stairs:
+    name: Stairway Lights
+    entities: 
+      - light.hue_stairs
+  lights_upstairs_hall:
+    name: Upstairs Hall Lights
+    entities:
+      - light.hue_upstairs_hall
+  lights_downstairs:
+    name: Downstairs Lights
+    entities:
+      - group.lights_living_room
+      - group.lights_kitchen
+      - group.lights_downstairs_hall
+  lights_toilet_path:
+    name: Toilet Path Lights
+    entities:
+      - group.lights_kitchen
+      - group.lights_downstairs_hall
+      - group.lights_upstairs_hall
+      - group.lights_stairs
+  downstairs_view:
+    name: Downstairs
+    view: yes
+    entities: 
+      - group.lights_downstairs
+  media_player_view:
+    name: Media Players
+    view: yes
+    entities:
+      - media_player.mjchromecast
+      - media_player.plex_for_lg_webos_3101932afro5
+      - group.sonos_all
+      - media_player.lg_tv
+  flic_buttons:
+    name: Flic Buttons
+    entities: 
+      - binary_sensor.flic_80e4da71f014
+      - binary_sensor.flic_80e4da7218b4
+      - binary_sensor.flic_80e4da726071
+      - binary_sensor.flic_80e4da71ffe0
+  nest_camera_dining_room:
+    name: Dining Room Nest Camera
+    entities:
+      - binary_sensor.dining_room_camera_motion_detected
+      - binary_sensor.dining_room_camera_online
+      - binary_sensor.dining_room_camera_person_detected
+      - binary_sensor.dining_room_camera_sound_detected
+      - camera.dining_room
+  nest_thermostat_dining_room:
+    name: Dining Room Nest Thermostat
+    entities:
+      - binary_sensor.dining_room_thermostat_fan
+      - binary_sensor.dining_room_thermostat_has_leaf
+      - binary_sensor.dining_room_thermostat_is_locked
+      - binary_sensor.dining_room_thermostat_is_using_emergency_heat
+      - binary_sensor.dining_room_thermostat_online
+      - climate.dining_room
+      - sensor.dining_room_thermostat_humidity
+      - sensor.dining_room_thermostat_hvac_state
+      - sensor.dining_room_thermostat_operation_mode
+      - sensor.dining_room_thermostat_target
+      - sensor.dining_room_thermostat_temperature
+  nest_protect_hallway:
+    name: Hallway Nest Protect
+    entities:
+      - binary_sensor.hallway_nest_protect_online
+      - sensor.hallway_nest_protect_battery_health
+      - sensor.hallway_nest_protect_co_status
+      - sensor.hallway_nest_protect_smoke_status
+
+# ------------- NEST -------------- #
+
+nest:
+  client_id: 504297f5-4e8f-4b75-be2e-f86945872b13
+  client_secret: 6ZH0UG10WECxq7FVCfihHCjaL
+
+# ------------- HUE --------------- #
+
+light hue:
+  platform: hue
+  host: 192.168.55.161
+
+# ------------ LG TV -------------- #
+
+media_player lg_tv:
+  platform: webostv
+  host: 192.168.55.228
+  name: Living Room TV
+
+# ------------ flic.io ------------ #
+
+#binary_sensor flic:
+#  platform: flic
+#  discovery: true
+
+# ------------- Scenes ------------ #
+
+scene: !include scene.yaml
+
+# ---------- Automations ---------- # 
+ 
+automation: !include automation.yaml
+script: !include script.yaml 
+binary_sensor: !include binary_sensor.yaml
+sensor: !include sensor.yaml

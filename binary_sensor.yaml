@@ -1,0 +1,20 @@
+
+#########################################################
+# Upstairs Hall Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_upstairs_hall_motion"
+  state_topic: "smartthings/Upstairs Hall Motion/motion"
+  payload_on: "active"
+  payload_off: "inactive"
+
+#########################################################
+# Living Room Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_living_room_motion"
+  state_topic: "smartthings/Living Room Motion/motion"
+  payload_on: "active"
+  payload_off: "inactive"

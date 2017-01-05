@@ -1,0 +1,13 @@
+
+- name: toilet_path_night
+  entities:
+    group.lights_toilet_path:
+      state: on
+      xy_color: [0.4, 0.4]
+      brightness: 20
+- name: lounge_normal
+  entities:  
+    group.lights_living_room:
+      state: on
+      xy_color: [0.4, 0.4]
+      brightness: 150

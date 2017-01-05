@@ -1,0 +1,29 @@
+#########################################################
+# Upstairs Hall Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_upstairs_hall_battery"
+  state_topic: "smartthings/Upstairs Hall Motion/battery"
+  unit_of_measurement: "%"
+  
+- platform: mqtt
+  name: "motion_upstairs_hall_temperature"
+  state_topic: "smartthings/Upstairs Hall Motion/temperature"
+  unit_of_measurement: "°C"
+
+#########################################################
+# Living Room Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_living_room_battery"
+  state_topic: "smartthings/Living Room Motion/battery"
+  unit_of_measurement: "%"
+  
+- platform: mqtt
+  name: "motion_living_room_temperature"
+  state_topic: "smartthings/Living Room Motion/temperature"
+  unit_of_measurement: "°C"
+
+

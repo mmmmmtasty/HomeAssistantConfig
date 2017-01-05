@@ -1,0 +1,49 @@
+#########################################################
+# Timed Night Toilet Path
+#########################################################
+
+timed_toilet_path_on:
+  alias: "Turn on toilet path lights for 5 minutes"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.timed_toilet_path_off
+    - service: scene.turn_on
+      data: 
+        entity_id: scene.toilet_path_night
+    - service: script.turn_on
+      data:
+        entity_id: script.timed_toilet_path_off
+timed_toilet_path_off:
+  alias: "Turn off toilet path lights"
+  sequence: 
+    - delay:
+        minutes: 5
+    - service: light.turn_off
+      data:
+        entity_id: group.lights_toilet_path
+
+#########################################################
+# Timed Living Room Motion
+#########################################################
+
+living_room_timed_on:
+  alias: "Turn on living room lights for 15 minutes"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.living_room_timed_off
+    - service: scene.turn_on
+      data: 
+        entity_id: scene.lounge_normal
+    - service: script.turn_on
+      data:
+        entity_id: script.living_room_timed_off
+living_room_timed_off:
+  alias: "Turn off living room lights"
+  sequence: 
+    - delay:
+        minutes: 15
+    - service: light.turn_off
+      data:
+        entity_id: group.lights_living_room
