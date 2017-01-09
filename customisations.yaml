@@ -29,23 +29,41 @@ group.sonos_doorbell:
 # Binary Sensors
 #########################################################
 
-binary_sensor.motion_living_room_motion:
-  friendly_name: Living Room Motion Sensor
 binary_sensor.motion_upstairs_hall_motion:
   friendly_name: Upstairs Hall Motion Sensor
+binary_sensor.motion_downstairs_hall_motion:
+  friendly_name: Downstairs Hall Motion sensor
+binary_sensor.motion_living_room_motion:
+  friendly_name: Living Room Motion Sensor
+binary_sensor.motion_kitchen_motion:
+  friendly_name: Kitchen Motion sensor
+binary_sensor.motion_dining_room_motion:
+  friendly_name: Dining Room Motion Sensor
 
 #########################################################
 # Sensors
 #########################################################
 
-sensor.motion_living_room_battery:
-  friendly_name: Living Room Motion Sensor Battery
-sensor.motion_living_room_temperature:
-  friendly_name: Living Room Motion Sensor Temperature
 sensor.motion_upstairs_hall_battery:
   friendly_name: Upstairs Hall Motion Sensor Battery
 sensor.motion_upstairs_hall_temperature:
   friendly_name: Upstairs Hall Motion Sensor Temperature
+sensor.motion_downstairs_hall_battery:
+  friendly_name: Downstairs Hall Motion Sensor Battery
+sensor.motion_downstairs_hall_temperature:
+  friendly_name: Downstairs Hall Motion Sensor Temperature
+sensor.motion_living_room_battery:
+  friendly_name: Living Room Motion Sensor Battery
+sensor.motion_living_room_temperature:
+  friendly_name: Living Room Motion Sensor Temperature
+sensor.motion_kitchen_battery:
+  friendly_name: Kitchen Motion Sensor Battery
+sensor.motion_kitchen_temperature:
+  friendly_name: Kitchen Motion Sensor Temperature
+sensor.motion_dining_room_battery:
+  friendly_name: Dining Room Motion Sensor Battery
+sensor.motion_dining_room_temperature:
+  friendly_name: Dining Room Motion Sensor Temperature
 
 
 

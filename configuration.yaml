@@ -11,7 +11,7 @@ homeassistant:
 frontend:
 
 http:
-  api_password: asdf24ASDF2341nihc01 
+  api_password: !secret http_password 
 
 # Checks for available updates
 updater:
@@ -47,8 +47,8 @@ mqtt:
 # ------------- NEST -------------- #
 
 nest:
-  client_id: 504297f5-4e8f-4b75-be2e-f86945872b13
-  client_secret: 6ZH0UG10WECxq7FVCfihHCjaL
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
 
 # ------------- HUE --------------- #
 
