@@ -13,6 +13,20 @@
   unit_of_measurement: "°C"
 
 #########################################################
+# Downstairs Hall Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_downstairs_hall_battery"
+  state_topic: "smartthings/Downstairs Hall Motion/battery"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: "motion_downstairs_hall_temperature"
+  state_topic: "smartthings/Downstairs Hall Motion/temperature"
+  unit_of_measurement: "°C"
+
+#########################################################
 # Living Room Motion Sensor
 #########################################################
 
@@ -26,4 +40,30 @@
   state_topic: "smartthings/Living Room Motion/temperature"
   unit_of_measurement: "°C"
 
+#########################################################
+# Kitchen Motion Sensor
+#########################################################
 
+- platform: mqtt
+  name: "motion_kitchen_battery"
+  state_topic: "smartthings/Kitchen Motion/battery"
+  unit_of_measurement: "%"
+  
+- platform: mqtt
+  name: "motion_kitchen_temperature"
+  state_topic: "smartthings/Kitchen Motion/temperature"
+  unit_of_measurement: "°C"
+
+#########################################################
+# Dining Room Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_dining_room_battery"
+  state_topic: "smartthings/Dining Room Motion/battery"
+  unit_of_measurement: "%"
+  
+- platform: mqtt
+  name: "motion_dining_room_temperature"
+  state_topic: "smartthings/Dining Room Motion/temperature"
+  unit_of_measurement: "°C"

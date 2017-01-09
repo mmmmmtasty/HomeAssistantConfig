@@ -10,11 +10,41 @@
   payload_off: "inactive"
 
 #########################################################
+# Downstairs Hall Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_downstairs_hall_motion"
+  state_topic: "smartthings/Downstairs Hall Motion/motion"
+  payload_on: "active"
+  payload_off: "inactive"
+
+#########################################################
 # Living Room Motion Sensor
 #########################################################
 
 - platform: mqtt
   name: "motion_living_room_motion"
   state_topic: "smartthings/Living Room Motion/motion"
+  payload_on: "active"
+  payload_off: "inactive"
+
+#########################################################
+# Kitchen Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_kitchen_motion"
+  state_topic: "smartthings/Kitchen Motion/motion"
+  payload_on: "active"
+  payload_off: "inactive"
+
+#########################################################
+# Dining Room Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_dining_room_motion"
+  state_topic: "smartthings/Dining Room Motion/motion"
   payload_on: "active"
   payload_off: "inactive"
