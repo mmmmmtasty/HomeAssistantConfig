@@ -1,0 +1,11 @@
+night_time:
+  name: Night Time
+  initial: off
+
+party_time:
+  name: Party Time
+  initial: off
+
+normal_mode:
+  name: Normal Mode
+  initial: on

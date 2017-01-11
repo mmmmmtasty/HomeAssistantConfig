@@ -10,6 +10,9 @@ homeassistant:
 # Enables the frontend
 frontend:
 
+logger:
+  default: info
+
 http:
   api_password: !secret http_password 
 
@@ -46,9 +49,9 @@ mqtt:
 
 # ------------- NEST -------------- #
 
-nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret
+#nest:
+#  client_id: !secret nest_client_id
+#  client_secret: !secret nest_client_secret
 
 # ------------- HUE --------------- #
 
@@ -71,6 +74,7 @@ media_player lg_tv:
 
 # ------------- Scenes ------------ #
 
+input_boolean: !include input_boolean.yaml
 group: !include group.yaml
 scene: !include scene.yaml
 automation: !include automation.yaml
