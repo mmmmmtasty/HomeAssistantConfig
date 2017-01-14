@@ -20,10 +20,10 @@ binary_sensor.flic_80e4da71f014:
 # Sonos Groups
 #########################################################
 
-group.sonos_downstairs:
-  hidden: true
-group.sonos_doorbell:
-  hidden: true
+#group.sonos_downstairs:
+#  hidden: true
+#group.sonos_doorbell:
+#  hidden: true
 
 #########################################################
 # Binary Sensors

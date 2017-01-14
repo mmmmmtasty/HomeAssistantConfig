@@ -75,9 +75,11 @@ media_player lg_tv:
 # ------------- Scenes ------------ #
 
 input_boolean: !include input_boolean.yaml
+input_select: !include input_select.yaml
+input_slider: !include input_slider.yaml
 group: !include group.yaml
 scene: !include scene.yaml
-automation: !include automation.yaml
+#automation: !include automation.yaml
 script: !include script.yaml 
 binary_sensor: !include binary_sensor.yaml
 sensor: !include sensor.yaml

@@ -9,3 +9,15 @@ party_time:
 normal_mode:
   name: Normal Mode
   initial: on
+
+locked_upstairs_brightness_change:
+  name: Locked Upstairs Brightness
+  initial: off
+
+locked_downstairs_brightness_change:
+  name: Locked Downstairs Brightness
+  initial: off
+
+temp_not_color:
+  name: Temperature not Color
+  initial: on
