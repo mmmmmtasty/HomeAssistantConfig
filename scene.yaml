@@ -1,99 +1,99 @@
+######################
+## Normal Mode Scenes#
+######################
+#
+#- name: living_room_normal_on
+#  entities:  
+#    group.lights_living_room:
+#      state: on
+#      xy_color: [0.4573, 0.41]
+#      brightness: 220
+#      transition: 1
+#- name: downstairs_hall_normal_on
+#  entities:  
+#    group.lights_downstairs_hall:
+#      state: on
+#      xy_color: [0.4573, 0.41]
+#      brightness: 220
+#      transition: 1
+#- name: upstairs_hall_normal_on
+#  entities:  
+#    group.lights_upstairs_hall:
+#      state: on
+#      xy_color: [0.4573, 0.41]
+#      brightness: 220
+#      transition: 1
+#    group.lights_stairs:
+#      state: on
+#      xy_color: [0.4573, 0.41]
+#      brightness: 220
+#      transition: 1
+#- name: kitchen_normal_on
+#  entities:  
+#    group.lights_kitchen:
+#      state: on
+#      xy_color: [0.4573, 0.41]
+#      brightness: 140
+#      transition: 1
+#
+######################
+## Off Scenes        #
+######################
+#
+#- name: living_room_off
+#  entities:  
+#    group.lights_living_room:
+#      state: off
+#- name: downstairs_hall_off
+#  entities:  
+#    group.lights_downstairs_hall:
+#      state: off
+#- name: upstairs_hall_off
+#  entities:  
+#    group.lights_upstairs_hall:
+#      state: off
+#    group.lights_stairs:
+#      state: off
+#- name: kitchen_off
+#  entities:  
+#    group.lights_kitchen:
+#      state: off
+#
 #####################
-# Normal Mode Scenes#
+## Night Mode Scenes#
 #####################
-
-- name: living_room_normal_on
-  entities:  
-    group.lights_living_room:
-      state: on
-      xy_color: [0.4573, 0.41]
-      brightness: 220
-      transition: 1
-- name: downstairs_hall_normal_on
-  entities:  
-    group.lights_downstairs_hall:
-      state: on
-      xy_color: [0.4573, 0.41]
-      brightness: 220
-      transition: 1
-- name: upstairs_hall_normal_on
-  entities:  
-    group.lights_upstairs_hall:
-      state: on
-      xy_color: [0.4573, 0.41]
-      brightness: 220
-      transition: 1
-    group.lights_stairs:
-      state: on
-      xy_color: [0.4573, 0.41]
-      brightness: 220
-      transition: 1
-- name: kitchen_normal_on
-  entities:  
-    group.lights_kitchen:
-      state: on
-      xy_color: [0.4573, 0.41]
-      brightness: 140
-      transition: 1
-
-#####################
-# Off Scenes        #
-#####################
-
-- name: living_room_off
-  entities:  
-    group.lights_living_room:
-      state: off
-- name: downstairs_hall_off
-  entities:  
-    group.lights_downstairs_hall:
-      state: off
-- name: upstairs_hall_off
-  entities:  
-    group.lights_upstairs_hall:
-      state: off
-    group.lights_stairs:
-      state: off
-- name: kitchen_off
-  entities:  
-    group.lights_kitchen:
-      state: off
-
-####################
-# Night Mode Scenes#
-####################
-
-- name: living_room_night_on
-  entities:  
-    group.lights_living_room:
-      state: on
-      xy_color: [0.4573, 0.41]
-      brightness: 20
-      transition: 1
-- name: downstairs_hall_night_on
-  entities:  
-    group.lights_downstairs_hall:
-      state: on
-      xy_color: [0.4573, 0.41]
-      brightness: 10
-      transition: 1
-- name: upstairs_hall_night_on
-  entities:  
-    group.lights_upstairs_hall:
-      state: on
-      xy_color: [0.4573, 0.41]
-      brightness: 10
-      transition: 1
-    group.lights_stairs:
-      state: on
-      xy_color: [0.4573, 0.41]
-      brightness: 10
-      transition: 1
-- name: kitchen_night_on
-  entities:  
-    group.lights_kitchen:
-      state: on
-      xy_color: [0.6855,0.3107]
-      brightness: 10
-      transition: 1
+#
+#- name: living_room_night_on
+#  entities:  
+#    group.lights_living_room:
+#      state: on
+#      xy_color: [0.4573, 0.41]
+#      brightness: 20
+#      transition: 1
+#- name: downstairs_hall_night_on
+#  entities:  
+#    group.lights_downstairs_hall:
+#      state: on
+#      xy_color: [0.4573, 0.41]
+#      brightness: 10
+#      transition: 1
+#- name: upstairs_hall_night_on
+#  entities:  
+#    group.lights_upstairs_hall:
+#      state: on
+#      xy_color: [0.4573, 0.41]
+#      brightness: 10
+#      transition: 1
+#    group.lights_stairs:
+#      state: on
+#      xy_color: [0.4573, 0.41]
+#      brightness: 10
+#      transition: 1
+#- name: kitchen_night_on
+#  entities:  
+#    group.lights_kitchen:
+#      state: on
+#      xy_color: [0.6855,0.3107]
+#      brightness: 10
+#      transition: 1
 

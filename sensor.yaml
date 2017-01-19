@@ -13,6 +13,20 @@
   unit_of_measurement: "°C"
 
 #########################################################
+# Stairs Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_stairs_battery"
+  state_topic: "smartthings/Stairs Motion/battery"
+  unit_of_measurement: "%"
+  
+- platform: mqtt
+  name: "motion_stairs_temperature"
+  state_topic: "smartthings/Stairs Motion/temperature"
+  unit_of_measurement: "°C"
+
+#########################################################
 # Downstairs Hall Motion Sensor
 #########################################################
 
@@ -67,3 +81,12 @@
   name: "motion_dining_room_temperature"
   state_topic: "smartthings/Dining Room Motion/temperature"
   unit_of_measurement: "°C"
+
+#########################################################
+# Lounge Lamp Power Switch
+#########################################################
+
+- platform: mqtt
+  name: "switch_living_room_lamp_power"
+  state_topic: "smartthings/Living Room Lamp/power"
+  unit_of_measurement: "W"

@@ -1,0 +1,10 @@
+#########################################################
+# Lounge Lamp Power
+#########################################################
+
+- platform: mqtt
+  name: "switch_living_room_lamp_switch"
+  state_topic: "smartthings/Living Room Lamp/switch"
+  command_topic: "smartthings/Living Room Lamp/switch"
+  payload_on: "on"
+  payload_off: "off"

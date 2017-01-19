@@ -20,4 +20,5 @@ appdaemon_conf/requirements.txt
 appdaemon_conf/scripts
 appdaemon_conf/setup.py
 appdaemon_conf/TUTORIAL.md  
+appdaemon/
 *~

@@ -68,9 +68,9 @@ media_player lg_tv:
 
 # ------------ flic.io ------------ #
 
-#binary_sensor flic:
-#  platform: flic
-#  discovery: true
+binary_sensor flic:
+  platform: flic
+  discovery: true
 
 # ------------- Scenes ------------ #
 
@@ -81,5 +81,6 @@ group: !include group.yaml
 scene: !include scene.yaml
 #automation: !include automation.yaml
 script: !include script.yaml 
+switch: !include switch.yaml 
 binary_sensor: !include binary_sensor.yaml
 sensor: !include sensor.yaml

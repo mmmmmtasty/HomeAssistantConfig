@@ -1,15 +1,15 @@
 color_temperature:
   name: Temperature
-  initial: 180
+  initial: 400
   min: 163
-  max: 505
+  max: 500
   step: 1
 
 master_brightness:
   name: Brightness
   initial: 200
   min: 0
-  max: 255
+  max: 220
   step: 1
 
 downstairs_brightness:

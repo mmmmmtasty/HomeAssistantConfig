@@ -39,6 +39,8 @@ binary_sensor.motion_kitchen_motion:
   friendly_name: Kitchen Motion sensor
 binary_sensor.motion_dining_room_motion:
   friendly_name: Dining Room Motion Sensor
+binary_sensor.motion_stairs_motion:
+  friendly_name: Stairs Motion Sensor
 
 #########################################################
 # Sensors
@@ -64,6 +66,8 @@ sensor.motion_dining_room_battery:
   friendly_name: Dining Room Motion Sensor Battery
 sensor.motion_dining_room_temperature:
   friendly_name: Dining Room Motion Sensor Temperature
-
-
+sensor.motion_stairs_battery:
+  friendly_name: Stairs Motion Sensor Battery
+sensor.motion_stairs_temperature:
+  friendly_name: Stairs Motion Sensor Temperature
 

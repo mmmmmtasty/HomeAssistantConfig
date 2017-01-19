@@ -1,9 +1,12 @@
-
+##########################
+# Light groups
+##########################
 lights_living_room:
   name: Living Room Lights
   entities:
     - light.hue_living_room
-#    - light.hue_go_1
+#    - switch.switch_living_room_lamp_switch
+    - light.hue_go_1
 lights_kitchen:
   name: Kitchen Lights
   entities:
@@ -13,6 +16,11 @@ lights_kitchen:
     - light.hue_kitchen_2a
     - light.hue_kitchen_2b
     - light.hue_kitchen_2c
+lights_kitchen_night:
+  name: Kitchen Night Lights
+  entities:
+    - light.hue_kitchen_1c
+    - light.hue_kitchen_2c
 lights_downstairs_hall:
   name: Downstairs Hall Lights
   entities:
@@ -21,6 +29,9 @@ lights_upstairs_hall:
   name: Upstairs Hall Lights
   entities:
     - light.hue_upstairs_hall
+lights_stairs:
+  name: Stairs Lights
+  entities:
     - light.hue_stairs
 lights_downstairs:
   name: Downstairs Lights
@@ -28,6 +39,24 @@ lights_downstairs:
     - group.lights_living_room
     - group.lights_kitchen
     - group.lights_downstairs_hall
+lights_all:
+  name: Downstairs Lights
+  entities:
+    - group.lights_living_room
+    - group.lights_kitchen
+    - group.lights_downstairs_hall
+    - group.lights_stairs
+    - group.lights_upstairs_hall
+##########################
+# Media Player Groups
+##########################
+
+sonos_doorbell:
+  name: Doorbell Sonos
+  entities:
+    - media_player.dining_room
+    - media_player.kitchen
+
 #flic_buttons:
 #  name: Flic Buttons
 #  entities: 
@@ -73,6 +102,7 @@ motion_sensor_battery:
     - sensor.motion_kitchen_battery
     - sensor.motion_dining_room_battery
     - sensor.motion_living_room_battery
+    - sensor.motion_stairs_battery
 
 settings_default_sliders:
   name: Default Brightness
