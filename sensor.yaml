@@ -55,17 +55,17 @@
   unit_of_measurement: "°C"
 
 #########################################################
-# Kitchen Motion Sensor
+# Kitchen Multisensor
 #########################################################
 
 - platform: mqtt
-  name: "motion_kitchen_battery"
-  state_topic: "smartthings/Kitchen Motion/battery"
+  name: "multisensor_kitchen_battery"
+  state_topic: "smartthings/Kitchen Multisensor/battery"
   unit_of_measurement: "%"
   
 - platform: mqtt
-  name: "motion_kitchen_temperature"
-  state_topic: "smartthings/Kitchen Motion/temperature"
+  name: "multisensor_kitchen_temperature"
+  state_topic: "smartthings/Kitchen Multisensor/temperature"
   unit_of_measurement: "°C"
 
 #########################################################
@@ -80,6 +80,20 @@
 - platform: mqtt
   name: "motion_dining_room_temperature"
   state_topic: "smartthings/Dining Room Motion/temperature"
+  unit_of_measurement: "°C"
+
+#########################################################
+# Office Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_office_battery"
+  state_topic: "smartthings/Office Motion/battery"
+  unit_of_measurement: "%"
+  
+- platform: mqtt
+  name: "motion_office_temperature"
+  state_topic: "smartthings/Office Motion/temperature"
   unit_of_measurement: "°C"
 
 #########################################################

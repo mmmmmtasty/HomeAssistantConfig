@@ -35,12 +35,16 @@ binary_sensor.motion_downstairs_hall_motion:
   friendly_name: Downstairs Hall Motion sensor
 binary_sensor.motion_living_room_motion:
   friendly_name: Living Room Motion Sensor
-binary_sensor.motion_kitchen_motion:
+binary_sensor.multisensor_kitchen_motion:
   friendly_name: Kitchen Motion sensor
 binary_sensor.motion_dining_room_motion:
   friendly_name: Dining Room Motion Sensor
 binary_sensor.motion_stairs_motion:
   friendly_name: Stairs Motion Sensor
+binary_sensor.motion_office_motion:
+  friendly_name: Office Motion Sensor
+binary_sensor.dash_front_door_button:
+  friendly_name: Door Bell
 
 #########################################################
 # Sensors
@@ -58,9 +62,9 @@ sensor.motion_living_room_battery:
   friendly_name: Living Room Motion Sensor Battery
 sensor.motion_living_room_temperature:
   friendly_name: Living Room Motion Sensor Temperature
-sensor.motion_kitchen_battery:
+sensor.multisensor_kitchen_battery:
   friendly_name: Kitchen Motion Sensor Battery
-sensor.motion_kitchen_temperature:
+sensor.multisensor_kitchen_temperature:
   friendly_name: Kitchen Motion Sensor Temperature
 sensor.motion_dining_room_battery:
   friendly_name: Dining Room Motion Sensor Battery
@@ -70,4 +74,8 @@ sensor.motion_stairs_battery:
   friendly_name: Stairs Motion Sensor Battery
 sensor.motion_stairs_temperature:
   friendly_name: Stairs Motion Sensor Temperature
+sensor.motion_office_battery:
+  friendly_name: Office Motion Sensor Battery
+sensor.motion_office_temperature:
+  friendly_name: Office Motion Sensor Temperature
 

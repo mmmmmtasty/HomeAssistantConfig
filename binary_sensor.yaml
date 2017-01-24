@@ -44,8 +44,8 @@
 #########################################################
 
 - platform: mqtt
-  name: "motion_kitchen_motion"
-  state_topic: "smartthings/Kitchen Motion/motion"
+  name: "multisensor_kitchen_motion"
+  state_topic: "smartthings/Kitchen Multisensor/motion"
   payload_on: "active"
   payload_off: "inactive"
 
@@ -58,3 +58,13 @@
   state_topic: "smartthings/Dining Room Motion/motion"
   payload_on: "active"
   payload_off: "inactive"
+
+#########################################################
+# Doorbell
+#########################################################
+
+- platform: mqtt
+  name: "dash_front_door_button"
+  state_topic: "dash/doorbell/button"
+  payload_on: "on"
+  payload_off: "off"
