@@ -7,7 +7,7 @@ nest.conf
 phue.conf
 plex.conf
 secrets.yaml
-appdaemon-apps/__pycache__/
+appdaemon-apps/__pycache__/*
 appdaemon_conf/API.md
 appdaemon_conf/appdaemon  
 appdaemon_conf/conf/appdaemon.cfg
@@ -23,3 +23,4 @@ appdaemon_conf/setup.py
 appdaemon_conf/TUTORIAL.md  
 appdaemon/
 *~
+*.swp
