@@ -38,6 +38,11 @@ sun:
 sensor yr:
   platform: yr
 
+# ----------- InfluxDB ------------- #
+
+influxdb:
+  host: 127.0.01
+
 # ------------- MQTT --------------- #
 
 mqtt:
@@ -65,6 +70,10 @@ media_player lg_tv:
   platform: webostv
   host: 192.168.55.228
   name: Living Room TV
+
+notify living_room_tv:
+  platform: webostv
+  host: 192.168.55.228
 
 # ------------ flic.io ------------ #
 
