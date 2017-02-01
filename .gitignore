@@ -24,3 +24,4 @@ appdaemon_conf/TUTORIAL.md
 appdaemon/
 *~
 *.swp
+.HA_VERSION

@@ -1,5 +1,4 @@
 import appdaemon.appapi as appapi
-import threading
 import time
 
 # Doorbell script to do Sonos and Hue light notification
@@ -41,8 +40,8 @@ class Doorbell(appapi.AppDaemon):
   # Send notification TV
   def notify_tv(self, entity, attribute, old, new, kwargs):
     time.sleep(2)
-    self.log("Notfiying {}".format(self.args["tv"]))
-    self.call_service("notify/notify", target =  self.args["tv"], message = 'Someone is at the door!')
+    self.log("Notifying {}".format(self.args["tv"]))
+    self.call_service("notify/notify", target = self.args["tv"], message = 'Someone is at the door!')
 
   # Flash all the lights
   def flash_lights(self, entity, attribute, old, new, kwargs):

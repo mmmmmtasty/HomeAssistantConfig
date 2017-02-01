@@ -1,8 +1,22 @@
-color_temperature:
+master_color_temperature:
   name: Temperature
   initial: 400
   min: 163
   max: 500
+  step: 1
+
+downstairs_color_temperature:
+  name: Temperature
+  initial: 180
+  min: 0
+  max: 220
+  step: 1
+
+upstairs_color_temperature:
+  name: Temperature
+  initial: 180
+  min: 0
+  max: 220
   step: 1
 
 master_brightness:

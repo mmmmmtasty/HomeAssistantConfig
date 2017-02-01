@@ -3,79 +3,76 @@
 # Flic Buttons
 #########################################################
 
-binary_sensor.flic_80e4da71ffe0:
+- entity_id: binary_sensor.flic_80e4da71ffe0
   friendly_name: White Flic Button
-  #hidden: true
-binary_sensor.flic_80e4da7218b4:
+- entity_id: binary_sensor.flic_80e4da7218b4
   friendly_name: Blue Flic Button
-  #hidden: true
-binary_sensor.flic_80e4da726071:
+- entity_id: binary_sensor.flic_80e4da726071
   friendly_name: Green Flic Button
-  #hidden: true
-binary_sensor.flic_80e4da71f014:
+- entity_id: binary_sensor.flic_80e4da71f014
   friendly_name: Black Flic Button
-  #hidden: true
-
-#########################################################
-# Sonos Groups
-#########################################################
-
-#group.sonos_downstairs:
-#  hidden: true
-#group.sonos_doorbell:
-#  hidden: true
 
 #########################################################
 # Binary Sensors
 #########################################################
 
-binary_sensor.motion_upstairs_hall_motion:
+- entity_id: binary_sensor.motion_upstairs_hall_motion
   friendly_name: Upstairs Hall Motion Sensor
-binary_sensor.motion_downstairs_hall_motion:
+- entity_id: binary_sensor.motion_downstairs_hall_motion
   friendly_name: Downstairs Hall Motion sensor
-binary_sensor.motion_living_room_motion:
+- entity_id: binary_sensor.motion_living_room_motion
   friendly_name: Living Room Motion Sensor
-binary_sensor.multisensor_kitchen_motion:
+- entity_id: binary_sensor.multisensor_kitchen_motion
   friendly_name: Kitchen Motion sensor
-binary_sensor.motion_dining_room_motion:
+- entity_id: binary_sensor.motion_dining_room_motion
   friendly_name: Dining Room Motion Sensor
-binary_sensor.motion_stairs_motion:
+- entity_id: binary_sensor.motion_stairs_motion
   friendly_name: Stairs Motion Sensor
-binary_sensor.motion_office_motion:
+- entity_id: binary_sensor.motion_office_motion
   friendly_name: Office Motion Sensor
-binary_sensor.dash_front_door_button:
+- entity_id: binary_sensor.dash_front_door_button
   friendly_name: Door Bell
 
 #########################################################
 # Sensors
 #########################################################
 
-sensor.motion_upstairs_hall_battery:
-  friendly_name: Upstairs Hall Motion Sensor Battery
-sensor.motion_upstairs_hall_temperature:
-  friendly_name: Upstairs Hall Motion Sensor Temperature
-sensor.motion_downstairs_hall_battery:
-  friendly_name: Downstairs Hall Motion Sensor Battery
-sensor.motion_downstairs_hall_temperature:
-  friendly_name: Downstairs Hall Motion Sensor Temperature
-sensor.motion_living_room_battery:
-  friendly_name: Living Room Motion Sensor Battery
-sensor.motion_living_room_temperature:
-  friendly_name: Living Room Motion Sensor Temperature
-sensor.multisensor_kitchen_battery:
-  friendly_name: Kitchen Motion Sensor Battery
-sensor.multisensor_kitchen_temperature:
-  friendly_name: Kitchen Motion Sensor Temperature
-sensor.motion_dining_room_battery:
-  friendly_name: Dining Room Motion Sensor Battery
-sensor.motion_dining_room_temperature:
-  friendly_name: Dining Room Motion Sensor Temperature
-sensor.motion_stairs_battery:
-  friendly_name: Stairs Motion Sensor Battery
-sensor.motion_stairs_temperature:
-  friendly_name: Stairs Motion Sensor Temperature
-sensor.motion_office_battery:
-  friendly_name: Office Motion Sensor Battery
-sensor.motion_office_temperature:
-  friendly_name: Office Motion Sensor Temperature
+#sensor.motion_upstairs_hall_battery
+#  friendly_name: Upstairs Hall Motion Sensor Battery
+#sensor.motion_upstairs_hall_temperature
+#  friendly_name: Upstairs Hall Motion Sensor Temperature
+#sensor.motion_downstairs_hall_battery
+#  friendly_name: Downstairs Hall Motion Sensor Battery
+#sensor.motion_downstairs_hall_temperature
+#  friendly_name: Downstairs Hall Motion Sensor Temperature
+#sensor.motion_living_room_battery
+#  friendly_name: Living Room Motion Sensor Battery
+#sensor.motion_living_room_temperature
+#  friendly_name: Living Room Motion Sensor Temperature
+#sensor.multisensor_kitchen_battery
+#  friendly_name: Kitchen Motion Sensor Battery
+#sensor.multisensor_kitchen_temperature
+#  friendly_name: Kitchen Motion Sensor Temperature
+#sensor.motion_dining_room_battery
+#  friendly_name: Dining Room Motion Sensor Battery
+#sensor.motion_dining_room_temperature
+#  friendly_name: Dining Room Motion Sensor Temperature
+#sensor.motion_stairs_battery
+#  friendly_name: Stairs Motion Sensor Battery
+#sensor.motion_stairs_temperature
+#  friendly_name: Stairs Motion Sensor Temperature
+#sensor.motion_office_battery
+#  friendly_name: Office Motion Sensor Battery
+#sensor.motion_office_temperature
+#  friendly_name: Office Motion Sensor Temperature
 
+#########################################################
+# Wildcard icons
+#########################################################
+
+- entity_id: input_slider*_brightness
+  icon: mdi:brightness-6 
+- entity_id: input_slider*_color_temperature
+  icon: mdi:brightness-6 
+- entity_id: sensor*_battery
+  icon: mdi:battery-charging
