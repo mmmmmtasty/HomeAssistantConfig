@@ -19,7 +19,6 @@ lights_kitchen:
 lights_kitchen_night:
   name: Kitchen Night Lights
   entities:
-    - light.hue_kitchen_1c
     - light.hue_kitchen_2c
 lights_downstairs_hall:
   name: Downstairs Hall Lights
@@ -47,6 +46,7 @@ lights_all:
     - group.lights_downstairs_hall
     - group.lights_stairs
     - group.lights_upstairs_hall
+
 ##########################
 # Media Player Groups
 ##########################
@@ -104,7 +104,7 @@ motion_sensor_battery:
     - sensor.motion_living_room_battery
     - sensor.motion_stairs_battery
 
-settings_default_sliders:
+settings_default_brightness_sliders:
   name: Default Brightness
   entities:
     - input_slider.morning_brightness
@@ -112,21 +112,31 @@ settings_default_sliders:
     - input_slider.evening_brightness
     - input_slider.night_brightness
 
+settings_default_color_temperature_sliders:
+  name: Default Color Temperature
+  entities:
+    - input_slider.morning_color_temperature
+    - input_slider.day_color_temperature
+    - input_slider.evening_color_temperature
+    - input_slider.night_color_temperature
+
 master_sliders:
   name: Master
   entities:
     - input_slider.master_brightness
-    - input_slider.color_temperature
+    - input_slider.master_color_temperature
 
 upstairs_sliders:
   name: Upstairs
   entities: 
     - input_slider.upstairs_brightness
+    - input_slider.upstairs_color_temperature
 
 downstairs_sliders:
   name: Downstairs
   entities: 
     - input_slider.downstairs_brightness
+    - input_slider.downstairs_color_temperature
 
 ##########################
 # Views
@@ -151,4 +161,5 @@ settings_view:
   view: yes
   icon: mdi:settings
   entities:
-    - group.settings_default_sliders
+    - group.settings_default_brightness_sliders
+    - group.settings_default_color_temperature_sliders

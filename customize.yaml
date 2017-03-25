@@ -3,34 +3,34 @@
 # Flic Buttons
 #########################################################
 
-- entity_id: binary_sensor.flic_80e4da71ffe0
+binary_sensor.flic_80e4da71ffe0:
   friendly_name: White Flic Button
-- entity_id: binary_sensor.flic_80e4da7218b4
+binary_sensor.flic_80e4da7218b4:
   friendly_name: Blue Flic Button
-- entity_id: binary_sensor.flic_80e4da726071
+binary_sensor.flic_80e4da726071:
   friendly_name: Green Flic Button
-- entity_id: binary_sensor.flic_80e4da71f014
+binary_sensor.flic_80e4da71f014:
   friendly_name: Black Flic Button
 
 #########################################################
 # Binary Sensors
 #########################################################
 
-- entity_id: binary_sensor.motion_upstairs_hall_motion
+binary_sensor.motion_upstairs_hall_motion:
   friendly_name: Upstairs Hall Motion Sensor
-- entity_id: binary_sensor.motion_downstairs_hall_motion
+binary_sensor.motion_downstairs_hall_motion:
   friendly_name: Downstairs Hall Motion sensor
-- entity_id: binary_sensor.motion_living_room_motion
+binary_sensor.motion_living_room_motion:
   friendly_name: Living Room Motion Sensor
-- entity_id: binary_sensor.multisensor_kitchen_motion
+binary_sensor.multisensor_kitchen_motion:
   friendly_name: Kitchen Motion sensor
-- entity_id: binary_sensor.motion_dining_room_motion
+binary_sensor.motion_dining_room_motion:
   friendly_name: Dining Room Motion Sensor
-- entity_id: binary_sensor.motion_stairs_motion
+binary_sensor.motion_stairs_motion:
   friendly_name: Stairs Motion Sensor
-- entity_id: binary_sensor.motion_office_motion
+binary_sensor.motion_office_motion:
   friendly_name: Office Motion Sensor
-- entity_id: binary_sensor.dash_front_door_button
+binary_sensor.dash_front_door_button:
   friendly_name: Door Bell
 
 #########################################################
@@ -66,13 +66,3 @@
 #sensor.motion_office_temperature
 #  friendly_name: Office Motion Sensor Temperature
 
-#########################################################
-# Wildcard icons
-#########################################################
-
-- entity_id: input_slider*_brightness
-  icon: mdi:brightness-6 
-- entity_id: input_slider*_color_temperature
-  icon: mdi:brightness-6 
-- entity_id: sensor*_battery
-  icon: mdi:battery-charging

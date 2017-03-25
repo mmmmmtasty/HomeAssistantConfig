@@ -5,10 +5,15 @@ homeassistant:
   elevation: !secret home_elevation
   unit_system: metric
   time_zone: Europe/London
-  customize: !include customisations.yaml
+  customize: !include customize.yaml
+  customize_domain: !include customize_domain.yaml
+  customize_glob: !include customize_glob.yaml
 
 # Enables the frontend
 frontend:
+
+# Enables the config screens
+config:
 
 logger:
   default: info

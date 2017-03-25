@@ -4,7 +4,7 @@ import appdaemon.appapi as appapi
 
 # - master_slider
 # - slave_slider
-# - delay
+# - reset_delay
 # - lock_boolean (if this is set then do not update the brightness)
 # - house_mode (input_select that has the house's current mode)
 
@@ -37,11 +37,11 @@ class ResetSlider(appapi.AppDaemon):
         # If we are in the morning or night then we want to set a timer to move the brightness back to the master
         house_mode = self.get_state(self.args["house_mode"])
         if house_mode in ['morning','night']:
-          self.log("State change in {} found. Resetting to value of {} in {} seconds".format(self.args["slave_slider"], self.args["master_slider"], self.args["delay"]))  
+          self.log("State change in {} found. Resetting to value of {} in {} seconds".format(self.args["slave_slider"], self.args["master_slider"], self.args["reset_delay"]))  
           # Cancel any existing timers 
           self.cancel_timer(self.handle)
           # Set a new timer
-          self.handle = self.run_in(self.reset_slave_slider, self.args["delay"])
+          self.handle = self.run_in(self.reset_slave_slider, self.args["reset_delay"])
         else:
           # Otherwise we just lock the slider
           self.log("House is in '{}' mode. Locking brightness at current level".format(house_mode))
@@ -67,7 +67,7 @@ class ResetSlider(appapi.AppDaemon):
   # If the house mode changes and this is a master slider then wait 2 seconds and set the slider to match the defaut slider
   def master_mode_change(self, entity, attribute, old, new, kwargs):
     # Generate the name of the default slider from the house_mode
-    input_slider = "input_slider.{}_brightness".format(new)
+    input_slider = "input_slider.{}{}".format(new, self.args["house_mode_suffix"])
     self.run_in(self.master_mode_callback, 2, input_slider = input_slider)
 
   # Function required to facilitate using the self.run_in above

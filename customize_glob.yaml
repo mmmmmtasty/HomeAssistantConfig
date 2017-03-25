@@ -1,0 +1,6 @@
+input_slider*_brightness:
+  icon: 'mdi:brightness-6'
+input_slider*_color_temperature:
+  icon: 'mdi:brightness-6'
+sensor*_battery:
+  icon: 'mdi:battery-charging'

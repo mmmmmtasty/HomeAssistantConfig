@@ -6,6 +6,7 @@ home-assistant_v2.db-journal
 nest.conf
 phue.conf
 plex.conf
+webostv.conf
 secrets.yaml
 appdaemon-apps/__pycache__/*
 appdaemon_conf/API.md

@@ -1,24 +1,59 @@
+#####################
+# Color Temperature #
+#####################
+
 master_color_temperature:
   name: Temperature
-  initial: 400
+  initial: 300
   min: 163
   max: 500
   step: 1
 
 downstairs_color_temperature:
   name: Temperature
-  initial: 180
-  min: 0
-  max: 220
+  initial: 300
+  min: 163
+  max: 500
   step: 1
 
 upstairs_color_temperature:
   name: Temperature
-  initial: 180
-  min: 0
-  max: 220
+  initial: 300
+  min: 163
+  max: 500
   step: 1
 
+morning_color_temperature:
+  name: Morning
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+
+day_color_temperature:
+  name: Day
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+
+evening_color_temperature:
+  name: Evening
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+
+night_color_temperature:
+  name: Night
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+
+##############
+# Brightness #
+##############
 master_brightness:
   name: Brightness
   initial: 200
@@ -41,28 +76,28 @@ upstairs_brightness:
   step: 1
 
 morning_brightness:
-  name: Morning Brightness
+  name: Morning
   initial: 10
   min: 0
   max: 220
   step: 1
 
 day_brightness:
-  name: Day Brightness
+  name: Day
   initial: 180
   min: 0
   max: 220
   step: 1
 
 evening_brightness:
-  name: Evening Brightness
+  name: Evening
   initial: 150
   min: 0
   max: 220
   step: 1
 
 night_brightness:
-  name: Night Brightness
+  name: Night
   initial: 10
   min: 0
   max: 220
