@@ -13,56 +13,91 @@ binary_sensor.flic_80e4da71f014:
   friendly_name: Black Flic Button
 
 #########################################################
-# Binary Sensors
+# Motion Sensors
 #########################################################
 
 binary_sensor.motion_upstairs_hall_motion:
   friendly_name: Upstairs Hall Motion Sensor
 binary_sensor.motion_downstairs_hall_motion:
-  friendly_name: Downstairs Hall Motion sensor
+  friendly_name: Downstairs Hall Motion Sensor
+binary_sensor.multisensor_living_room_motion:
+  friendly_name: Living Room Motion Multisensor
 binary_sensor.motion_living_room_motion:
   friendly_name: Living Room Motion Sensor
 binary_sensor.multisensor_kitchen_motion:
-  friendly_name: Kitchen Motion sensor
+  friendly_name: Kitchen Motion Sensor
 binary_sensor.motion_dining_room_motion:
   friendly_name: Dining Room Motion Sensor
 binary_sensor.motion_stairs_motion:
   friendly_name: Stairs Motion Sensor
 binary_sensor.motion_office_motion:
   friendly_name: Office Motion Sensor
-binary_sensor.dash_front_door_button:
-  friendly_name: Door Bell
 
 #########################################################
-# Sensors
+# Battery Sensors
 #########################################################
 
-#sensor.motion_upstairs_hall_battery
-#  friendly_name: Upstairs Hall Motion Sensor Battery
-#sensor.motion_upstairs_hall_temperature
-#  friendly_name: Upstairs Hall Motion Sensor Temperature
-#sensor.motion_downstairs_hall_battery
-#  friendly_name: Downstairs Hall Motion Sensor Battery
-#sensor.motion_downstairs_hall_temperature
-#  friendly_name: Downstairs Hall Motion Sensor Temperature
-#sensor.motion_living_room_battery
-#  friendly_name: Living Room Motion Sensor Battery
-#sensor.motion_living_room_temperature
-#  friendly_name: Living Room Motion Sensor Temperature
-#sensor.multisensor_kitchen_battery
-#  friendly_name: Kitchen Motion Sensor Battery
-#sensor.multisensor_kitchen_temperature
-#  friendly_name: Kitchen Motion Sensor Temperature
-#sensor.motion_dining_room_battery
-#  friendly_name: Dining Room Motion Sensor Battery
-#sensor.motion_dining_room_temperature
-#  friendly_name: Dining Room Motion Sensor Temperature
-#sensor.motion_stairs_battery
-#  friendly_name: Stairs Motion Sensor Battery
-#sensor.motion_stairs_temperature
-#  friendly_name: Stairs Motion Sensor Temperature
-#sensor.motion_office_battery
-#  friendly_name: Office Motion Sensor Battery
-#sensor.motion_office_temperature
-#  friendly_name: Office Motion Sensor Temperature
+sensor.motion_upstairs_hall_battery:
+  friendly_name: Upstairs Hall Motion Sensor Battery
+sensor.motion_downstairs_hall_battery:
+  friendly_name: Downstairs Hall Motion Sensor Battery
+sensor.multisensor_living_room_battery:
+  friendly_name: Living Room Multisensor Sensor Battery
+sensor.motion_living_room_battery:
+  friendly_name: Living Room Motion Sensor Battery
+sensor.multisensor_kitchen_battery:
+  friendly_name: Kitchen Multisensor Battery
+sensor.motion_dining_room_battery:
+  friendly_name: Dining Room Motion Sensor Battery
+sensor.motion_stairs_battery:
+  friendly_name: Stairs Motion Sensor Battery
+sensor.motion_office_battery:
+  friendly_name: Office Motion Sensor Battery
 
+#########################################################
+# Switches
+#########################################################
+
+switch.switch_living_room_lamp_switch:
+  friendly_name: Living Room Lamp Switch
+switch.switch_gaming_computer_switch:
+  friendly_name: Gaming Computer Switch
+
+#########################################################
+# Temperature Sensors
+#########################################################
+
+sensor.motion_upstairs_hall_temperature:
+  friendly_name: Upstairs Hall Motion Sensor Temperature
+sensor.motion_downstairs_hall_temperature:
+  friendly_name: Downstairs Hall Motion Sensor Temperature
+sensor.multisensor_living_room_temperature:
+  friendly_name: Living Room Multisensor Temperature
+sensor.motion_living_room_temperature:
+  friendly_name: Living Room Motion Temperature
+sensor.multisensor_kitchen_temperature:
+  friendly_name: Kitchen Multisensor Temperature
+sensor.motion_dining_room_temperature:
+  friendly_name: Dining Room Motion Sensor Temperature
+sensor.motion_stairs_temperature:
+  friendly_name: Stairs Motion Sensor Temperature
+sensor.motion_office_temperature:
+  friendly_name: Office Motion Sensor Temperature
+
+#########################################################
+# Power Sensors
+#########################################################
+
+sensor.switch_living_room_lamp_power:
+  friendly_name: Living Room Lamp Power
+sensor.switch_gaming_computer_power:
+  friendly_name: Gaming Computer Power
+
+#########################################################
+# Illuminance Sensors
+#########################################################
+
+sensor.multisensor_kitchen_illuminance:
+  friendly_name: Kitchen Illuminance
+sensor.multisensor_living_room_illuminance:
+  friendly_name: Living Room Illuminance

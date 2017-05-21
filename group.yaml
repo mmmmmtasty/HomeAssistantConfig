@@ -29,9 +29,13 @@ lights_upstairs_hall:
   entities:
     - light.hue_upstairs_hall
 lights_stairs:
-  name: Stairs Lights
+  name: Stairs lights
   entities:
     - light.hue_stairs
+lights_office:
+  name: Office lights
+  entities:
+    - light.hue_office
 lights_downstairs:
   name: Downstairs Lights
   entities:
@@ -46,6 +50,7 @@ lights_all:
     - group.lights_downstairs_hall
     - group.lights_stairs
     - group.lights_upstairs_hall
+    - group.lights_office
 
 ##########################
 # Media Player Groups
@@ -99,9 +104,12 @@ motion_sensor_battery:
   entities: 
     - sensor.motion_upstairs_hall_battery
     - sensor.motion_downstairs_hall_battery
-    - sensor.motion_kitchen_battery
+    - sensor.multisensor_kitchen_battery
     - sensor.motion_dining_room_battery
+    - sensor.multisensor_living_room_battery
     - sensor.motion_living_room_battery
+    - sensor.motion_stairs_battery
+    - sensor.motion_office_battery
     - sensor.motion_stairs_battery
 
 settings_default_brightness_sliders:

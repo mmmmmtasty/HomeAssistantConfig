@@ -34,6 +34,12 @@
 #########################################################
 
 - platform: mqtt
+  name: "multisensor_living_room_motion"
+  state_topic: "smartthings/Living Room Multisensor/motion"
+  payload_on: "active"
+  payload_off: "inactive"
+
+- platform: mqtt
   name: "motion_living_room_motion"
   state_topic: "smartthings/Living Room Motion/motion"
   payload_on: "active"
@@ -56,6 +62,16 @@
 - platform: mqtt
   name: "motion_dining_room_motion"
   state_topic: "smartthings/Dining Room Motion/motion"
+  payload_on: "active"
+  payload_off: "inactive"
+
+#########################################################
+# Office Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_office_motion"
+  state_topic: "smartthings/Office Motion/motion"
   payload_on: "active"
   payload_off: "inactive"
 

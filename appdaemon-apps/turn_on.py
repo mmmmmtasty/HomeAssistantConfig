@@ -6,7 +6,9 @@ class TurnOn(appapi.AppDaemon):
 
   def initialize(self):
     # Register callbacks
-    self.listen_state(self.motion, self.args["sensor_id"])
+    for sensor_id in self.args["sensor_id"].split(','):
+      self.log("Registering for {}".format(sensor_id))
+      self.listen_state(self.motion, sensor_id)
     if "brightness_input" in self.args:
       self.listen_state(self.brightness_change, self.args["brightness_input"])
     if "temperature_input" in self.args:
@@ -15,6 +17,15 @@ class TurnOn(appapi.AppDaemon):
 
   # Turn lights on if the sensor changes state
   def motion(self, entity, attribute, old, new, kwargs):
+    # Don't turn on if the room is too bright
+    if "illuminance_sensor_id" in self.args and "illuminance_max_lux" in self.args:
+      illuminance = int(self.get_state(self.args["illuminance_sensor_id"]))
+      max_illuminance = int(self.args["illuminance_max_lux"]) 
+      if illuminance > max_illuminance:
+        self.log("Motion detected, but room too bright ({} > {}). Doing nothing.".format(illuminance, max_illuminance))
+        return
+      else:
+        self.log("Room is {}, which is less than {}. Turning on lights".format(illuminance, max_illuminance))
     self.log("Motion detected: turning on entity: {}".format(self.args["entity_id"]))
     self.turn_on_entity(False, kwargs)
     
@@ -23,9 +34,9 @@ class TurnOn(appapi.AppDaemon):
 
   # Check to see if the sensor is on, if so, make sure the light delay gets renewed
   def renew_delay(self, kwargs):
-    if self.get_state(self.args["sensor_id"]) == "on":
-      #self.log("{} is still showing motion, extending turn off time of {}".format(self.args["sensor_id"], self.args["entity_id"]))
-      self.set_turn_off_time(kwargs)
+    for sensor_id in self.args["sensor_id"].split(','):
+      if self.get_state(sensor_id) == "on":
+        self.set_turn_off_time(kwargs)
 
   def set_turn_off_time(self, kwargs):
     # If this is a group then expand the members

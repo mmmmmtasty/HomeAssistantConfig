@@ -9,7 +9,6 @@ import datetime
 # - night
 
 class UpdateHouseMode(appapi.AppDaemon):
-# TODO update this so that it listens for home assistant restart events as well and also resets the mode
   def initialize(self):
     # Work out which mode we should be in now and reset it
     current_mode = 'morning'

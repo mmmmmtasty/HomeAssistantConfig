@@ -8,3 +8,14 @@
   command_topic: "smartthings/Living Room Lamp/switch"
   payload_on: "on"
   payload_off: "off"
+
+#########################################################
+# Gaming Computer Power
+#########################################################
+
+- platform: mqtt
+  name: "switch_gaming_computer_switch"
+  state_topic: "smartthings/Gaming Computer/switch"
+  command_topic: "smartthings/Gaming Computer/switch"
+  payload_on: "on"
+  payload_off: "off"

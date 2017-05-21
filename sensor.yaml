@@ -45,6 +45,21 @@
 #########################################################
 
 - platform: mqtt
+  name: "multisensor_living_room_battery"
+  state_topic: "smartthings/Living Room Multisensor/battery"
+  unit_of_measurement: "%"
+  
+- platform: mqtt
+  name: "multisensor_living_room_temperature"
+  state_topic: "smartthings/Living Room Multisensor/temperature"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
+  name: "multisensor_living_room_illuminance"
+  state_topic: "smartthings/Living Room Multisensor/illuminance"
+  unit_of_measurement: "lux"
+
+- platform: mqtt
   name: "motion_living_room_battery"
   state_topic: "smartthings/Living Room Motion/battery"
   unit_of_measurement: "%"
@@ -67,6 +82,11 @@
   name: "multisensor_kitchen_temperature"
   state_topic: "smartthings/Kitchen Multisensor/temperature"
   unit_of_measurement: "°C"
+
+- platform: mqtt
+  name: "multisensor_kitchen_illuminance"
+  state_topic: "smartthings/Kitchen Multisensor/illuminance"
+  unit_of_measurement: "lux"
 
 #########################################################
 # Dining Room Motion Sensor
@@ -103,4 +123,13 @@
 - platform: mqtt
   name: "switch_living_room_lamp_power"
   state_topic: "smartthings/Living Room Lamp/power"
+  unit_of_measurement: "W"
+
+#########################################################
+# Computer Power Switch
+#########################################################
+
+- platform: mqtt
+  name: "switch_gaming_computer_power"
+  state_topic: "smartthings/Gaming Computer/power"
   unit_of_measurement: "W"
