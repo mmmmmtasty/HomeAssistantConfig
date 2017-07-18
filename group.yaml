@@ -1,56 +1,53 @@
 ##########################
 # Light groups
 ##########################
-lights_living_room:
-  name: Living Room Lights
-  entities:
-    - light.hue_living_room
-#    - switch.switch_living_room_lamp_switch
-    - light.hue_go_1
-lights_kitchen:
-  name: Kitchen Lights
-  entities:
-    - light.hue_kitchen_1a
-    - light.hue_kitchen_1b
-    - light.hue_kitchen_1c
-    - light.hue_kitchen_2a
-    - light.hue_kitchen_2b
-    - light.hue_kitchen_2c
+
 lights_kitchen_night:
   name: Kitchen Night Lights
   entities:
     - light.hue_kitchen_2c
-lights_downstairs_hall:
-  name: Downstairs Hall Lights
-  entities:
-    - light.hue_downstairs_hall
-lights_upstairs_hall:
-  name: Upstairs Hall Lights
-  entities:
-    - light.hue_upstairs_hall
-lights_stairs:
-  name: Stairs lights
-  entities:
-    - light.hue_stairs
-lights_office:
-  name: Office lights
-  entities:
-    - light.hue_office
-lights_downstairs:
-  name: Downstairs Lights
-  entities:
-    - group.lights_living_room
-    - group.lights_kitchen
-    - group.lights_downstairs_hall
-lights_all:
-  name: Downstairs Lights
-  entities:
-    - group.lights_living_room
-    - group.lights_kitchen
-    - group.lights_downstairs_hall
-    - group.lights_stairs
-    - group.lights_upstairs_hall
-    - group.lights_office
+
+#lights_living_room:
+#  name: Living Room Lights
+#  entities:
+#    - light.hue_living_room
+#    - switch.switch_living_room_lamp_switch
+#    - light.hue_go_1
+#lights_kitchen:
+#  name: Kitchen Lights
+#  entities:
+#    - light.hue_kitchen_1a
+#    - light.hue_kitchen_1b
+#    - light.hue_kitchen_1c
+#    - light.hue_kitchen_2a
+#    - light.hue_kitchen_2b
+#    - light.hue_kitchen_2c
+#lights_downstairs_hall:
+#  name: Downstairs Hall Lights
+#  entities:
+#    - light.hue_downstairs_hall
+#lights_upstairs_hall:
+#  name: Upstairs Hall Lights
+#  entities:
+#    - light.hue_upstairs_hall
+#lights_stairs:
+#  name: Stairs lights
+#  entities:
+#    - light.hue_stairs
+#lights_office:
+#  name: Office lights
+#  entities:
+#    - light.hue_office
+#lights_spare_room:
+#  name: Spare Room lights
+#  entities:
+#    - light.hue_spare_bedroom
+#lights_downstairs:
+#  name: Downstairs Lights
+#  entities:
+#    - group.lights_living_room
+#    - group.lights_kitchen
+#    - group.lights_downstairs_hall
 
 ##########################
 # Media Player Groups
@@ -62,42 +59,42 @@ sonos_doorbell:
     - media_player.dining_room
     - media_player.kitchen
 
-#flic_buttons:
-#  name: Flic Buttons
-#  entities: 
-#    - binary_sensor.flic_80e4da71f014
-#    - binary_sensor.flic_80e4da7218b4
-#    - binary_sensor.flic_80e4da726071
-#    - binary_sensor.flic_80e4da71ffe0
-#nest_camera_dining_room:
-#  name: Dining Room Nest Camera
-#  entities:
-#    - binary_sensor.dining_room_camera_motion_detected
-#    - binary_sensor.dining_room_camera_online
-#    - binary_sensor.dining_room_camera_person_detected
-#    - binary_sensor.dining_room_camera_sound_detected
-#    - camera.dining_room
-#nest_thermostat_dining_room:
-#  name: Dining Room Nest Thermostat
-#  entities:
-#    - binary_sensor.dining_room_thermostat_fan
-#    - binary_sensor.dining_room_thermostat_has_leaf
-#    - binary_sensor.dining_room_thermostat_is_locked
-#    - binary_sensor.dining_room_thermostat_is_using_emergency_heat
-#    - binary_sensor.dining_room_thermostat_online
-#    - climate.dining_room
-#    - sensor.dining_room_thermostat_humidity
-#    - sensor.dining_room_thermostat_hvac_state
-#    - sensor.dining_room_thermostat_operation_mode
-#    - sensor.dining_room_thermostat_target
-#    - sensor.dining_room_thermostat_temperature
-#nest_protect_hallway:
-#  name: Hallway Nest Protect
-#  entities:
-#    - binary_sensor.hallway_nest_protect_online
-#    - sensor.hallway_nest_protect_battery_health
-#    - sensor.hallway_nest_protect_co_status
-#    - sensor.hallway_nest_protect_smoke_status
+flic_buttons:
+  name: Flic Buttons
+  entities: 
+    - binary_sensor.flic_80e4da71f014
+    - binary_sensor.flic_80e4da7218b4
+    - binary_sensor.flic_80e4da726071
+    - binary_sensor.flic_80e4da71ffe0
+nest_camera_dining_room:
+  name: Dining Room Nest Camera
+  entities:
+    - binary_sensor.dining_room_camera_motion_detected
+    - binary_sensor.dining_room_camera_online
+    - binary_sensor.dining_room_camera_person_detected
+    - binary_sensor.dining_room_camera_sound_detected
+    - camera.dining_room
+nest_thermostat_dining_room:
+  name: Dining Room Nest Thermostat
+  entities:
+    - binary_sensor.dining_room_thermostat_fan
+    - binary_sensor.dining_room_thermostat_has_leaf
+    - binary_sensor.dining_room_thermostat_is_locked
+    - binary_sensor.dining_room_thermostat_is_using_emergency_heat
+    - binary_sensor.dining_room_thermostat_online
+    - climate.dining_room
+    - sensor.dining_room_thermostat_humidity
+    - sensor.dining_room_thermostat_hvac_state
+    - sensor.dining_room_thermostat_operation_mode
+    - sensor.dining_room_thermostat_target
+    - sensor.dining_room_thermostat_temperature
+nest_protect_hallway:
+  name: Hallway Nest Protect
+  entities:
+    - binary_sensor.hallway_nest_protect_online
+    - sensor.hallway_nest_protect_battery_health
+    - sensor.hallway_nest_protect_co_status
+    - sensor.hallway_nest_protect_smoke_status
 
 motion_sensor_battery:
   name: Motion Sensor Battery Level
@@ -105,12 +102,13 @@ motion_sensor_battery:
     - sensor.motion_upstairs_hall_battery
     - sensor.motion_downstairs_hall_battery
     - sensor.multisensor_kitchen_battery
+    - sensor.motion_kitchen_battery
     - sensor.motion_dining_room_battery
     - sensor.multisensor_living_room_battery
     - sensor.motion_living_room_battery
     - sensor.motion_stairs_battery
     - sensor.motion_office_battery
-    - sensor.motion_stairs_battery
+    - sensor.motion_spare_room_battery
 
 settings_default_brightness_sliders:
   name: Default Brightness

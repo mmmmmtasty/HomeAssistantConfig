@@ -25,6 +25,8 @@ binary_sensor.multisensor_living_room_motion:
 binary_sensor.motion_living_room_motion:
   friendly_name: Living Room Motion Sensor
 binary_sensor.multisensor_kitchen_motion:
+  friendly_name: Kitchen Motion Multisensor
+binary_sensor.motion_kitchen_motion:
   friendly_name: Kitchen Motion Sensor
 binary_sensor.motion_dining_room_motion:
   friendly_name: Dining Room Motion Sensor
@@ -32,6 +34,8 @@ binary_sensor.motion_stairs_motion:
   friendly_name: Stairs Motion Sensor
 binary_sensor.motion_office_motion:
   friendly_name: Office Motion Sensor
+binary_sensor.motion_spare_room_motion:
+  friendly_name: Spare Room Motion Sensor
 
 #########################################################
 # Battery Sensors
@@ -47,12 +51,16 @@ sensor.motion_living_room_battery:
   friendly_name: Living Room Motion Sensor Battery
 sensor.multisensor_kitchen_battery:
   friendly_name: Kitchen Multisensor Battery
+sensor.motion_kitchen_battery:
+  friendly_name: Kitchen Motion Battery
 sensor.motion_dining_room_battery:
   friendly_name: Dining Room Motion Sensor Battery
 sensor.motion_stairs_battery:
   friendly_name: Stairs Motion Sensor Battery
 sensor.motion_office_battery:
   friendly_name: Office Motion Sensor Battery
+sensor.motion_spare_room_battery:
+  friendly_name: Spare Room Motion Sensor Battery
 
 #########################################################
 # Switches
@@ -83,6 +91,8 @@ sensor.motion_stairs_temperature:
   friendly_name: Stairs Motion Sensor Temperature
 sensor.motion_office_temperature:
   friendly_name: Office Motion Sensor Temperature
+sensor.motion_spare_room_temperature:
+  friendly_name: Spare Room Motion Sensor Temperature
 
 #########################################################
 # Power Sensors

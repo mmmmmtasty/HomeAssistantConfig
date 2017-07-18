@@ -20,6 +20,16 @@
   payload_off: "inactive"
 
 #########################################################
+# Spare Room Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_spare_room_motion"
+  state_topic: "smartthings/Spare Room Motion/motion"
+  payload_on: "active"
+  payload_off: "inactive"
+
+#########################################################
 # Downstairs Hall Motion Sensor
 #########################################################
 
@@ -54,6 +64,13 @@
   state_topic: "smartthings/Kitchen Multisensor/motion"
   payload_on: "active"
   payload_off: "inactive"
+
+- platform: mqtt
+  name: "motion_kitchen_motion"
+  state_topic: "smartthings/Kitchen Motion/motion"
+  payload_on: "active"
+  payload_off: "inactive"
+
 
 #########################################################
 # Dining Room Motion Sensor

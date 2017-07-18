@@ -45,8 +45,8 @@ sensor yr:
 
 # ----------- InfluxDB ------------- #
 
-influxdb:
-  host: 127.0.01
+#influxdb:
+#  host: 127.0.01
 
 # ------------- MQTT --------------- #
 

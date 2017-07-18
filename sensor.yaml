@@ -27,6 +27,20 @@
   unit_of_measurement: "°C"
 
 #########################################################
+# Spare Room Motion Sensor
+#########################################################
+
+- platform: mqtt
+  name: "motion_spare_room_battery"
+  state_topic: "smartthings/Spare Room Motion/battery"
+  unit_of_measurement: "%"
+  
+- platform: mqtt
+  name: "motion_spare_room_temperature"
+  state_topic: "smartthings/Spare Room Motion/temperature" 
+  unit_of_measurement: "°C"
+
+#########################################################
 # Downstairs Hall Motion Sensor
 #########################################################
 
@@ -70,7 +84,7 @@
   unit_of_measurement: "°C"
 
 #########################################################
-# Kitchen Multisensor
+# Kitchen Motion Sensor
 #########################################################
 
 - platform: mqtt
@@ -87,6 +101,16 @@
   name: "multisensor_kitchen_illuminance"
   state_topic: "smartthings/Kitchen Multisensor/illuminance"
   unit_of_measurement: "lux"
+
+- platform: mqtt
+  name: "motion_kitchen_battery"
+  state_topic: "smartthings/Kitchen Motion/battery"
+  unit_of_measurement: "%"
+  
+- platform: mqtt
+  name: "motion_kitchen_temperature"
+  state_topic: "smartthings/Kitchen Motion/temperature"
+  unit_of_measurement: "°C"
 
 #########################################################
 # Dining Room Motion Sensor
@@ -133,3 +157,13 @@
   name: "switch_gaming_computer_power"
   state_topic: "smartthings/Gaming Computer/power"
   unit_of_measurement: "W"
+
+#########################################################
+# London Underground
+#########################################################
+
+- platform: london_underground
+  line:
+    - Victoria
+    - Northern
+
