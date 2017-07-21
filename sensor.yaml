@@ -167,3 +167,27 @@
     - Victoria
     - Northern
 
+#########################################################
+# Dark Sky Weather
+#########################################################
+
+- platform: darksky
+  api_key: !secret dark_sky_api_key
+  monitored_conditions:
+    - summary
+    - icon
+    - temperature
+    - daily_summary
+    - hourly_summary
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - apparent_temperature
+    - wind_speed
+    - wind_bearing
+    - humidity
+    - cloud_cover
+    - temperature_min
+    - temperature_max
+
+   

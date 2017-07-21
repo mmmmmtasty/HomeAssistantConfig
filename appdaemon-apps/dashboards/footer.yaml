@@ -1,0 +1,8 @@
+
+mode:
+    widget_type: sensor
+    title: House Mode
+    entity: input_select.house_mode
+
+layout:
+  - mode(3x1)

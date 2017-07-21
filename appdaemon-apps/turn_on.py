@@ -9,10 +9,25 @@ class TurnOn(appapi.AppDaemon):
     for sensor_id in self.args["sensor_id"].split(','):
       self.log("Registering for {}".format(sensor_id))
       self.listen_state(self.motion, sensor_id)
+    
     if "brightness_input" in self.args:
       self.listen_state(self.brightness_change, self.args["brightness_input"])
+      self.brightness_change(self.args["brightness_input"],None,None,self.get_state(self.args["brightness_input"]),None)
+    else:
+      self.brightness = self.args['brightness']
+    
     if "temperature_input" in self.args:
-      self.listen_state(self.temperature_change, self.args["temperature_input"])
+      self.listen_state(self.temperature_change, self.args["temperature_input"]) 
+      self.temperature_change(self.args["temperature_input"],None,None,self.get_state(self.args["temperature_input"]),None)
+ 
+    if "mode_input" in self.args:
+      self.listen_state(self.mode_change, self.args["mode_input"])
+      self.mode_change(self.args["mode_input"],None,None,self.get_state(self.args["mode_input"]),None)
+      self.listen_state(self.scene_change, self.args["scene_input"])
+      self.scene_change(self.args["scene_input"],None,None,self.get_state(self.args["scene_input"]),None)
+    else:
+      self.mode = 'none'
+
     self.run_every(self.renew_delay, self.datetime(), 10)
 
   # Turn lights on if the sensor changes state
@@ -63,24 +78,9 @@ class TurnOn(appapi.AppDaemon):
       self.global_vars["turn_off"][entity_id]['transition_time'] = off_transition_seconds
 
   def brightness_change(self, entity, attribute, old, new, kwargs):
-    # The brightness we care about changed! Update the brightness of our lights
-    self.log("Brightness of {} updated to {}. Updating {}".format(self.args["brightness_input"], new, self.args["entity_id"]))  
-    self.turn_on_entity(True, kwargs)
-
-  def temperature_change(self, entity, attribute, old, new, kwargs):
-    # The temperature we care about changed! Update the brightness of our lights
-    self.log("Temperature of {} updated to {}. Updating {}".format(self.args["temperature_input"], new, self.args["entity_id"]))  
-    self.turn_on_entity(True, kwargs)
-
-  def turn_on_entity(self, update,  kwargs):
-    entity_id = self.args["entity_id"]
-    
-    # Work out how bright we should be setting our lights
-    brightness = 0.0
-    if "brightness" in self.args:
-      brightness = self.args["brightness"]
-    if "brightness_input" in self.args:
-      brightness = float(self.get_state(self.args["brightness_input"]))
+    brightness = float(new)
+   
+    # Apply offset if it has been defined 
     if "brightness_offset" in self.args:
       brightness = brightness + float(self.args["brightness_offset"])
 
@@ -89,6 +89,35 @@ class TurnOn(appapi.AppDaemon):
       brightness = 0.0
     if brightness > 255.0:
       brightness = 255.0
+    
+    self.log("Brightness of {} updated to {}. Updating {}".format(entity, brightness, self.args["entity_id"]))  
+    self.brightness = brightness
+    # Only attempt to turn on if there is an old value meaning this is an actual update not an initialization
+    if old:
+      self.turn_on_entity(True, kwargs)
+
+  def temperature_change(self, entity, attribute, old, new, kwargs):
+    # The temperature we care about changed! Update the brightness of our lights
+    self.log("Temperature of {} updated to {}. Updating {}".format(entity, new, self.args["entity_id"]))  
+    self.temperature = int(float(new))
+    # Only attempt to turn on if there is an old value meaning this is an actual update not an initialization
+    if old:
+      self.turn_on_entity(True, kwargs)
+
+  def mode_change(self, entity, attribute, old, new, kwargs):
+    self.log("Mode of {} updated to {}. Updating {}".format(entity, new, self.args["entity_id"]))  
+    self.mode = new
+    # Only attempt to turn on if there is an old value meaning this is an actual update not an initialization
+    if old:
+      self.turn_on_entity(True, kwargs)
+
+  def scene_change(self, entity, attribute, old, new, kwargs):
+    self.log("Scene of {} updated to {}. Updating {}".format(entity, new, self.args["entity_id"]))  
+    self.scene = new
+    self.turn_on_entity(True, kwargs)
+
+  def turn_on_entity(self, update,  kwargs):
+    entity_id = self.args["entity_id"]
 
     # Work out if we have an on_transition_seconds
     on_transition_seconds = 1
@@ -100,15 +129,7 @@ class TurnOn(appapi.AppDaemon):
       else:
         on_transition_seconds = 10
 
-    # Work out if we should be using colour temperature or xy_color or nothing
-    use_temp = False
-    color_temp = 0
-    xy_color = []
-    if self.get_state("input_boolean.temp_not_color") == 'on' and "temperature_input" in self.args:
-      use_temp = True
-      color_temp = int(float(self.get_state(self.args["temperature_input"])))
-    
-    #  If this is an update then make sure the entity is already on
+    # If this is an update then make sure the entity is already on
     if update:
       if self.get_state(entity_id) == 'off':
         self.log("Skipping {} as this is an update and the light is off".format(entity_id))
@@ -116,16 +137,21 @@ class TurnOn(appapi.AppDaemon):
 
     # If this is a switch then don't send the extra parameters
     domain,entity = entity_id.split('.')
-    if domain == 'switch':
+    if domain == 'switch' or self.mode == 'none':
       self.log("Turning on {}".format(entity_id))
       self.turn_on(entity_id)
       return
-
+    
     # Otherwise treat it as a light or group of lights
-    if use_temp:
-      self.log("Turning on {} at color_temp {} and brightness {}".format(entity_id, color_temp, brightness))
-      self.turn_on(entity_id, color_temp = color_temp, brightness = brightness, transition = on_transition_seconds )
-    else:
+    if self.mode == 'temperature':
+      self.log("Turning on {} at color_temp {} and brightness {}".format(entity_id, self.temperature, self.brightness))
+      self.turn_on(entity_id, color_temp = self.temperature, brightness = self.brightness, transition = on_transition_seconds )
+    elif self.mode == 'color':
       self.log("Turning on {} at xy_colour {} and brightness {}".format(entity_id, xy_color, brightness))
       self.turn_on(entity_id, xy_color = [float(self.args["x_color"]),float(self.args["y_color"])], brightness = brightness, transition = on_transition_seconds )
-  
+    elif self.mode == 'scene':
+      group_name = self.friendly_name(entity_id)
+      self.log("Turning on {} to scene {} and brightness {}".format(group_name, self.scene, self.brightness))
+      self.call_service('light/hue_activate_scene', group_name = group_name, scene_name = self.scene)
+    else:
+      self.log("Could not find a valid mode for {} from {}").format(entity_id, self.args["mode_input"])

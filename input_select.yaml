@@ -6,3 +6,221 @@ house_mode:
     - evening
     - night
   initial: morning
+
+###########################################
+# Dining Room Mode and Scene
+###########################################
+
+dining_room_light_mode:
+  name: Dining Room Light Mode
+  options:
+    - color
+    - scene
+    - temperature
+  initial: temperature
+
+dining_room_scene:
+  name: Dining Room Scene
+  options:
+    - Arctic aurora
+    - Bright
+    - Concentrate
+    - Read
+    - Relax
+    - Savanna sunset
+    - Spring Blossom
+    - Tropical twilight
+    - Partey
+    - Mj Test
+
+###########################################
+# Kitchen Mode and Scene
+###########################################
+
+kitchen_light_mode:
+  name: Kitchen Light Mode
+  options:
+    - color
+    - scene
+    - temperature
+  initial: temperature
+
+kitchen_scene:
+  name: Kitchen Scene
+  options:
+    - Arctic aurora
+    - Bright
+    - Concentrate
+    - Read
+    - Relax
+    - Savanna sunset
+    - Spring Blossom
+    - Tropical twilight
+
+###########################################
+# Downstairs Hall Mode and Scene
+###########################################
+
+downstairs_hall_light_mode:
+  name: Downstairs Hall Light Mode
+  options:
+    - color
+    - scene
+    - temperature
+  initial: temperature
+
+downstairs_hall_scene:
+  name: Downstairs Hall Scene
+  options:
+    - Arctic aurora
+    - Bright
+    - Concentrate
+    - Read
+    - Relax
+    - Savanna sunset
+    - Spring Blossom
+    - Tropical twilight
+
+###########################################
+# Upstairs Hall Mode and Scene
+###########################################
+
+upstairs_hall_light_mode:
+  name: Upstairs Hall Light Mode
+  options:
+    - color
+    - scene
+    - temperature
+  initial: temperature
+
+upstairs_hall_scene:
+  name: Upstairs Hall Scene
+  options:
+    - Arctic aurora
+    - Bright
+    - Concentrate
+    - Read
+    - Relax
+    - Savanna sunset
+    - Spring Blossom
+    - Tropical twilight
+
+###########################################
+# Stairs Mode and Scene
+###########################################
+
+stairs_light_mode:
+  name: Stairs Light Mode
+  options:
+    - color
+    - scene
+    - temperature
+  initial: temperature
+
+stairs_scene:
+  name: Stairs Scene
+  options:
+    - Arctic aurora
+    - Bright
+    - Concentrate
+    - Read
+    - Relax
+    - Savanna sunset
+    - Spring Blossom
+    - Tropical twilight
+
+###########################################
+# Office Mode and Scene
+###########################################
+
+office_light_mode:
+  name: Office Light Mode
+  options:
+    - color
+    - scene
+    - temperature
+  initial: temperature
+
+office_scene:
+  name: Office Scene
+  options:
+    - Arctic aurora
+    - Bright
+    - Concentrate
+    - Read
+    - Relax
+    - Savanna sunset
+    - Spring Blossom
+    - Tropical twilight
+
+###########################################
+# Master Bedroom Mode and Scene
+###########################################
+
+master_bedroom_light_mode:
+  name: Master Bedroom Light Mode
+  options:
+    - color
+    - scene
+    - temperature
+  initial: temperature
+
+master_bedroom_scene:
+  name: Master Bedroom Scene
+  options:
+    - Arctic aurora
+    - Bright
+    - Concentrate
+    - Read
+    - Relax
+    - Savanna sunset
+    - Spring Blossom
+    - Tropical twilight
+
+###########################################
+# Spare Bedroom Mode and Scene
+###########################################
+
+spare_bedroom_light_mode:
+  name: Spare Bedroom Light Mode
+  options:
+    - color
+    - scene
+    - temperature
+  initial: temperature
+
+spare_bedroom_scene:
+  name: Spare Bedroom Scene
+  options:
+    - Arctic aurora
+    - Bright
+    - Concentrate
+    - Read
+    - Relax
+    - Savanna sunset
+    - Spring Blossom
+    - Tropical twilight
+
+###########################################
+# Living Room Mode and Scene
+###########################################
+
+living_room_light_mode:
+  name: Living Room Light Mode
+  options:
+    - color
+    - scene
+    - temperature
+  initial: temperature
+
+living_room_scene:
+  name: Living Room Scene
+  options:
+    - Arctic aurora
+    - Bright
+    - Concentrate
+    - Read
+    - Relax
+    - Savanna sunset
+    - Spring Blossom
+    - Tropical twilight

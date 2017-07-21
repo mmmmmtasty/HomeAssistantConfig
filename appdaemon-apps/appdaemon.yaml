@@ -5,11 +5,11 @@ AppDaemon:
   threads: '10'
 HADashboard:
   dash_compile_on_start: '1'
-  dash_dir: /home/pi/appdaemon/conf/dashboards
+  dash_dir: /home/homeassistant/.homeassistant/appdaemon-apps/dashboards
   dash_force_compile: '1'
   dash_url: http://192.168.55.139:5050
 HASS:
-  ha_key: IllNeverTell
+  ha_key: GOAWAY
   ha_url: http://localhost:8123
   timeout: '60'
 
@@ -98,87 +98,105 @@ Upstairs Color Temperature Slider:
   slave_slider: input_slider.upstairs_color_temperature
 
 Downstairs Hall Motion Lights:
-  brightness_input: input_slider.downstairs_brightness
+  module: turn_on
   class: TurnOn
+  brightness_input: input_slider.downstairs_brightness
+  mode_input: input_select.downstairs_hall_light_mode
+  scene_input: input_select.downstairs_hall_scene
+  temperature_input: input_slider.downstairs_color_temperature
   constrain_input_select: input_select.house_mode,morning,day,evening
   delay: '300'
   entity_id: light.downstairs_hall
-  module: turn_on
   sensor_id: binary_sensor.motion_downstairs_hall_motion
-  temperature_input: input_slider.downstairs_color_temperature
 Kitchen Day Motion Lights:
+  module: turn_on
+  class: TurnOn
   brightness_input: input_slider.downstairs_brightness
   brightness_offset: '-50.0'
-  class: TurnOn
+  mode_input: input_select.kitchen_light_mode
+  scene_input: input_select.kitchen_scene
+  temperature_input: input_slider.downstairs_color_temperature
   constrain_input_select: input_select.house_mode,day,evening
   delay: '300'
   entity_id: light.kitchen
   illuminance_max_lux: '30'
   illuminance_sensor_id: sensor.multisensor_kitchen_illuminance
-  module: turn_on
   sensor_id: binary_sensor.multisensor_kitchen_motion,binary_sensor.motion_kitchen_motion
-  temperature_input: input_slider.downstairs_color_temperature
 Kitchen Night Motion Lights:
+  module: turn_on
+  class: TurnOn
   brightness_input: input_slider.downstairs_brightness
   brightness_offset: '-50.0'
-  class: TurnOn
+  mode_input: input_select.kitchen_light_mode
+  scene_input: input_select.kitchen_scene
+  temperature_input: input_slider.downstairs_color_temperature
   constrain_input_select: input_select.house_mode,night,morning
   delay: '300'
   entity_id: group.lights_kitchen_night
-  module: turn_on
   sensor_id: binary_sensor.multisensor_kitchen_motion
-  temperature_input: input_slider.downstairs_color_temperature
 Living Room Motion Lights:
-  brightness_input: input_slider.downstairs_brightness
+  module: turn_on
   class: TurnOn
+  brightness_input: input_slider.downstairs_brightness
+  mode_input: input_select.living_room_light_mode
+  scene_input: input_select.living_room_scene
+  temperature_input: input_slider.downstairs_color_temperature
   delay: '300'
   entity_id: switch.switch_living_room_lamp_switch
   illuminance_max_lux: '50'
   illuminance_sensor_id: sensor.multisensor_living_room_illuminance
-  module: turn_on
   sensor_id: binary_sensor.multisensor_living_room_motion,binary_sensor.motion_living_room_motion
-  temperature_input: input_slider.downstairs_color_temperature
 Office Motion Lights:
+  module: turn_on
+  class: TurnOn
   brightness_input: input_slider.upstairs_brightness
   brightness_offset: '50.0'
-  class: TurnOn
+  mode_input: input_select.office_light_mode
+  scene_input: input_select.office_scene
+  temperature_input: input_slider.upstairs_color_temperature
   delay: '900'
   entity_id: light.office
-  module: turn_on
   sensor_id: binary_sensor.motion_office_motion
-  temperature_input: input_slider.upstairs_color_temperature
-Spare Room Motion Lights:
+Spare Bedroom Motion Lights:
+  module: turn_on
+  class: TurnOn
   brightness_input: input_slider.upstairs_brightness
   brightness_offset: '50.0'
-  class: TurnOn
+  mode_input: input_select.spare_bedroom_light_mode
+  scene_input: input_select.spare_bedroom_scene
+  temperature_input: input_slider.upstairs_color_temperature
   delay: '900'
   entity_id: light.spare_bedroom
-  module: turn_on
   sensor_id: binary_sensor.motion_spare_room_motion
-  temperature_input: input_slider.upstairs_color_temperature
 Stairs Motion Lights:
-  brightness_input: input_slider.upstairs_brightness
+  module: turn_on
   class: TurnOn
+  brightness_input: input_slider.upstairs_brightness
+  mode_input: input_select.stairs_light_mode
+  scene_input: input_select.stairs_scene
+  temperature_input: input_slider.upstairs_color_temperature
   delay: '120'
   entity_id: light.stairs
-  module: turn_on
   sensor_id: binary_sensor.motion_stairs_motion
-  temperature_input: input_slider.downstairs_color_temperature
 Upstairs Hall Motion Lights:
-  brightness_input: input_slider.upstairs_brightness
+  module: turn_on
   class: TurnOn
+  brightness_input: input_slider.upstairs_brightness
+  mode_input: input_select.upstairs_hall_light_mode
+  scene_input: input_select.upstairs_hall_scene
+  temperature_input: input_slider.downstairs_color_temperature
   delay: '120'
   entity_id: light.upstairs_hall
-  module: turn_on
   sensor_id: binary_sensor.motion_upstairs_hall_motion
-  temperature_input: input_slider.downstairs_color_temperature
 Dining Room Day Motion Lights:
-  brightness_input: input_slider.downstairs_brightness
-  brightness_offset: '-35.0'
+  module: turn_on
   class: TurnOn
+  brightness_input: input_slider.downstairs_brightness
+  brightness_offset: '-50.0'
+  mode_input: input_select.dining_room_light_mode
+  scene_input: input_select.dining_room_scene
+  temperature_input: input_slider.downstairs_color_temperature
   constrain_input_select: input_select.house_mode,day,evening
   delay: '3600'
   entity_id: light.dining_room
-  module: turn_on
   sensor_id: binary_sensor.motion_dining_room_motion
-  temperature_input: input_slider.downstairs_color_temperature
