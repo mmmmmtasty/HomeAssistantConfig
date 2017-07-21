@@ -189,5 +189,6 @@
     - cloud_cover
     - temperature_min
     - temperature_max
+    - pressure
 
    

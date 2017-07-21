@@ -9,7 +9,7 @@ HADashboard:
   dash_force_compile: '1'
   dash_url: http://192.168.55.139:5050
 HASS:
-  ha_key: GOAWAY
+  ha_key: IllNeverTell
   ha_url: http://localhost:8123
   timeout: '60'
 

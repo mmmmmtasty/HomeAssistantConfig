@@ -1,0 +1,11 @@
+house_mode:
+  widget_type: sensor
+  title: House Mode
+  entity: input_select.house_mode
+
+clock:
+  widget_type: clock
+  time_format: 24hir
+
+layout:
+  - dash_title(4x1),clock(2x1),house_mode(1x1)

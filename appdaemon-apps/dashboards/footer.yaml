@@ -1,8 +1,21 @@
+nav_home:
+  widget_type: navigate
+  title: Home
+  dashboard: Home
+  icon_inactive: mdi-home
 
-mode:
-    widget_type: sensor
-    title: House Mode
-    entity: input_select.house_mode
+nav_lights:
+  widget_type: navigate
+  title: Lights
+  dashboard: Lights
 
+nav_defaults:
+  widget_type: navigate
+  title: Defaults
+  dashboard: Defaults
+
+reload:
+  widget_type: reload
+  title: Reload
 layout:
-  - mode(3x1)
+  - nav_home(1x1),nav_lights(1x1),nav_defaults(1x1),reload(1x1)

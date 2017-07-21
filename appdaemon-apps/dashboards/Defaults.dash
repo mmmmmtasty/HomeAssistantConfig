@@ -1,0 +1,61 @@
+title: Defaults
+widget_dimensions: [100, 100]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 8
+global_parameters:
+  use_comma: 0
+  precision: 1
+  use_hass_icon: 1
+
+dash_title:
+  widget_type: label
+  text: Defaults
+
+day_brightness:
+  widget_type: input_slider
+  entity: input_slider.day_brightness
+  title: Day Brightness
+
+day_color_temperature:
+  widget_type: input_slider
+  entity: input_slider.day_color_temperature
+  title: Day Color Temperature
+
+morning_brightness:
+  widget_type: input_slider
+  entity: input_slider.morning_brightness
+  title: Morning Brightness
+
+morning_color_temperature:
+  widget_type: input_slider
+  entity: input_slider.morning_color_temperature
+  title: Morning Color Temperature
+
+evening_brightness:
+  widget_type: input_slider
+  entity: input_slider.evening_brightness
+  title: Evening Brightness
+
+evening_color_temperature:
+  widget_type: input_slider
+  entity: input_slider.evening_color_temperature
+  title: Evening Color Temperature
+
+night_brightness:
+  widget_type: input_slider
+  entity: input_slider.night_brightness
+  title: Night Brightness
+
+night_color_temperature:
+  widget_type: input_slider
+  entity: input_slider.night_color_temperature
+  title: Night Color Temperature
+
+
+layout:
+  - include: header
+  - morning_brightness(2x1),day_brightness(2x1),evening_brightness(2x1),night_brightness(2x1)
+  - morning_color_temperature(2x1),day_color_temperature(2x1),evening_color_temperature(2x1),night_color_temperature(2x1)
+  -
+  - include: footer 

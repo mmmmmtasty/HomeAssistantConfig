@@ -1,0 +1,27 @@
+title: Home
+widget_dimensions: [120, 120]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 8
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+
+clock:
+  widget_type: clock
+  time_format: 24hir
+
+dash_title:
+  widget_type: label
+  text: Home
+
+weather:
+  widget_type: weather
+
+layout:
+  - include: header
+  - weather(2x2)
+  -
+  -
+  - include: footer 
