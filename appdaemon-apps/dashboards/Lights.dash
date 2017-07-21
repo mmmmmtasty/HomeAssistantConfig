@@ -1,5 +1,5 @@
 title: Home
-widget_dimensions: [120, 120]
+widget_dimensions: [100, 100]
 widget_size: [1, 1]
 widget_margins: [5, 5]
 columns: 8
@@ -14,14 +14,26 @@ clock:
 
 dash_title:
   widget_type: label
-  text: Home
+  text: All Lights
 
-weather:
-  widget_type: weather
+kitchen_light:
+  widget_type: light
+  entity: light.kitchen
+  title: Kitchen
+
+kitchen_light_mode:
+  widget_type: mode
+  entity: input_select.kitchen_light_mode
+  title: Kitchen Mode
+
+kitchen_scene:
+  widget_type: mode
+  entity: input_select.kitchen_scene
+  title: Kitchen Scene
 
 layout:
   - include: header
-  - weather(2x2)
-  -
-  -
+  - kitchen_light(1x1)
+  - kitchen_light_mode(1x1)
+  - kitchen_scene(1x1)
   - include: footer 

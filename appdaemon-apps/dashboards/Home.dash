@@ -1,5 +1,5 @@
 title: Home
-widget_dimensions: [120, 120]
+widget_dimensions: [100, 100]
 widget_size: [1, 1]
 widget_margins: [5, 5]
 columns: 8
@@ -7,6 +7,7 @@ global_parameters:
   use_comma: 0
   precision: 1
   use_hass_icon: 1
+
 
 
 dash_title:

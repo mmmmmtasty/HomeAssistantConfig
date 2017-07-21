@@ -2,6 +2,8 @@ import appdaemon.appapi as appapi
 
 # Turn on the specified entity_id on state change of sensor_id
 
+# TODO: Listen for entity on and off events/state change events - check to see if we have an entry for them already and act accordingly
+
 class TurnOn(appapi.AppDaemon):
 
   def initialize(self):
