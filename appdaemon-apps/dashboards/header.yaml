@@ -5,7 +5,9 @@ house_mode:
 
 clock:
   widget_type: clock
-  time_format: 24hir
+  time_format: 24hr
+  date_style: "color: white"
+  time_style: "color: white"
 
 layout:
   - dash_title(4x1),clock(2x1),house_mode(1x1)

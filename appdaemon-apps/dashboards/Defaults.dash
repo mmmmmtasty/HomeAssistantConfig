@@ -16,6 +16,7 @@ day_brightness:
   widget_type: input_slider
   entity: input_slider.day_brightness
   title: Day Brightness
+  step: 100
 
 day_color_temperature:
   widget_type: input_slider

@@ -33,6 +33,16 @@ Update House Modes:
   morning_start: 05:00:00
   night_start: '23:00:00'
 
+Night Mode Shutdown:
+  module: mode_change
+  class: ModeChangeShutdown
+  entity_id: light.dining_room,light.kitchen
+  house_mode: input_select.house_mode
+  new_mode: night
+  delay: 120
+  off_transition_seconds: 10
+  shutdown_event: flic_click
+
 Turner Offerer:
   class: TurnerOfferer
   module: turner_offerer
@@ -192,11 +202,11 @@ Dining Room Day Motion Lights:
   module: turn_on
   class: TurnOn
   brightness_input: input_slider.downstairs_brightness
-  brightness_offset: '-50.0'
+  brightness_offset: '-70.0'
   mode_input: input_select.dining_room_light_mode
   scene_input: input_select.dining_room_scene
   temperature_input: input_slider.downstairs_color_temperature
-  constrain_input_select: input_select.house_mode,day,evening
+  constrain_input_select: input_select.house_mode,morning,day,evening
   delay: '3600'
   entity_id: light.dining_room
   sensor_id: binary_sensor.motion_dining_room_motion

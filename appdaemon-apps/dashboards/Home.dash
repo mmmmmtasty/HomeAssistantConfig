@@ -8,8 +8,6 @@ global_parameters:
   precision: 1
   use_hass_icon: 1
 
-
-
 dash_title:
   widget_type: label
   text: Home
@@ -17,9 +15,15 @@ dash_title:
 weather:
   widget_type: weather
 
+kitchen_sonos:
+  widget_type: media_player
+  entity: media_player.kitchen
+  title: Kitchen Sonos
+  step: 0.01
+
 layout:
   - include: header
-  - weather(2x2)
+  - weather(2x2),kitchen_sonos(3x3)
   -
   -
   - include: footer 
