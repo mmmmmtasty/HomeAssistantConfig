@@ -26,7 +26,7 @@ Dining Room Doorbell:
 
 Update House Modes:
   class: UpdateHouseMode
-  day_start: 07:30:00
+  day_start: 07:00:00
   evening_start: '20:00:00'
   house_mode: input_select.house_mode
   module: update_house_mode
