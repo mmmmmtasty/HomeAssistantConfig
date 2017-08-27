@@ -33,15 +33,24 @@ Update House Modes:
   morning_start: 05:00:00
   night_start: '23:00:00'
 
-Night Mode Shutdown:
-  module: mode_change
-  class: ModeChangeShutdown
-  entity_id: light.dining_room,light.kitchen
+Flic Triggered Night Mode Shutdown:
+  module: flic_triggered_mode_change
+  class: FlicTriggeredModeChange
+  shutdown_entity_id: light.dining_room,light.kitchen
   house_mode: input_select.house_mode
   new_mode: night
   delay: 120
   off_transition_seconds: 10
-  shutdown_event: flic_click
+  trigger_event: flic_click
+  trigger_entity_id: flic_80e4da71f014
+
+Triggered Day Mode:
+  module: flic_triggered_mode_change
+  class: FlicTriggeredModeChange
+  house_mode: input_select.house_mode
+  new_mode: day
+  trigger_event: flic_click
+  trigger_entity_id: flic_80e4da726071
 
 Turner Offerer:
   class: TurnerOfferer

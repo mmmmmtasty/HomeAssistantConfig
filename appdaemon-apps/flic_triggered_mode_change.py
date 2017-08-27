@@ -1,23 +1,24 @@
 import appdaemon.appapi as appapi
 import time
 
-class ModeChangeShutdown(appapi.AppDaemon):
+class FlicTriggeredModeChange(appapi.AppDaemon):
 
   def initialize(self):
     # Register callbacks
-    self.listen_event(self.mode_change, self.args["shutdown_event"])
+    self.listen_event(self.mode_change, self.args["trigger_event"], button_name = self.args['trigger_entity_id'])
 
-  # Shut down all entity_ids in 2 minutes if triggered
+  # Update the mode and shut down lights if required
   def mode_change(self, event_name, data, kwargs):
-    self.log("Mode change for {} to {} after {} triggered event".format(self.args['house_mode'], self.args['new_mode'], data['button_name']))
+    self.log("Mode change for {} to {} after {} triggered {}".format(self.args['house_mode'], self.args['new_mode'], data['button_name'], self.args['trigger_event']))
     # set night mode
     self.select_option(self.args["house_mode"], self.args["new_mode"]) 
-
-    self.set_turn_off_time(kwargs)
+    # shutdown lights if specified
+    if 'shutdown_entity_id' in self.args:
+      self.set_turn_off_time(kwargs)
 
   def set_turn_off_time(self, kwargs):
     # If this is a group then expand the members
-    for current_entity_id in self.args["entity_id"].split(','): 
+    for current_entity_id in self.args["shutdown_entity_id"].split(','): 
       domain, entity_name = current_entity_id.split('.')
       entity_ids = [current_entity_id]
       if domain == 'group':
