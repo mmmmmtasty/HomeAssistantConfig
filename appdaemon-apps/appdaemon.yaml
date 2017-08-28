@@ -13,6 +13,14 @@ HASS:
   ha_url: http://localhost:8123
   timeout: '60'
 
+Utils:
+  class: Utils
+  module: utils
+
+Defaults:
+  class: Defaults
+  module: defaults
+
 Dining Room Doorbell:
   class: Doorbell
   doorbell: http://192.168.55.238/doorbell.mp3
@@ -154,17 +162,19 @@ Kitchen Night Motion Lights:
   entity_id: group.lights_kitchen_night
   sensor_id: binary_sensor.multisensor_kitchen_motion
 Living Room Motion Lights:
-  module: turn_on
+  module: test_turn_on
   class: TurnOn
+  dependencies: utils,defaults
+  entity_ids: switch.switch_living_room_lamp_switch
+  sensor_ids: binary_sensor.multisensor_living_room_motion,binary_sensor.motion_living_room_motion
   brightness_input: input_slider.downstairs_brightness
-  mode_input: input_select.living_room_light_mode
-  scene_input: input_select.living_room_scene
-  temperature_input: input_slider.downstairs_color_temperature
-  delay: '300'
-  entity_id: switch.switch_living_room_lamp_switch
+  brightness_offset: 10.0
+  color_temperature_input: input_slider.downstairs_color_temperature
+  light_mode_input: input_select.living_room_light_mode
+  light_scene_input: input_select.living_room_scene
+  turn_off_delay: '300'
   illuminance_max_lux: '50'
   illuminance_sensor_id: sensor.multisensor_living_room_illuminance
-  sensor_id: binary_sensor.multisensor_living_room_motion,binary_sensor.motion_living_room_motion
 Office Motion Lights:
   module: turn_on
   class: TurnOn
