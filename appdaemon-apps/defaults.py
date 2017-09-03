@@ -1,4 +1,5 @@
 import appdaemon.appapi as appapi
+from copy import deepcopy
 
 class Defaults(appapi.AppDaemon):
   def initialize(self):
@@ -17,4 +18,4 @@ class Defaults(appapi.AppDaemon):
     #self.defaults['y_color'] = 1
 
   def get_defaults(self):
-    return self.defaults
+    return deepcopy(self.defaults)

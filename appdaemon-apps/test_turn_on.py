@@ -7,9 +7,10 @@ class TurnOn(appapi.AppDaemon):
   def initialize(self):
     # Load Utils and Defaults
     self.utils = self.get_app('Utils')
-    self.defaults = self.get_app('Defaults')
-    self.settings = self.defaults.get_defaults()
-    
+    self.settings = self.get_app('Defaults').get_defaults()
+   
+    # TODO: Investigate having multiple entries for each app using yaml rather than splitting
+ 
     # Register callbacks for state change of sensors
     self.settings['sensor_ids'] = self.split_device_list(self.args['sensor_ids'])
     for sensor_id in self.settings['sensor_ids']:
@@ -77,8 +78,8 @@ class TurnOn(appapi.AppDaemon):
       else:
         self.log("Room is {}, which is less than {}. Turning on lights".format(illuminance, max_illuminance))
     
-    self.log("Motion detected: turning on entity: {}".format(self.args["entity_ids"]))
-    self.utils.turn_on_light(self.args['entity_ids'], self.settings, old)
+    self.log("Motion detected: turning on entity: {}".format(self.settings["entity_ids"]))
+    self.utils.turn_on_light(self.settings['entity_ids'], self.settings)
 
   # Check to see if the sensor is on, if so, make sure the light delay gets renewed
   def renew_delay(self, kwargs):
@@ -88,21 +89,21 @@ class TurnOn(appapi.AppDaemon):
 
   def brightness_change(self, entity, attribute, old, new, kwargs):
     # Update the saved copy of the brightness and then update the lights
-    self.brightness = self.utils.get_brightness_value(new, self.brightness_offset)
-    self.utils.update_light_if_on(self.args['entity_ids'], self.settings, old)
+    self.brightness = self.utils.get_brightness_value(new, self.settings['brightness_offset'])
+    self.utils.update_light_if_on(self.settings['entity_ids'], self.settings)
 
   def color_temperature_change(self, entity, attribute, old, new, kwargs):
-    self.log("Temperature of {} updated to {}. Updating {}".format(entity, new, self.args["entity_id"]))  
+    self.log("Temperature of {} updated to {}. Updating {}".format(entity, new, self.settings['entity_ids']))  
     self.settings['color_temperature'] = self.utils.get_color_temperature_value(new, self.color_temperature_offset)
-    self.utils.update_light_if_on(self.args['entity_ids'], self.settings, old)
+    self.utils.update_light_if_on(self.settings['entity_ids'], self.settings)
 
   def light_mode_change(self, entity, attribute, old, new, kwargs):
-    self.log("Mode of {} updated to {}. Updating {}".format(entity, new, self.args["entity_id"]))  
+    self.log("Mode of {} updated to {}. Updating {}".format(entity, new, self.settings['entity_ids']))  
     self.settings['light_mode'] = new
-    self.utils.update_light_if_on(self.args['entity_ids'], self.settings, old)
+    self.utils.update_light_if_on(self.settings['entity_ids'], self.settings)
 
   def light_scene_change(self, entity, attribute, old, new, kwargs):
-    self.log("Scene of {} updated to {}. Updating {}".format(entity, new, self.args["entity_id"]))  
+    self.log('Scene of {} updated to {}. Updating {}'.format(entity, new, self.settings['entity_ids']))  
     self.settings['light_scene'] = new
-    self.utils.update_light_if_on(self.args['entity_ids'], self.settings, old)
+    self.utils.update_light_if_on(self.settings['entity_ids'], self.settings)
 

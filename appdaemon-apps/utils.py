@@ -36,30 +36,37 @@ class Utils(appapi.AppDaemon):
       on_transition_seconds = int(settings['update_transition_seconds'])
 
     for entity_id in entity_ids:
-      # If this is a switch then don't send the extra parameters
       domain, entity = self.split_entity(entity_id)
-      if domain == 'switch':
-        self.log("Turning on switch {}".format(entity_id))
-        self.turn_on(entity_id)
-        continue
-
       # If this is an update then make sure the entity is already on
+      action = 'TURN ON'
       if update:
+        action = 'UPDATE'
         if self.get_state(entity_id) == 'off':
-          self.log("Skipping {} as this is an update and the light is off".format(entity_id))
+          action = 'NONE'
+          self.log('[{}] [{}] Currently off'.format(action, entity_id))
+          continue
+        if domain == 'switch':
+          action = 'NONE'
+          self.log('[{}] [{}] Updates not relevant for switches'.format(action, entity_id))
           continue
 
+      # If this is a switch then don't send the extra parameters
+      if domain == 'switch':
+        self.log('[{}] [{}] Switch, no parameters required'.format(action, entity_id))
+        self.turn_on(entity_id)
+        continue
+      
       # Otherwise treat it as a light or group of lights
       if settings['light_mode'] == 'temperature':
-        self.log("Turning on {} at color_temp {} and brightness {}".format(entity_id, settings['color_temperature'], settings['brightness']))
+        self.log('[{}] [{}] color_temp {} and brightness {}'.format(action, entity_id, settings['color_temperature'], settings['brightness']))
         self.turn_on(entity_id, color_temp = settings['color_temperature'], brightness = settings['brightness'], transition = on_transition_seconds )
       elif settings['light_mode'] == 'color':
-        self.log("Turning on {} at xy_colour {},{} and brightness {}".format(entity_id, settings['x_color'], settings['y_color'], settings['brightness']))
-        self.turn_on(entity_id, xy_color = [settings["x_color"],settings["y_color"]], brightness = settings['brightness'], transition = on_transition_seconds )
+        self.log('[{}] [{}] xy_colour {},{} and brightness {}'.format(action, entity_id, settings['x_color'], settings['y_color'], settings['brightness']))
+        self.turn_on(entity_id, xy_color = [settings['x_color'],settings['y_color']], brightness = settings['brightness'], transition = on_transition_seconds )
       elif settings['light_mode'] == 'scene':
         group_name = self.friendly_name(entity_id)
-        self.log("Turning on {} to scene {} and brightness {}".format(group_name, settings['light_scene'], settings['brightness']))
-        self.call_service('light/hue_activate_scene', group_name = group_name, scene_name = settings['light_scene'], brightness = settings['brightness'])
+        self.log('[{}] [{}] Hue Scene: {}'.format(action, group_name, settings['light_scene']))
+        self.call_service('light/hue_activate_scene', group_name = group_name, scene_name = settings['light_scene'])
       elif settings['light_mode'] == 'colorloop_sync':
         pass
       elif settings['light_mode'] == 'colorloop_split':
