@@ -128,18 +128,25 @@ Downstairs Hall Motion Lights:
   module: turn_on
   class: TurnOn
   dependencies: utils,defaults
+  sensors: 
+    - binary_sensor.motion_downstairs_hall_motion
+  entities: 
+    - light.downstairs_hall
   brightness_input: input_slider.downstairs_brightness
   light_mode_input: input_select.downstairs_hall_light_mode
   light_scene_input: input_select.downstairs_hall_scene
   color_temperature_input: input_slider.downstairs_color_temperature
   constrain_input_select: input_select.house_mode,morning,day,evening
   turn_off_delay: '300'
-  entity_ids: light.downstairs_hall
-  sensor_ids: binary_sensor.motion_downstairs_hall_motion
 Kitchen Day Motion Lights:
   module: turn_on
   class: TurnOn
   dependencies: utils,defaults
+  sensors: 
+    - binary_sensor.multisensor_kitchen_motion
+    - binary_sensor.motion_kitchen_motion
+  entities: 
+    - light.kitchen
   brightness_input: input_slider.downstairs_brightness
   brightness_offset: '-50.0'
   light_mode_input: input_select.kitchen_light_mode
@@ -147,14 +154,16 @@ Kitchen Day Motion Lights:
   color_temperature_input: input_slider.downstairs_color_temperature
   constrain_input_select: input_select.house_mode,day,evening
   turn_off_delay: '300'
-  entity_ids: light.kitchen
   illuminance_max_lux: '30'
   illuminance_sensor_id: sensor.multisensor_kitchen_illuminance
-  sensor_ids: binary_sensor.multisensor_kitchen_motion,binary_sensor.motion_kitchen_motion
 Kitchen Night Motion Lights:
   module: turn_on
   class: TurnOn
   dependencies: utils,defaults
+  sensors: 
+    - binary_sensor.multisensor_kitchen_motion
+  entitiess: 
+    - group.lights_kitchen_night
   brightness_input: input_slider.downstairs_brightness
   brightness_offset: '-50.0'
   light_mode_input: input_select.kitchen_light_mode
@@ -162,14 +171,15 @@ Kitchen Night Motion Lights:
   color_temperature_input: input_slider.downstairs_color_temperature
   constrain_input_select: input_select.house_mode,night,morning
   turn_off_delay: '900'
-  entity_ids: group.lights_kitchen_night
-  sensor_ids: binary_sensor.multisensor_kitchen_motion
 Living Room Motion Lights:
   module: turn_on
   class: TurnOn
   dependencies: utils,defaults
-  entity_ids: switch.switch_living_room_lamp_switch
-  sensor_ids: binary_sensor.multisensor_living_room_motion,binary_sensor.motion_living_room_motion
+  entities: 
+    - switch.switch_living_room_lamp_switch
+  sensors: 
+    - binary_sensor.multisensor_living_room_motion
+    - binary_sensor.motion_living_room_motion
   brightness_input: input_slider.downstairs_brightness
   brightness_offset: 10.0
   color_temperature_input: input_slider.downstairs_color_temperature
@@ -182,53 +192,65 @@ Office Motion Lights:
   module: turn_on
   class: TurnOn
   dependencies: utils,defaults
+  sensors: 
+    - binary_sensor.motion_office_motion
+  entities: 
+    - light.office
   brightness_input: input_slider.upstairs_brightness
   brightness_offset: '50.0'
   light_mode_input: input_select.office_light_mode
   light_scene_input: input_select.office_scene
   color_temperature_input: input_slider.upstairs_color_temperature
   turn_off_delay: '900'
-  entity_ids: light.office
-  sensor_ids: binary_sensor.motion_office_motion
 Spare Bedroom Motion Lights:
   module: turn_on
   class: TurnOn
   dependencies: utils,defaults
+  sensors: 
+    - binary_sensor.motion_spare_room_motion
+  entitiess: 
+    - light.spare_bedroom
   brightness_input: input_slider.upstairs_brightness
   brightness_offset: '50.0'
   light_mode_input: input_select.spare_bedroom_light_mode
   light_scene_input: input_select.spare_bedroom_scene
   color_temperature_input: input_slider.upstairs_color_temperature
   turn_off_delay: '900'
-  entity_ids: light.spare_bedroom
-  sensor_ids: binary_sensor.motion_spare_room_motion
 Stairs Motion Lights:
   module: turn_on
   class: TurnOn
   dependencies: utils,defaults
+  sensors: 
+    - binary_sensor.motion_stairs_motion
+  entities: 
+    - light.stairs
   brightness_input: input_slider.upstairs_brightness
   light_mode_input: input_select.stairs_light_mode
   light_scene_input: input_select.stairs_scene
   color_temperature_input: input_slider.upstairs_color_temperature
   turn_off_delay: '120'
-  entity_ids: light.stairs
-  sensor_ids: binary_sensor.motion_stairs_motion
 Upstairs Hall Motion Lights:
   module: turn_on
   class: TurnOn
   dependencies: utils,defaults
+  sensors: 
+    - binary_sensor.motion_upstairs_hall_motion
+  entities: 
+    - light.upstairs_hall
   brightness_input: input_slider.upstairs_brightness
   brightness_offset: '50.0'
   light_mode_input: input_select.upstairs_hall_light_mode
   light_scene_input: input_select.upstairs_hall_scene
   color_temperature_input: input_slider.downstairs_color_temperature
   turn_off_delay: '120'
-  entity_ids: light.upstairs_hall
-  sensor_ids: binary_sensor.motion_upstairs_hall_motion
 Dining Room Day Motion Lights:
   module: turn_on
   class: TurnOn
   dependencies: utils,defaults
+  sensors: 
+    - binary_sensor.motion_dining_room_motion
+  entities: 
+    - light.dining_room
   brightness_input: input_slider.downstairs_brightness
   brightness_offset: '-70.0'
   light_mode_input: input_select.dining_room_light_mode
@@ -236,5 +258,3 @@ Dining Room Day Motion Lights:
   color_temperature_input: input_slider.downstairs_color_temperature
   constrain_input_select: input_select.house_mode,morning,day,evening
   turn_off_delay: '3600'
-  entity_ids: light.dining_room
-  sensor_ids: binary_sensor.motion_dining_room_motion
