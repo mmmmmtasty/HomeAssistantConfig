@@ -125,7 +125,7 @@ Upstairs Color Temperature Slider:
   slave_slider: input_slider.upstairs_color_temperature
 
 Downstairs Hall Motion Lights:
-  module: test_turn_on
+  module: turn_on
   class: TurnOn
   dependencies: utils,defaults
   brightness_input: input_slider.downstairs_brightness
@@ -137,7 +137,7 @@ Downstairs Hall Motion Lights:
   entity_ids: light.downstairs_hall
   sensor_ids: binary_sensor.motion_downstairs_hall_motion
 Kitchen Day Motion Lights:
-  module: test_turn_on
+  module: turn_on
   class: TurnOn
   dependencies: utils,defaults
   brightness_input: input_slider.downstairs_brightness
@@ -152,7 +152,7 @@ Kitchen Day Motion Lights:
   illuminance_sensor_id: sensor.multisensor_kitchen_illuminance
   sensor_ids: binary_sensor.multisensor_kitchen_motion,binary_sensor.motion_kitchen_motion
 Kitchen Night Motion Lights:
-  module: test_turn_on
+  module: turn_on
   class: TurnOn
   dependencies: utils,defaults
   brightness_input: input_slider.downstairs_brightness
@@ -165,7 +165,7 @@ Kitchen Night Motion Lights:
   entity_ids: group.lights_kitchen_night
   sensor_ids: binary_sensor.multisensor_kitchen_motion
 Living Room Motion Lights:
-  module: test_turn_on
+  module: turn_on
   class: TurnOn
   dependencies: utils,defaults
   entity_ids: switch.switch_living_room_lamp_switch
@@ -179,7 +179,7 @@ Living Room Motion Lights:
   illuminance_max_lux: '50'
   illuminance_sensor_id: sensor.multisensor_living_room_illuminance
 Office Motion Lights:
-  module: test_turn_on
+  module: turn_on
   class: TurnOn
   dependencies: utils,defaults
   brightness_input: input_slider.upstairs_brightness
@@ -191,7 +191,7 @@ Office Motion Lights:
   entity_ids: light.office
   sensor_ids: binary_sensor.motion_office_motion
 Spare Bedroom Motion Lights:
-  module: test_turn_on
+  module: turn_on
   class: TurnOn
   dependencies: utils,defaults
   brightness_input: input_slider.upstairs_brightness
@@ -203,7 +203,7 @@ Spare Bedroom Motion Lights:
   entity_ids: light.spare_bedroom
   sensor_ids: binary_sensor.motion_spare_room_motion
 Stairs Motion Lights:
-  module: test_turn_on
+  module: turn_on
   class: TurnOn
   dependencies: utils,defaults
   brightness_input: input_slider.upstairs_brightness
@@ -214,7 +214,7 @@ Stairs Motion Lights:
   entity_ids: light.stairs
   sensor_ids: binary_sensor.motion_stairs_motion
 Upstairs Hall Motion Lights:
-  module: test_turn_on
+  module: turn_on
   class: TurnOn
   dependencies: utils,defaults
   brightness_input: input_slider.upstairs_brightness
@@ -226,7 +226,7 @@ Upstairs Hall Motion Lights:
   entity_ids: light.upstairs_hall
   sensor_ids: binary_sensor.motion_upstairs_hall_motion
 Dining Room Day Motion Lights:
-  module: test_turn_on
+  module: turn_on
   class: TurnOn
   dependencies: utils,defaults
   brightness_input: input_slider.downstairs_brightness
