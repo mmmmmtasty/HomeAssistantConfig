@@ -95,9 +95,9 @@ class Utils(appapi.AppDaemon):
         if group_entity_id not in self.global_vars["turn_off"]:
           self.global_vars['turn_off'][group_entity_id] = {}
         # Set turn off time
-        self.global_vars["turn_off"][entity_id]['off_time'] = turn_off_time
+        self.global_vars["turn_off"][group_entity_id]['off_time'] = turn_off_time
         # Include off transition settings
-        self.global_vars["turn_off"][entity_id]['transition_time'] = off_transition_seconds
+        self.global_vars["turn_off"][group_entity_id]['transition_time'] = off_transition_seconds
 
   # Set a new off time of a delay from now. Does not persist values even if they were further out than the new off time
   def set_delayed_turn_off_time(self, entity_ids, turn_off_delay, off_transition_seconds):

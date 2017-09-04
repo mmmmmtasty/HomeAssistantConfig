@@ -33,12 +33,12 @@ Dining Room Doorbell:
   volume: '0.25'
 
 Update House Modes:
+  module: update_house_mode
   class: UpdateHouseMode
+  house_mode: input_select.house_mode
+  morning_start: 05:00:00
   day_start: 07:00:00
   evening_start: '20:00:00'
-  house_mode: input_select.house_mode
-  module: update_house_mode
-  morning_start: 05:00:00
   night_start: '23:00:00'
 
 Flic Triggered Night Mode Shutdown:
@@ -127,6 +127,7 @@ Upstairs Color Temperature Slider:
 Downstairs Hall Motion Lights:
   module: test_turn_on
   class: TurnOn
+  dependencies: utils,defaults
   brightness_input: input_slider.downstairs_brightness
   light_mode_input: input_select.downstairs_hall_light_mode
   light_scene_input: input_select.downstairs_hall_scene
@@ -138,6 +139,7 @@ Downstairs Hall Motion Lights:
 Kitchen Day Motion Lights:
   module: test_turn_on
   class: TurnOn
+  dependencies: utils,defaults
   brightness_input: input_slider.downstairs_brightness
   brightness_offset: '-50.0'
   light_mode_input: input_select.kitchen_light_mode
@@ -152,6 +154,7 @@ Kitchen Day Motion Lights:
 Kitchen Night Motion Lights:
   module: test_turn_on
   class: TurnOn
+  dependencies: utils,defaults
   brightness_input: input_slider.downstairs_brightness
   brightness_offset: '-50.0'
   light_mode_input: input_select.kitchen_light_mode
@@ -178,6 +181,7 @@ Living Room Motion Lights:
 Office Motion Lights:
   module: test_turn_on
   class: TurnOn
+  dependencies: utils,defaults
   brightness_input: input_slider.upstairs_brightness
   brightness_offset: '50.0'
   light_mode_input: input_select.office_light_mode
@@ -189,6 +193,7 @@ Office Motion Lights:
 Spare Bedroom Motion Lights:
   module: test_turn_on
   class: TurnOn
+  dependencies: utils,defaults
   brightness_input: input_slider.upstairs_brightness
   brightness_offset: '50.0'
   light_mode_input: input_select.spare_bedroom_light_mode
@@ -200,6 +205,7 @@ Spare Bedroom Motion Lights:
 Stairs Motion Lights:
   module: test_turn_on
   class: TurnOn
+  dependencies: utils,defaults
   brightness_input: input_slider.upstairs_brightness
   light_mode_input: input_select.stairs_light_mode
   light_scene_input: input_select.stairs_scene
@@ -210,6 +216,7 @@ Stairs Motion Lights:
 Upstairs Hall Motion Lights:
   module: test_turn_on
   class: TurnOn
+  dependencies: utils,defaults
   brightness_input: input_slider.upstairs_brightness
   brightness_offset: '50.0'
   light_mode_input: input_select.upstairs_hall_light_mode
@@ -221,6 +228,7 @@ Upstairs Hall Motion Lights:
 Dining Room Day Motion Lights:
   module: test_turn_on
   class: TurnOn
+  dependencies: utils,defaults
   brightness_input: input_slider.downstairs_brightness
   brightness_offset: '-70.0'
   light_mode_input: input_select.dining_room_light_mode

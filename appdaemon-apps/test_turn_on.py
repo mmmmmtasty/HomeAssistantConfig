@@ -26,7 +26,7 @@ class TurnOn(appapi.AppDaemon):
 
     # If we are provided with a brightness input then listen for state changes
     if 'brightness_input' in self.args:
-      self.listen_state(self.brightness_change, self.args['brightness_input'])
+      self.listen_state(self.brightness_update, self.args['brightness_input'])
       self.settings['brightness'] = self.get_state(self.args['brightness_input'])
     elif 'brightness' in self.args:
       self.settings['brightness'] = self.args['brightness']
@@ -40,7 +40,7 @@ class TurnOn(appapi.AppDaemon):
 
     # If we are provided with a color temperature input then listen for state changes
     if "color_temperature_input" in self.args:
-      self.listen_state(self.color_temperature_change, self.args["color_temperature_input"]) 
+      self.listen_state(self.color_temperature_update, self.args["color_temperature_input"]) 
       self.settings['color_temperature'] = self.get_state(self.args['color_temperature_input'])
     elif 'color_temperature' in self.args:
       self.settings['color_temperature'] = self.args['color_temperature']
@@ -50,12 +50,12 @@ class TurnOn(appapi.AppDaemon):
 
     # Get the light mode if set
     if "light_mode_input" in self.args:
-      self.listen_state(self.light_mode_change, self.args["light_mode_input"])
+      self.listen_state(self.light_mode_update, self.args["light_mode_input"])
       self.settings['light_mode'] = self.get_state(self.args['light_mode_input'])
 
     # Get the light scene if provided
     if "light_scene_input" in self.args:
-      self.listen_state(self.light_scene_change, self.args["light_scene_input"])
+      self.listen_state(self.light_scene_update, self.args["light_scene_input"])
       self.settings['light_scene'] = self.get_state(self.args['light_scene_input'])
 
     # Get the brightness offset
@@ -87,22 +87,22 @@ class TurnOn(appapi.AppDaemon):
       if self.get_state(sensor_id) == "on":
         self.utils.set_delayed_turn_off_time(self.settings['entity_ids'], self.settings['turn_off_delay'], self.settings['off_transition_seconds'])
 
-  def brightness_change(self, entity, attribute, old, new, kwargs):
+  def brightness_update(self, entity, attribute, old, new, kwargs):
     # Update the saved copy of the brightness and then update the lights
-    self.brightness = self.utils.get_brightness_value(new, self.settings['brightness_offset'])
+    self.settings['brightness'] = self.utils.get_brightness_value(new, self.settings['brightness_offset'])
     self.utils.update_light_if_on(self.settings['entity_ids'], self.settings)
 
-  def color_temperature_change(self, entity, attribute, old, new, kwargs):
+  def color_temperature_update(self, entity, attribute, old, new, kwargs):
     self.log("Temperature of {} updated to {}. Updating {}".format(entity, new, self.settings['entity_ids']))  
-    self.settings['color_temperature'] = self.utils.get_color_temperature_value(new, self.color_temperature_offset)
+    self.settings['color_temperature'] = self.utils.get_color_temperature_value(new, self.settings['color_temperature_offset'])
     self.utils.update_light_if_on(self.settings['entity_ids'], self.settings)
 
-  def light_mode_change(self, entity, attribute, old, new, kwargs):
+  def light_mode_update(self, entity, attribute, old, new, kwargs):
     self.log("Mode of {} updated to {}. Updating {}".format(entity, new, self.settings['entity_ids']))  
     self.settings['light_mode'] = new
     self.utils.update_light_if_on(self.settings['entity_ids'], self.settings)
 
-  def light_scene_change(self, entity, attribute, old, new, kwargs):
+  def light_scene_update(self, entity, attribute, old, new, kwargs):
     self.log('Scene of {} updated to {}. Updating {}'.format(entity, new, self.settings['entity_ids']))  
     self.settings['light_scene'] = new
     self.utils.update_light_if_on(self.settings['entity_ids'], self.settings)

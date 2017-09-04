@@ -11,8 +11,8 @@ class Defaults(appapi.AppDaemon):
     self.defaults['light_mode'] = 'temperature'
     self.defaults['light_scene'] = 'Relax'
     self.defaults['on_transition_seconds'] = 1
-    self.defaults['off_transition_seconds'] = 1
-    self.defaults['update_transition_seconds'] = 1
+    self.defaults['off_transition_seconds'] = 3
+    self.defaults['update_transition_seconds'] = 5
     self.defaults['turn_off_delay'] = 300
     #self.defaults['x_color'] = 1
     #self.defaults['y_color'] = 1
