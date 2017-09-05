@@ -8,9 +8,9 @@ class Utils(appapi.AppDaemon):
   def get_brightness_value(self, brightness, offset):
     # Make sure brightness is a float 
     brightness = float(brightness) + float(offset)
-    # Confirm brightness is within valid constraints
-    if brightness < 0.0:
-      brightness = 0.0
+    # Confirm brightness is within valid constraints and not just completely off
+    if brightness < 10.0:
+      brightness = 10.0
     if brightness > 255.0:
       brightness = 255.0
     return brightness

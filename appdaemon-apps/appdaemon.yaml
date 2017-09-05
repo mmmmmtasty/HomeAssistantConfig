@@ -162,7 +162,7 @@ Kitchen Night Motion Lights:
   dependencies: utils,defaults
   sensors: 
     - binary_sensor.multisensor_kitchen_motion
-  entitiess: 
+  entities:
     - group.lights_kitchen_night
   brightness_input: input_slider.downstairs_brightness
   brightness_offset: '-50.0'
@@ -175,11 +175,11 @@ Living Room Motion Lights:
   module: turn_on
   class: TurnOn
   dependencies: utils,defaults
-  entities: 
-    - switch.switch_living_room_lamp_switch
   sensors: 
     - binary_sensor.multisensor_living_room_motion
     - binary_sensor.motion_living_room_motion
+  entities: 
+    - switch.switch_living_room_lamp_switch
   brightness_input: input_slider.downstairs_brightness
   brightness_offset: 10.0
   color_temperature_input: input_slider.downstairs_color_temperature
@@ -208,7 +208,7 @@ Spare Bedroom Motion Lights:
   dependencies: utils,defaults
   sensors: 
     - binary_sensor.motion_spare_room_motion
-  entitiess: 
+  entities:
     - light.spare_bedroom
   brightness_input: input_slider.upstairs_brightness
   brightness_offset: '50.0'
