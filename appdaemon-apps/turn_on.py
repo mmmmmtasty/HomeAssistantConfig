@@ -65,17 +65,16 @@ class TurnOn(appapi.AppDaemon):
   # Turn lights on if the sensor changes state
   def motion(self, entity, attribute, old, new, kwargs):
     #TODO: Consider if illuminance should be in a helper function
+    self.log("[MOTION] {} {}".format(entity, self.args["entities"]))
     # Don't turn on if the room is too bright
     if "illuminance_sensor_id" in self.args and "illuminance_max_lux" in self.args:
       illuminance = int(self.get_state(self.args["illuminance_sensor_id"]))
       max_illuminance = int(self.args["illuminance_max_lux"]) 
       if illuminance > max_illuminance:
-        self.log("Motion detected, but room too bright ({} > {}). Doing nothing.".format(illuminance, max_illuminance))
+        self.log("[BRIGHTNESS FAIL] {}: {} > {}".format(self.args["illuminance_sensor_id"], illuminance, max_illuminance))
         return
       else:
-        self.log("Room is {}, which is less than {}. Turning on lights".format(illuminance, max_illuminance))
-    
-    self.log("Motion detected: turning on entity: {}".format(self.args["entities"]))
+        self.log("[BRIGHTNESS PASS] {}: {} < {}".format(self.args['illuminance_sensor_id'], illuminance, max_illuminance))
     self.utils.turn_on_light(self.args['entities'], self.settings)
 
   # Check to see if the sensor is on, if so, make sure the light delay gets renewed

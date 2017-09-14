@@ -148,7 +148,7 @@ Kitchen Day Motion Lights:
   entities: 
     - light.kitchen
   brightness_input: input_slider.downstairs_brightness
-  brightness_offset: '-50.0'
+  brightness_offset: '-20.0'
   light_mode_input: input_select.kitchen_light_mode
   light_scene_input: input_select.kitchen_scene
   color_temperature_input: input_slider.downstairs_color_temperature
@@ -185,7 +185,7 @@ Living Room Motion Lights:
   color_temperature_input: input_slider.downstairs_color_temperature
   light_mode_input: input_select.living_room_light_mode
   light_scene_input: input_select.living_room_scene
-  turn_off_delay: '300'
+  turn_off_delay: '900'
   illuminance_max_lux: '50'
   illuminance_sensor_id: sensor.multisensor_living_room_illuminance
 Office Motion Lights:
