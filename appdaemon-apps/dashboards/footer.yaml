@@ -18,4 +18,4 @@ reload:
   widget_type: reload
   title: Reload
 layout:
-  - nav_home(1x1),nav_lights(1x1),nav_defaults(1x1),reload(1x1)
+  - nav_home(2x2),nav_lights(2x2),nav_defaults(2x2),reload(2x2)

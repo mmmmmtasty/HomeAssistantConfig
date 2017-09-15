@@ -10,4 +10,5 @@ clock:
   time_style: "color: white"
 
 layout:
-  - dash_title(4x1),clock(2x1),house_mode(1x1)
+  - clock(4x2),dash_title(8x2),house_mode(2x2)
+  - 

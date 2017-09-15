@@ -1,8 +1,8 @@
 title: Home
-widget_dimensions: [100, 100]
+widget_dimensions: [50, 50]
 widget_size: [1, 1]
 widget_margins: [5, 5]
-columns: 8
+columns: 16
 global_parameters:
     use_comma: 0
     precision: 1
@@ -16,24 +16,30 @@ dash_title:
   widget_type: label
   text: All Lights
 
-kitchen_light:
-  widget_type: light
-  entity: light.kitchen
+kitchen_label:
+  widget_type: label
   title: Kitchen
+  title_style: "color : red; font-size: 250%"
+
+kitchen_light:
+  widget_type: light_with_brightness
+  entity: light.kitchen
+  icon_style_active: lightbulb
+  icon_style_inactive: lightbulb-on
 
 kitchen_light_mode:
-  widget_type: mode
+  widget_type: input_select
   entity: input_select.kitchen_light_mode
-  title: Kitchen Mode
 
 kitchen_scene:
-  widget_type: mode
+  widget_type: input_select
   entity: input_select.kitchen_scene
-  title: Kitchen Scene
 
 layout:
   - include: header
-  - kitchen_light(1x1)
-  - kitchen_light_mode(1x1)
-  - kitchen_scene(1x1)
+  - kitchen_label(4x1)
+  - kitchen_light(2x2)
+  - 
+  - kitchen_light_mode(4x1)
+  - kitchen_scene(4x1)
   - include: footer 
