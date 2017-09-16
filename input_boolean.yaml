@@ -1,39 +1,78 @@
-night_time:
-  name: Night Time
-  initial: off
-
 party_time:
   name: Party Time
   initial: off
 
-normal_mode:
-  name: Normal Mode
-  initial: on
-
+# Upstairs Lock
+# Master
 locked_upstairs_brightness_change:
   name: Locked Upstairs Brightness
   initial: off
+locked_upstairs_color_temperature_change:
+  name: Locked Upstairs Color Temperature
+  initial: off
+# Stairs
+locked_stairs_brightness_change:
+  name: Locked Stairs Brightness
+  initial: off
+locked_stairs_color_temperature_change:
+  name: Locked Stairs Color Temperature
+  initial: off
+# Upstairs Hall
+locked_upstairs_hall_brightness_change:
+  name: Locked Upstairs Hall Brightness
+  initial: off
+locked_upstairs_hall_color_temperature_change:
+  name: Locked Upstairs Hall Color Temperature
+  initial: off
+# Spare Room
+locked_spare_room_brightness_change:
+  name: Locked Spare Room Brightness
+  initial: off
+locked_spare_room_color_temperature_change:
+  name: Locked Spare Room Color Temperature
+  initial: off
+# Office
+locked_office_brightness_change:
+  name: Locked Office Brightness
+  initial: off
+locked_office_color_temperature_change:
+  name: Locked Office Color Temperature
+  initial: off
 
+# Downstairs Lock
+# Master
 locked_downstairs_brightness_change:
   name: Locked Downstairs Brightness
   initial: off
-
+locked_downstairs_color_temperature_change:
+  name: Locked Downstairs Color Temperature
+  initial: off
+# Dining Room
+locked_dining_room_brightness_change:
+  name: Locked Dining Room Brightness
+  initial: off
+locked_dining_room_color_temperature_change:
+  name: Locked Dining Room Color Temperature
+  initial: off
+# Downstairs Hall
 locked_downstairs_hall_brightness_change:
   name: Locked Downstairs Hall Brightness
   initial: off
-
-locked_downstairs_hall_temperature_change:
-  name: Locked Downstairs Hall Temperature
+locked_downstairs_hall_color_temperature_change:
+  name: Locked Downstairs Hall Color Temperature
+  initial: off
+# Kitchen
+locked_kitchen_brightness_change:
+  name: Locked Kitchen Brightness
+  initial: off
+locked_kitchen_color_temperature_change:
+  name: Locked Kitchen Color Temperature
+  initial: off
+# Living Room
+locked_living_room_brightness_change:
+  name: Locked Living Room Brightness
+  initial: off
+locked_living_room_color_temperature_change:
+  name: Locked Living Room Color Temperature
   initial: off
 
-locked_upstairs_color_temperature_change:
-  name: Locked Upstairs Colour Temperature
-  initial: off
-
-locked_downstairs_color_temperature_change:
-  name: Locked Downstairs Colour Temperature
-  initial: off
-
-temp_not_color:
-  name: Temperature not Color
-  initial: on

@@ -18,7 +18,6 @@ class UpdateHouseMode(appapi.AppDaemon):
       current_mode = 'evening' 
     if self.time() > self.parse_time(self.args["night_start"]):
       current_mode = 'night'
-    self.log("{} {}".format(self.time(), self.parse_time(self.args["night_start"])))
     self.update_mode({'new_mode': current_mode}) 
     
     # Work out the times from the config file and register daily callbacks
@@ -28,5 +27,8 @@ class UpdateHouseMode(appapi.AppDaemon):
     self.run_daily(self.update_mode, self.parse_time(self.args["night_start"]), new_mode = "night")
 
   def update_mode(self, args):
-    self.log("Setting {} to {}".format(self.args["house_mode"], args["new_mode"]))
-    self.select_option(self.args["house_mode"], args["new_mode"]) 
+    current_mode = self.get_state(self.args['house_mode'])
+    if current_mode != args['new_mode']:
+      self.log("[HOUSE MODE CHANGE] {} {}->{} ".format(self.args['house_mode'], current_mode, args['new_mode']))
+      self.select_option(self.args['house_mode'], args['new_mode']) 
+      #self.run_in(self.update_mode, 1, new_mode = args['new_mode'])

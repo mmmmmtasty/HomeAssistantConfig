@@ -2,14 +2,12 @@
 # Master Sliders #
 #####################
 
-# Master
 master_brightness:
   name: Brightness
   initial: 200
   min: 0
   max: 220
   step: 1
-
 master_color_temperature:
   name: Temperature
   initial: 300
@@ -28,7 +26,6 @@ downstairs_color_temperature:
   min: 163
   max: 500
   step: 1
-
 downstairs_brightness:
   name: Brightness
   initial: 180
@@ -36,6 +33,19 @@ downstairs_brightness:
   max: 220
   step: 1
 
+# Dining Room
+dining_room_color_temperature:
+  name: Temperature
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+dining_room_brightness:
+  name: Brightness
+  initial: 180
+  min: 0
+  max: 220
+  step: 1
 # Downstairs Hall
 downstairs_hall_color_temperature:
   name: Temperature
@@ -43,18 +53,38 @@ downstairs_hall_color_temperature:
   min: 163
   max: 500
   step: 1
-
 downstairs_hall_brightness:
   name: Brightness
   initial: 180
   min: 0
   max: 220
   step: 1
-
 # Kitchen
-
+kitchen_color_temperature:
+  name: Temperature
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+kitchen_brightness:
+  name: Brightness
+  initial: 180
+  min: 0
+  max: 220
+  step: 1
 # Living Room
-
+living_room_color_temperature:
+  name: Temperature
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+living_room_brightness:
+  name: Brightness
+  initial: 180
+  min: 0
+  max: 220
+  step: 1
 
 ######################
 # Upstairs Sliders #
@@ -67,7 +97,6 @@ upstairs_brightness:
   min: 0
   max: 220
   step: 1
-
 upstairs_color_temperature:
   name: Temperature
   initial: 300
@@ -75,6 +104,58 @@ upstairs_color_temperature:
   max: 500
   step: 1
 
+# Stairs
+stairs_color_temperature:
+  name: Temperature
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+stairs_brightness:
+  name: Brightness
+  initial: 180
+  min: 0
+  max: 220
+  step: 1
+# Upstairs Hall
+upstairs_hall_color_temperature:
+  name: Temperature
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+upstairs_hall_brightness:
+  name: Brightness
+  initial: 180
+  min: 0
+  max: 220
+  step: 1
+# Spare Room
+spare_room_color_temperature:
+  name: Temperature
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+spare_room_brightness:
+  name: Brightness
+  initial: 180
+  min: 0
+  max: 220
+  step: 1
+# Office
+office_color_temperature:
+  name: Temperature
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+office_brightness:
+  name: Brightness
+  initial: 180
+  min: 0
+  max: 220
+  step: 1
 ######################
 # Defaults Sliders #
 ######################
@@ -86,7 +167,6 @@ morning_color_temperature:
   min: 163
   max: 500
   step: 1
-
 morning_brightness:
   name: Morning
   initial: 15
@@ -101,7 +181,6 @@ day_color_temperature:
   min: 163
   max: 500
   step: 1
-
 day_brightness:
   name: Day
   initial: 180
@@ -116,7 +195,6 @@ evening_color_temperature:
   min: 163
   max: 500
   step: 1
-
 evening_brightness:
   name: Evening
   initial: 150
@@ -131,12 +209,10 @@ night_color_temperature:
   min: 163
   max: 500
   step: 1
-
 night_brightness:
   name: Night
   initial: 10
   min: 0
   max: 220
   step: 1
-
 

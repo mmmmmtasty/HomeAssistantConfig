@@ -1,5 +1,5 @@
 house_mode:
-  widget_type: sensor
+  widget_type: input_select
   title: House Mode
   entity: input_select.house_mode
 

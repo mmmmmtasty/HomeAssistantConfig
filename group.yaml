@@ -7,11 +7,11 @@ lights_kitchen_night:
   entities:
     - light.hue_kitchen_2c
 
-#lights_living_room:
-#  name: Living Room Lights
-#  entities:
-#    - light.hue_living_room
-#    - switch.switch_living_room_lamp_switch
+lights_living_room:
+  name: Living Room Lights
+  entities:
+    - light.hue_living_room
+    - switch.switch_living_room_lamp_switch
 #    - light.hue_go_1
 #lights_kitchen:
 #  name: Kitchen Lights

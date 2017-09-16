@@ -7,8 +7,9 @@ nav_home:
 
 nav_lights:
   widget_type: navigate
-  title: Lights
-  dashboard: Lights
+  title: Downstairs
+  title2: Lights
+  dashboard: Downstairs_Lights
   skin: MJ
 
 nav_defaults:

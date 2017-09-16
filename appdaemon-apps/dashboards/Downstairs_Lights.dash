@@ -1,0 +1,122 @@
+title: Home
+widget_dimensions: [50, 50]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 16
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+
+clock:
+  widget_type: clock
+  time_format: 24hir
+
+dash_title:
+  widget_type: label
+  text: Downstairs Lights
+
+# Downstairs Hall
+downstairs_hall_light:
+  widget_type: light
+  entity: light.downstairs_hall
+  title: Downstairs Hall
+  title_style: "color: red; font-size: 150%; font-weight: 250"
+  level_style: "display: none"
+  level_up_style: "display: none"
+  level_down_style: "display: none"
+  unit_style: "display: none"
+downstairs_hall_brightness:
+  widget_type: new_input_slider
+  title: Brightness
+  entity: input_slider.downstairs_hall_brightness
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
+downstairs_hall_color_temperature:
+  widget_type: new_input_slider
+  title: Color Temperature
+  entity: input_slider.downstairs_hall_color_temperature
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
+downstairs_hall_light_mode:
+  widget_type: input_select
+  entity: input_select.downstairs_hall_light_mode
+  select_parent_style: "position: unset"
+downstairs_hall_scene:
+  widget_type: input_select
+  entity: input_select.downstairs_hall_scene
+  select_parent_style: "position: unset"
+
+# Dining Room
+dining_room_light:
+  widget_type: light_with_brightness
+  entity: light.dining_room
+  title: Dining Room
+  title_style: "color: red; font-size: 150%; font-weight: 250"
+dining_room_color_temperature:
+  widget_type: new_input_slider
+  entity: input_slider.dining_room_color_temperature
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
+dining_room_light_mode:
+  widget_type: input_select
+  entity: input_select.dining_room_light_mode
+  select_parent_style: "position: unset"
+dining_room_scene:
+  widget_type: input_select
+  entity: input_select.dining_room_scene
+  select_parent_style: "position: unset"
+
+# Kitchen
+kitchen_light:
+  widget_type: light_with_brightness
+  entity: light.kitchen
+  title: Kitchen
+  title_style: "color: red; font-size: 150%; font-weight: 250"
+kitchen_color_temperature:
+  widget_type: new_input_slider
+  entity: input_slider.kitchen_color_temperature
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
+kitchen_light_mode:
+  widget_type: input_select
+  entity: input_select.kitchen_light_mode
+  select_parent_style: "position: unset"
+kitchen_scene:
+  widget_type: input_select
+  entity: input_select.kitchen_scene
+  select_parent_style: "position: unset"
+
+# Living Room
+living_room_light:
+  widget_type: light_with_brightness
+  entity: group.lights_living_room
+  title: Living Room
+  title_style: "color: red; font-size: 150%; font-weight: 250"
+living_room_color_temperature:
+  widget_type: new_input_slider
+  entity: input_slider.living_room_color_temperature
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
+living_room_light_mode:
+  widget_type: input_select
+  entity: input_select.living_room_light_mode
+  select_parent_style: "position: unset"
+living_room_scene:
+  widget_type: input_select
+  entity: input_select.living_room_scene
+  select_parent_style: "position: unset"
+
+layout:
+  - include: header
+  - downstairs_hall_light(4x1),dining_room_light(4x2),kitchen_light(4x2),living_room_light(4x2)
+  - downstairs_hall_brightness(4x1)
+  - downstairs_hall_color_temperature(4x1),dining_room_color_temperature(4x1),kitchen_color_temperature(4x1),living_room_color_temperature(4x1)
+  - downstairs_hall_light_mode(4x1),dining_room_light_mode(4x1),kitchen_light_mode(4x1),living_room_light_mode(4x1)
+  - downstairs_hall_scene(4x1),dining_room_scene(4x1),kitchen_scene(4x1),living_room_scene(4x1)
+  - include: footer 

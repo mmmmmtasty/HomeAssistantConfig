@@ -114,14 +114,15 @@ class Utils(appapi.AppDaemon):
       entity_ids = [entity_ids]
 
     for entity_id in entity_ids:
-      if off_transition_seconds is not None: 
-        while self.get_state(entity_id) == 'on':
-          self.log("[SLOW OFF] {} {} seconds".format(entity_id, off_transition_seconds))
-          self.turn_off(entity_id, transition = off_transition_seconds)
-      else:
+      domain, entity_name = self.split_entity(entity_id)
+      if off_transition_seconds is None or domain == 'switch': 
         while self.get_state(entity_id) == 'on':
           self.log("[FAST OFF] {}".format(entity_id))
           self.turn_off(entity_id)
+      else:
+        while self.get_state(entity_id) == 'on':
+          self.log("[SLOW OFF] {} {} seconds".format(entity_id, off_transition_seconds))
+          self.turn_off(entity_id, transition = off_transition_seconds)
 
       # TODO: Confirm that the device is actually off
 
