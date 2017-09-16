@@ -48,6 +48,7 @@ Triggered Day Mode:
 Turner Offerer:
   class: TurnerOfferer
   module: turner_offerer
+  dependencies: utils
 
 Downstairs Brighten Lights:
   brightness_slider: input_slider.downstairs_brightness

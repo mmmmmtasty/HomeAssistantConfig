@@ -3,16 +3,19 @@ nav_home:
   title: Home
   dashboard: Home
   icon_inactive: mdi-home
+  skin: MJ
 
 nav_lights:
   widget_type: navigate
   title: Lights
   dashboard: Lights
+  skin: MJ
 
 nav_defaults:
   widget_type: navigate
   title: Defaults
   dashboard: Defaults
+  skin: MJ
 
 reload:
   widget_type: reload

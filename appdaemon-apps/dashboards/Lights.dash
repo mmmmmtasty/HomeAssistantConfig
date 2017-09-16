@@ -24,16 +24,16 @@ kitchen_label:
 kitchen_light:
   widget_type: light_with_brightness
   entity: light.kitchen
-  icon_style_active: lightbulb
-  icon_style_inactive: lightbulb-on
 
 kitchen_light_mode:
   widget_type: input_select
   entity: input_select.kitchen_light_mode
+  select_parent_style: "position: unset"
 
 kitchen_scene:
   widget_type: input_select
   entity: input_select.kitchen_scene
+  select_parent_style: "position: unset"
 
 layout:
   - include: header

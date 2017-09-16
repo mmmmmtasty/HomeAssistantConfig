@@ -9,8 +9,6 @@ class TurnOn(appapi.AppDaemon):
     self.utils = self.get_app('Utils')
     self.settings = self.get_app('Defaults').get_defaults()
    
-    # TODO: Investigate having multiple entries for each app using yaml rather than splitting
- 
     # Register callbacks for state change of sensors
     for sensor in self.args['sensors']:
       self.listen_state(self.motion, sensor)

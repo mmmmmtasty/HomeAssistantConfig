@@ -97,7 +97,7 @@ class Utils(appapi.AppDaemon):
         # Set turn off time
         self.global_vars["turn_off"][group_entity_id]['off_time'] = turn_off_time
         # Include off transition settings
-        self.global_vars["turn_off"][group_entity_id]['off_transition_time'] = off_transition_seconds
+        self.global_vars["turn_off"][group_entity_id]['off_transition_seconds'] = off_transition_seconds
 
   # Set a new off time of a delay from now. Does not persist values even if they were further out than the new off time
   def set_delayed_turn_off_time(self, entity_ids, turn_off_delay, off_transition_seconds):
@@ -106,3 +106,22 @@ class Utils(appapi.AppDaemon):
   # Apply updates to a light only if it is already on
   def update_light_if_on(self, entity_ids, settings):
     self.turn_on_light(entity_ids, settings, True)
+
+  def turn_off_entity(self, entity_ids, off_transition_seconds = None):
+    self.log("Called for {}".format(entity_ids))
+    # Confirm that entity_ids is actually an array here
+    if not isinstance(entity_ids, list):
+      entity_ids = [entity_ids]
+
+    for entity_id in entity_ids:
+      if off_transition_seconds is not None: 
+        while self.get_state(entity_id) == 'on':
+          self.log("[SLOW OFF] {} {} seconds".format(entity_id, off_transition_seconds))
+          self.turn_off(entity_id, transition = off_transition_seconds)
+      else:
+        while self.get_state(entity_id) == 'on':
+          self.log("[FAST OFF] {}".format(entity_id))
+          self.turn_off(entity_id)
+
+      # TODO: Confirm that the device is actually off
+
