@@ -1,6 +1,14 @@
 #####################
-# Color Temperature #
+# Master Sliders #
 #####################
+
+# Master
+master_brightness:
+  name: Brightness
+  initial: 200
+  min: 0
+  max: 220
+  step: 1
 
 master_color_temperature:
   name: Temperature
@@ -9,56 +17,16 @@ master_color_temperature:
   max: 500
   step: 1
 
+######################
+# Downstairs Sliders #
+######################
+
+# Master
 downstairs_color_temperature:
   name: Temperature
   initial: 300
   min: 163
   max: 500
-  step: 1
-
-upstairs_color_temperature:
-  name: Temperature
-  initial: 300
-  min: 163
-  max: 500
-  step: 1
-
-morning_color_temperature:
-  name: Morning
-  initial: 300
-  min: 163
-  max: 500
-  step: 1
-
-day_color_temperature:
-  name: Day
-  initial: 300
-  min: 163
-  max: 500
-  step: 1
-
-evening_color_temperature:
-  name: Evening
-  initial: 300
-  min: 163
-  max: 500
-  step: 1
-
-night_color_temperature:
-  name: Night
-  initial: 300
-  min: 163
-  max: 500
-  step: 1
-
-##############
-# Brightness #
-##############
-master_brightness:
-  name: Brightness
-  initial: 200
-  min: 0
-  max: 220
   step: 1
 
 downstairs_brightness:
@@ -68,11 +36,55 @@ downstairs_brightness:
   max: 220
   step: 1
 
+# Downstairs Hall
+downstairs_hall_color_temperature:
+  name: Temperature
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+
+downstairs_hall_brightness:
+  name: Brightness
+  initial: 180
+  min: 0
+  max: 220
+  step: 1
+
+# Kitchen
+
+# Living Room
+
+
+######################
+# Upstairs Sliders #
+######################
+
+# Master
 upstairs_brightness:
   name: Brightness
   initial: 180
   min: 0
   max: 220
+  step: 1
+
+upstairs_color_temperature:
+  name: Temperature
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+
+######################
+# Defaults Sliders #
+######################
+
+# Morning Sliders
+morning_color_temperature:
+  name: Morning
+  initial: 300
+  min: 163
+  max: 500
   step: 1
 
 morning_brightness:
@@ -82,11 +94,27 @@ morning_brightness:
   max: 220
   step: 1
 
+# Day Sliders
+day_color_temperature:
+  name: Day
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+
 day_brightness:
   name: Day
   initial: 180
   min: 0
   max: 220
+  step: 1
+
+# Evening Sliders
+evening_color_temperature:
+  name: Evening
+  initial: 300
+  min: 163
+  max: 500
   step: 1
 
 evening_brightness:
@@ -96,10 +124,19 @@ evening_brightness:
   max: 220
   step: 1
 
+# Night Sliders
+night_color_temperature:
+  name: Night
+  initial: 300
+  min: 163
+  max: 500
+  step: 1
+
 night_brightness:
   name: Night
   initial: 10
   min: 0
   max: 220
   step: 1
+
 

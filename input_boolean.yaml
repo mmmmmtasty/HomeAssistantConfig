@@ -18,6 +18,14 @@ locked_downstairs_brightness_change:
   name: Locked Downstairs Brightness
   initial: off
 
+locked_downstairs_hall_brightness_change:
+  name: Locked Downstairs Hall Brightness
+  initial: off
+
+locked_downstairs_hall_temperature_change:
+  name: Locked Downstairs Hall Temperature
+  initial: off
+
 locked_upstairs_color_temperature_change:
   name: Locked Upstairs Colour Temperature
   initial: off

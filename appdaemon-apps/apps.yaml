@@ -77,6 +77,7 @@ Master Color Temperature Slider:
   house_mode_suffix: _color_temperature
   master_slider: input_slider.master_color_temperature
   module: reset_slider
+
 Downstairs Brightness Slider:
   class: ResetSlider
   house_mode: input_select.house_mode
@@ -93,6 +94,7 @@ Upstairs Brightness Slider:
   module: reset_slider
   reset_delay: '300'
   slave_slider: input_slider.upstairs_brightness
+
 Downstairs Color Temperature Slider:
   class: ResetSlider
   house_mode: input_select.house_mode
@@ -110,6 +112,8 @@ Upstairs Color Temperature Slider:
   reset_delay: '300'
   slave_slider: input_slider.upstairs_color_temperature
 
+# Downstairs Hall
+
 Downstairs Hall Motion Lights:
   module: turn_on
   class: TurnOn
@@ -118,12 +122,30 @@ Downstairs Hall Motion Lights:
     - binary_sensor.motion_downstairs_hall_motion
   entities: 
     - light.downstairs_hall
-  brightness_input: input_slider.downstairs_brightness
+  brightness_input: input_slider.downstairs_hall_brightness
   light_mode_input: input_select.downstairs_hall_light_mode
   light_scene_input: input_select.downstairs_hall_scene
-  color_temperature_input: input_slider.downstairs_color_temperature
+  color_temperature_input: input_slider.downstairs_hall_color_temperature
   constrain_input_select: input_select.house_mode,morning,day,evening
   turn_off_delay: '300'
+Downstairs Hall Brightness Slider:
+  class: ResetSlider
+  house_mode: input_select.house_mode
+  lock_boolean: input_boolean.locked_downstairs_hall_brightness_change
+  master_slider: input_slider.downstairs_brightness
+  module: reset_slider
+  reset_delay: '300'
+  slave_slider: input_slider.downstairs_hall_brightness
+Downstairs Hall Color Temperature Slider:
+  class: ResetSlider
+  house_mode: input_select.house_mode
+  lock_boolean: input_boolean.locked_downstairs_hall_color_temperature_change
+  master_slider: input_slider.downstairs_color_temperature
+  module: reset_slider
+  reset_delay: '300'
+  slave_slider: input_slider.downstairs_hall_color_temperature
+
+
 Kitchen Day Motion Lights:
   module: turn_on
   class: TurnOn
