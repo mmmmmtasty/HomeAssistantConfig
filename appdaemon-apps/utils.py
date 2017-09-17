@@ -108,7 +108,6 @@ class Utils(appapi.AppDaemon):
     self.turn_on_light(entity_ids, settings, True)
 
   def turn_off_entity(self, entity_ids, off_transition_seconds = None):
-    self.log("Called for {}".format(entity_ids))
     # Confirm that entity_ids is actually an array here
     if not isinstance(entity_ids, list):
       entity_ids = [entity_ids]

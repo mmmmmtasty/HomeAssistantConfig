@@ -73,6 +73,10 @@ class TurnOn(appapi.AppDaemon):
         return
       else:
         self.log("[BRIGHTNESS PASS] {}: {} < {}".format(self.args['illuminance_sensor_id'], illuminance, max_illuminance))
+    if 'active_modes' in self.args and 'active_mode_input' in self.args:
+      if not self.get_state(self.args['active_mode_input']) in self.args['active_modes']:
+        self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.args['active_mode_input'])))
+        return
     self.utils.turn_on_light(self.args['entities'], self.settings)
 
   # Check to see if the sensor is on, if so, make sure the light delay gets renewed
@@ -82,22 +86,22 @@ class TurnOn(appapi.AppDaemon):
         self.utils.set_delayed_turn_off_time(self.args['entities'], self.settings['turn_off_delay'], self.settings['off_transition_seconds'])
 
   def brightness_update(self, entity, attribute, old, new, kwargs):
-    # Update the saved copy of the brightness and then update the lights
+    self.log("[BRIGHTNESS UPDATE] {} {}".format(entity, new))
     self.settings['brightness'] = self.utils.get_brightness_value(new, self.settings['brightness_offset'])
     self.utils.update_light_if_on(self.args['entities'], self.settings)
 
   def color_temperature_update(self, entity, attribute, old, new, kwargs):
-    self.log("Temperature of {} updated to {}. Updating {}".format(entity, new, self.args['entities']))  
+    self.log("[COLOR TEMPERATURE UPDATE] {} {}".format(entity, new))
     self.settings['color_temperature'] = self.utils.get_color_temperature_value(new, self.settings['color_temperature_offset'])
     self.utils.update_light_if_on(self.args['entities'], self.settings)
 
   def light_mode_update(self, entity, attribute, old, new, kwargs):
-    self.log("Mode of {} updated to {}. Updating {}".format(entity, new, self.args['entities']))  
+    self.log("[LIGHT MODE UPDATE] {} {}".format(entity, new))
     self.settings['light_mode'] = new
     self.utils.update_light_if_on(self.args['entities'], self.settings)
 
   def light_scene_update(self, entity, attribute, old, new, kwargs):
-    self.log('Scene of {} updated to {}. Updating {}'.format(entity, new, self.args['entities']))  
+    self.log("[LIGHT SCENE UPDATE] {} {}".format(entity, new))
     self.settings['light_scene'] = new
     self.utils.update_light_if_on(self.args['entities'], self.settings)
 

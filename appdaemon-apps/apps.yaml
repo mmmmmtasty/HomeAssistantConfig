@@ -124,12 +124,16 @@ Dining Room Day Motion Lights:
     - binary_sensor.motion_dining_room_motion
   entities: 
     - light.dining_room
-  brightness_input: input_slider.downstairs_brightness
+  brightness_input: input_slider.dining_room_brightness
   brightness_offset: '-70.0'
   light_mode_input: input_select.dining_room_light_mode
   light_scene_input: input_select.dining_room_scene
   color_temperature_input: input_slider.downstairs_color_temperature
-  constrain_input_select: input_select.house_mode,morning,day,evening
+  active_modes:
+    - morning
+    - day
+    - evening
+  active_mode_input: input_select.house_mode
   turn_off_delay: '3600'
 Dining Room Brightness Slider:
   class: ResetSlider
@@ -161,7 +165,11 @@ Downstairs Hall Motion Lights:
   light_mode_input: input_select.downstairs_hall_light_mode
   light_scene_input: input_select.downstairs_hall_scene
   color_temperature_input: input_slider.downstairs_hall_color_temperature
-  constrain_input_select: input_select.house_mode,morning,day,evening
+  active_modes:
+    - morning
+    - day
+    - evening
+  active_mode_input: input_select.house_mode
   turn_off_delay: '300'
 Downstairs Hall Brightness Slider:
   class: ResetSlider
@@ -190,12 +198,15 @@ Kitchen Day Motion Lights:
     - binary_sensor.motion_kitchen_motion
   entities: 
     - light.kitchen
-  brightness_input: input_slider.downstairs_brightness
+  brightness_input: input_slider.kitchen_brightness
   brightness_offset: '-20.0'
   light_mode_input: input_select.kitchen_light_mode
   light_scene_input: input_select.kitchen_scene
   color_temperature_input: input_slider.downstairs_color_temperature
-  constrain_input_select: input_select.house_mode,day,evening
+  active_modes:
+    - day
+    - evening
+  active_mode_input: input_select.house_mode
   turn_off_delay: '300'
   illuminance_max_lux: '30'
   illuminance_sensor_id: sensor.multisensor_kitchen_illuminance
@@ -207,12 +218,15 @@ Kitchen Night Motion Lights:
     - binary_sensor.multisensor_kitchen_motion
   entities:
     - group.lights_kitchen_night
-  brightness_input: input_slider.downstairs_brightness
+  brightness_input: input_slider.kitchen_brightness
   brightness_offset: '-50.0'
   light_mode_input: input_select.kitchen_light_mode
   light_scene_input: input_select.kitchen_scene
   color_temperature_input: input_slider.downstairs_color_temperature
-  constrain_input_select: input_select.house_mode,night,morning
+  active_modes:
+    - night
+    - morning
+  active_mode_input: input_select.house_mode
   turn_off_delay: '900'
 Kitchen Brightness Slider:
   class: ResetSlider
@@ -241,7 +255,7 @@ Living Room Motion Lights:
     - binary_sensor.motion_living_room_motion
   entities: 
     - switch.switch_living_room_lamp_switch
-  brightness_input: input_slider.downstairs_brightness
+  brightness_input: input_slider.living_room_brightness
   brightness_offset: 10.0
   color_temperature_input: input_slider.downstairs_color_temperature
   light_mode_input: input_select.living_room_light_mode
@@ -275,7 +289,7 @@ Office Motion Lights:
     - binary_sensor.motion_office_motion
   entities: 
     - light.office
-  brightness_input: input_slider.upstairs_brightness
+  brightness_input: input_slider.office_brightness
   brightness_offset: '50.0'
   light_mode_input: input_select.office_light_mode
   light_scene_input: input_select.office_scene
