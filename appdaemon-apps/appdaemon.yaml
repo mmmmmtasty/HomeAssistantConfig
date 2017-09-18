@@ -2,7 +2,7 @@ AppDaemon:
   app_dir: /home/homeassistant/.homeassistant/appdaemon-apps
   errorfile: /home/pi/appdaemon/log/stderror.log
   logfile: /home/pi/appdaemon/log/stdout.log
-  threads: '10'
+  threads: '20'
 HADashboard:
   dash_compile_on_start: '1'
   dash_dir: /home/homeassistant/.homeassistant/appdaemon-apps/dashboards

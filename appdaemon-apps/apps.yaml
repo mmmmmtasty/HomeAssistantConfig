@@ -29,7 +29,11 @@ Update House Modes:
 Flic Triggered Night Mode Shutdown:
   module: flic_triggered_mode_change
   class: FlicTriggeredModeChange
-  shutdown_entity_id: light.dining_room,light.kitchen
+  shutdown_entity_ids:
+    - light.dining_room
+    - light.kitchen
+    - light.downstairs_hall
+    - switch.switch_living_room_lamp_switch
   house_mode: input_select.house_mode
   new_mode: night
   delay: 120

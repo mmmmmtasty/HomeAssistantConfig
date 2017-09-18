@@ -31,4 +31,3 @@ class UpdateHouseMode(appapi.AppDaemon):
     if current_mode != args['new_mode']:
       self.log("[HOUSE MODE CHANGE] {} {}->{} ".format(self.args['house_mode'], current_mode, args['new_mode']))
       self.select_option(self.args['house_mode'], args['new_mode']) 
-      #self.run_in(self.update_mode, 1, new_mode = args['new_mode'])
