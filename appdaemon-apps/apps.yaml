@@ -157,7 +157,7 @@ Downstairs Hall Motion Lights:
   module: turn_on
   class: TurnOn
   dependencies: utils,defaults
-  sensors: 
+  sensors:
     - binary_sensor.motion_downstairs_hall_motion
   entities: 
     - light.downstairs_hall
@@ -357,7 +357,7 @@ Stairs Motion Lights:
   light_mode_input: input_select.stairs_light_mode
   light_scene_input: input_select.stairs_scene
   color_temperature_input: input_slider.upstairs_color_temperature
-  turn_off_delay: '120'
+  turn_off_delay: '10'
 Stairs Brightness Slider:
   class: ResetSlider
   house_mode: input_select.house_mode

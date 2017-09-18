@@ -15,6 +15,11 @@ class TurnOn(appapi.AppDaemon):
 
     # TODO: Iterate over keys of self.settings and parse and inputs
 
+    # Save which modes this app should be active in
+    if 'active_modes' in self.args and 'active_mode_input' in self.args:
+      self.settings['active_modes'] = self.args['active_modes']
+      self.settings['active_mode_input'] = self.args['active_mode_input']
+
     # Get the brightness offset
     if 'brightness_offset' in self.args:
       self.settings['brightness_offset'] = self.args['brightness_offset']
@@ -73,11 +78,10 @@ class TurnOn(appapi.AppDaemon):
         return
       else:
         self.log("[BRIGHTNESS PASS] {}: {} < {}".format(self.args['illuminance_sensor_id'], illuminance, max_illuminance))
-    if 'active_modes' in self.args and 'active_mode_input' in self.args:
-      if not self.get_state(self.args['active_mode_input']) in self.args['active_modes']:
-        self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.args['active_mode_input'])))
-        return
-    self.utils.turn_on_light(self.args['entities'], self.settings)
+    if self.utils.app_is_active(self.settings):
+      self.utils.turn_on_light(self.args['entities'], self.settings)
+    else:
+      self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.settings['active_mode_input'])))
 
   # Check to see if the sensor is on, if so, make sure the light delay gets renewed
   def renew_delay(self, kwargs):
@@ -88,36 +92,32 @@ class TurnOn(appapi.AppDaemon):
   def brightness_update(self, entity, attribute, old, new, kwargs):
     self.log("[BRIGHTNESS UPDATE] {} {}".format(entity, new))
     self.settings['brightness'] = self.utils.get_brightness_value(new, self.settings['brightness_offset'])
-    if 'active_modes' in self.args and 'active_mode_input' in self.args:
-      if not self.get_state(self.args['active_mode_input']) in self.args['active_modes']:
-        self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.args['active_mode_input'])))
-        return
-    self.utils.update_light_if_on(self.args['entities'], self.settings)
+    if self.utils.app_is_active(self.settings):
+      self.utils.update_light_if_on(self.args['entities'], self.settings)
+    else:
+      self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.settings['active_mode_input'])))
 
   def color_temperature_update(self, entity, attribute, old, new, kwargs):
     self.log("[COLOR TEMPERATURE UPDATE] {} {}".format(entity, new))
     self.settings['color_temperature'] = self.utils.get_color_temperature_value(new, self.settings['color_temperature_offset'])
-    if 'active_modes' in self.args and 'active_mode_input' in self.args:
-      if not self.get_state(self.args['active_mode_input']) in self.args['active_modes']:
-        self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.args['active_mode_input'])))
-        return
-    self.utils.update_light_if_on(self.args['entities'], self.settings)
+    if self.utils.app_is_active(self.settings):
+      self.utils.update_light_if_on(self.args['entities'], self.settings)
+    else:
+      self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.settings['active_mode_input'])))
 
   def light_mode_update(self, entity, attribute, old, new, kwargs):
     self.log("[LIGHT MODE UPDATE] {} {}".format(entity, new))
     self.settings['light_mode'] = new
-    if 'active_modes' in self.args and 'active_mode_input' in self.args:
-      if not self.get_state(self.args['active_mode_input']) in self.args['active_modes']:
-        self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.args['active_mode_input'])))
-        return
-    self.utils.update_light_if_on(self.args['entities'], self.settings)
+    if self.utils.app_is_active(self.settings):
+      self.utils.update_light_if_on(self.args['entities'], self.settings)
+    else:
+      self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.settings['active_mode_input'])))
 
   def light_scene_update(self, entity, attribute, old, new, kwargs):
     self.log("[LIGHT SCENE UPDATE] {} {}".format(entity, new))
     self.settings['light_scene'] = new
-    if 'active_modes' in self.args and 'active_mode_input' in self.args:
-      if not self.get_state(self.args['active_mode_input']) in self.args['active_modes']:
-        self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.args['active_mode_input'])))
-        return
-    self.utils.update_light_if_on(self.args['entities'], self.settings)
+    if self.utils.app_is_active(self.settings):
+      self.utils.update_light_if_on(self.args['entities'], self.settings)
+    else:
+      self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.settings['active_mode_input'])))
 

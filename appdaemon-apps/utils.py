@@ -124,5 +124,8 @@ class Utils(appapi.AppDaemon):
           self.log("[SLOW OFF] {} {} seconds".format(entity_id, off_transition_seconds))
           self.turn_off(entity_id, transition = off_transition_seconds)
 
-      # TODO: Confirm that the device is actually off
-
+  def app_is_active(self, settings):
+    if 'active_modes' in settings and 'active_mode_input' in settings:
+      if not self.get_state(settings['active_mode_input']) in settings['active_modes']:
+        return False
+    return True
