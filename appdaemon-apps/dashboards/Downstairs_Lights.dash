@@ -18,14 +18,18 @@ dash_title:
 
 # Downstairs Hall
 downstairs_hall_light:
-  widget_type: light
+  widget_type: switch
   entity: light.downstairs_hall
   title: Downstairs Hall
   title_style: "color: red; font-size: 150%; font-weight: 250"
-  level_style: "display: none"
-  level_up_style: "display: none"
-  level_down_style: "display: none"
-  unit_style: "display: none"
+  icon_style_active: "display: none"
+  icon_style_inactive: "display: none"
+  #widget_style_active: "background-color: green"
+  #widget_style_inactive: "background-color: purple"
+  #level_style: "display: none"
+  #level_up_style: "display: none"
+  #level_down_style: "display: none"
+  #unit_style: "display: none"
 downstairs_hall_brightness:
   widget_type: new_input_slider
   title: Brightness
@@ -51,12 +55,24 @@ downstairs_hall_scene:
 
 # Dining Room
 dining_room_light:
-  widget_type: light_with_brightness
+  widget_type: switch
   entity: light.dining_room
   title: Dining Room
   title_style: "color: red; font-size: 150%; font-weight: 250"
+  level_style: "display: none"
+  level_up_style: "display: none"
+  level_down_style: "display: none"
+  unit_style: "display: none"
+dining_room_brightness:
+  widget_type: new_input_slider
+  title: Brightness
+  entity: input_slider.dining_room_brightness
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
 dining_room_color_temperature:
   widget_type: new_input_slider
+  title: Color Temperature
   entity: input_slider.dining_room_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
@@ -72,12 +88,20 @@ dining_room_scene:
 
 # Kitchen
 kitchen_light:
-  widget_type: light_with_brightness
+  widget_type: switch
   entity: light.kitchen
   title: Kitchen
   title_style: "color: red; font-size: 150%; font-weight: 250"
+kitchen_brightness:
+  widget_type: new_input_slider
+  title: Brightness
+  entity: input_slider.kitchen_brightness
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
 kitchen_color_temperature:
   widget_type: new_input_slider
+  title: Color Temperature
   entity: input_slider.kitchen_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
@@ -93,12 +117,24 @@ kitchen_scene:
 
 # Living Room
 living_room_light:
-  widget_type: light_with_brightness
+  widget_type: light
   entity: group.lights_living_room
   title: Living Room
   title_style: "color: red; font-size: 150%; font-weight: 250"
+  level_style: "display: none"
+  level_up_style: "display: none"
+  level_down_style: "display: none"
+  unit_style: "display: none"
+living_room_brightness:
+  widget_type: new_input_slider
+  title: Brightness
+  entity: input_slider.living_room_brightness
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
 living_room_color_temperature:
   widget_type: new_input_slider
+  title: Color Temperature
   entity: input_slider.living_room_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
@@ -114,8 +150,8 @@ living_room_scene:
 
 layout:
   - include: header
-  - downstairs_hall_light(4x1),dining_room_light(4x2),kitchen_light(4x2),living_room_light(4x2)
-  - downstairs_hall_brightness(4x1)
+  - downstairs_hall_light(4x1),dining_room_light(4x1),kitchen_light(4x1),living_room_light(4x1)
+  - downstairs_hall_brightness(4x1),dining_room_brightness(4x1),kitchen_brightness(4x1),living_room_brightness(4x1)
   - downstairs_hall_color_temperature(4x1),dining_room_color_temperature(4x1),kitchen_color_temperature(4x1),living_room_color_temperature(4x1)
   - downstairs_hall_light_mode(4x1),dining_room_light_mode(4x1),kitchen_light_mode(4x1),living_room_light_mode(4x1)
   - downstairs_hall_scene(4x1),dining_room_scene(4x1),kitchen_scene(4x1),living_room_scene(4x1)

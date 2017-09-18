@@ -27,7 +27,7 @@ class ResetSlider(appapi.AppDaemon):
   def slider_change(self, entity, attribute, old, new, kwargs):
     # Don't do anything if this slider is locked
     if self.get_state(self.args["lock_boolean"]) == "on":
-      self.log("{} is on, doing nothing...".format(self.args["lock_boolean"]))
+      self.log("[NONE] {} is locked".format(self.args["lock_boolean"]))
       return
 
     # If this is a slave slider being updated, we either need to lock it at a new value or move it back to the master after a delay
@@ -37,14 +37,14 @@ class ResetSlider(appapi.AppDaemon):
         # If we are in the morning or night then we want to set a timer to move the brightness back to the master
         house_mode = self.get_state(self.args["house_mode"])
         if house_mode in ['morning','night']:
-          self.log("State change in {} found. Resetting to value of {} in {} seconds".format(self.args["slave_slider"], self.args["master_slider"], self.args["reset_delay"]))  
+          self.log("[SLIDER RESET DELAY] {} changed. Resetting to value of {} in {} seconds".format(self.args["slave_slider"], self.args["master_slider"], self.args["reset_delay"]))  
           # Cancel any existing timers 
           self.cancel_timer(self.handle)
           # Set a new timer
           self.handle = self.run_in(self.reset_slave_slider, self.args["reset_delay"])
         else:
           # Otherwise we just lock the slider
-          self.log("House is in '{}' mode. Locking brightness at current level".format(house_mode))
+          self.log("[SLIDER LOCK] House is in '{}' mode. Locking brightness at current level".format(house_mode))
           self.turn_on(entity_id = self.args["lock_boolean"])
 
     # If this is the master slider, only move the slaves if they are unlocked
@@ -56,7 +56,7 @@ class ResetSlider(appapi.AppDaemon):
   # Set the value of the slave slider to match the value of its master
   def reset_slave_slider(self, kwargs):
     master_value = self.get_state(self.args["master_slider"])
-    self.log("Resetting value of {} to {}".format(self.args["slave_slider"], master_value))
+    self.log("[SLIDER RESET] {} to {}".format(self.args["slave_slider"], master_value))
     self.select_value(self.args["slave_slider"], master_value)
 
   # If the house mode changes and this is a slave slider then undo the lock
@@ -72,5 +72,5 @@ class ResetSlider(appapi.AppDaemon):
 
   # Function required to facilitate using the self.run_in above
   def master_mode_callback(self, args):
-    self.log("House mode change: resetting {} to value of {}".format(self.args["master_slider"], args["input_slider"]))
+    self.log("[MASTER SLIDER REEST] House mode change: resetting {} to value of {}".format(self.args["master_slider"], args["input_slider"]))
     self.select_value(self.args["master_slider"], self.get_state(args["input_slider"])) 

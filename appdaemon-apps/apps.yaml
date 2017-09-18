@@ -295,7 +295,25 @@ Office Motion Lights:
   light_scene_input: input_select.office_scene
   color_temperature_input: input_slider.upstairs_color_temperature
   turn_off_delay: '900'
-Spare Bedroom Motion Lights:
+Office Brightness Slider:
+  class: ResetSlider
+  house_mode: input_select.house_mode
+  lock_boolean: input_boolean.locked_office_brightness_change
+  master_slider: input_slider.upstairs_brightness
+  module: reset_slider
+  reset_delay: '300'
+  slave_slider: input_slider.office_brightness
+Office Color Temperature Slider:
+  class: ResetSlider
+  house_mode: input_select.house_mode
+  lock_boolean: input_boolean.locked_office_color_temperature_change
+  master_slider: input_slider.upstairs_color_temperature
+  module: reset_slider
+  reset_delay: '300'
+  slave_slider: input_slider.office_color_temperature
+
+# Spare Room
+Spare Room Motion Lights:
   module: turn_on
   class: TurnOn
   dependencies: utils,defaults
@@ -309,6 +327,24 @@ Spare Bedroom Motion Lights:
   light_scene_input: input_select.spare_bedroom_scene
   color_temperature_input: input_slider.upstairs_color_temperature
   turn_off_delay: '900'
+Spare Room Brightness Slider:
+  class: ResetSlider
+  house_mode: input_select.house_mode
+  lock_boolean: input_boolean.locked_spare_room_brightness_change
+  master_slider: input_slider.upstairs_brightness
+  module: reset_slider
+  reset_delay: '300'
+  slave_slider: input_slider.spare_room_brightness
+Spare Room Color Temperature Slider:
+  class: ResetSlider
+  house_mode: input_select.house_mode
+  lock_boolean: input_boolean.locked_spare_room_color_temperature_change
+  master_slider: input_slider.upstairs_color_temperature
+  module: reset_slider
+  reset_delay: '300'
+  slave_slider: input_slider.spare_room_color_temperature
+
+# Stairs
 Stairs Motion Lights:
   module: turn_on
   class: TurnOn
@@ -322,6 +358,24 @@ Stairs Motion Lights:
   light_scene_input: input_select.stairs_scene
   color_temperature_input: input_slider.upstairs_color_temperature
   turn_off_delay: '120'
+Stairs Brightness Slider:
+  class: ResetSlider
+  house_mode: input_select.house_mode
+  lock_boolean: input_boolean.locked_stairs_brightness_change
+  master_slider: input_slider.upstairs_brightness
+  module: reset_slider
+  reset_delay: '300'
+  slave_slider: input_slider.stairs_brightness
+Stairs Color Temperature Slider:
+  class: ResetSlider
+  house_mode: input_select.house_mode
+  lock_boolean: input_boolean.locked_stairs_color_temperature_change
+  master_slider: input_slider.upstairs_color_temperature
+  module: reset_slider
+  reset_delay: '300'
+  slave_slider: input_slider.stairs_color_temperature
+
+# Upstairs Hall
 Upstairs Hall Motion Lights:
   module: turn_on
   class: TurnOn
@@ -336,3 +390,19 @@ Upstairs Hall Motion Lights:
   light_scene_input: input_select.upstairs_hall_scene
   color_temperature_input: input_slider.downstairs_color_temperature
   turn_off_delay: '120'
+Upstairs_hall Hall Brightness Slider:
+  class: ResetSlider
+  house_mode: input_select.house_mode
+  lock_boolean: input_boolean.locked_upstairs_hall_brightness_change
+  master_slider: input_slider.upstairs_hall_brightness
+  module: reset_slider
+  reset_delay: '300'
+  slave_slider: input_slider.upstairs_hall_brightness
+Upstairs_hall Hall Color Temperature Slider:
+  class: ResetSlider
+  house_mode: input_select.house_mode
+  lock_boolean: input_boolean.locked_upstairs_hall_color_temperature_change
+  master_slider: input_slider.upstairs_hall_color_temperature
+  module: reset_slider
+  reset_delay: '300'
+  slave_slider: input_slider.upstairs_hall_color_temperature

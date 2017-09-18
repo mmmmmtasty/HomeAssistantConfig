@@ -40,4 +40,4 @@ class FlicTriggeredModeChange(appapi.AppDaemon):
         off_transition_seconds = 5
         if 'off_transition_seconds' in self.args:
            off_transition_seconds = self.args["off_transition_seconds"]
-        self.global_vars["turn_off"][entity_id]['transition_time'] = off_transition_seconds
+        self.global_vars["turn_off"][entity_id]['off_transition_seconds'] = off_transition_seconds

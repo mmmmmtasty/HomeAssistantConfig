@@ -114,6 +114,7 @@ class Utils(appapi.AppDaemon):
 
     for entity_id in entity_ids:
       domain, entity_name = self.split_entity(entity_id)
+      self.log("[TURN OFF INFO] {} State: {}".format(entity_id, self.get_state(entity_id)))
       if off_transition_seconds is None or domain == 'switch': 
         while self.get_state(entity_id) == 'on':
           self.log("[FAST OFF] {}".format(entity_id))

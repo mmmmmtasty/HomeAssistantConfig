@@ -156,6 +156,7 @@ office_brightness:
   min: 0
   max: 220
   step: 1
+
 ######################
 # Defaults Sliders #
 ######################

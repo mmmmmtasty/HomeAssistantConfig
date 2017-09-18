@@ -137,6 +137,8 @@ switch_icon_style_inactive: $style_inactive
 switch_title_style: $style_title
 switch_title2_style: $style_title2
 switch_widget_style: $background_style
+switch_widget_style_active: ""
+switch_widget_style_inactive: ""
 switch_state_text_style: "color: $white"
 
 lock_icon_on: fa-unlock-alt
