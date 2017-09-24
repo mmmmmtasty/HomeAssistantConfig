@@ -35,7 +35,8 @@ class FlicTriggeredModeChange(appapi.AppDaemon):
           self.global_vars['turn_off'][entity_id] = {}
         # Set a turn off time of (now + delay)
         new_timestamp = (self.datetime().timestamp() + int(self.args["delay"]))
-        self.log("Setting new off time for {} ({})".format(entity_id, new_timestamp))
+        time_string = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(new_timestamp))
+        self.log("Setting new off time for {} ({})".format(entity_id, time_string))
         self.global_vars["turn_off"][entity_id]['off_time'] = new_timestamp 
         # If we were provided an off transition time then include that as well
         off_transition_seconds = 5
