@@ -93,7 +93,7 @@ class TurnOn(appapi.AppDaemon):
     self.log("[BRIGHTNESS UPDATE] {} {}".format(entity, new))
     self.settings['brightness'] = self.utils.get_brightness_value(new, self.settings['brightness_offset'])
     if self.utils.app_is_active(self.settings):
-      self.utils.update_light_if_on(self.args['entities'], self.settings)
+      self.run_in(self.utils.update_light_if_on, 1, **{'entity_ids': self.args['entities'], 'settings': self.settings})
     else:
       self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.settings['active_mode_input'])))
 
@@ -101,7 +101,7 @@ class TurnOn(appapi.AppDaemon):
     self.log("[COLOR TEMPERATURE UPDATE] {} {}".format(entity, new))
     self.settings['color_temperature'] = self.utils.get_color_temperature_value(new, self.settings['color_temperature_offset'])
     if self.utils.app_is_active(self.settings):
-      self.utils.update_light_if_on(self.args['entities'], self.settings)
+      self.run_in(self.utils.update_light_if_on, 1, **{'entity_ids': self.args['entities'], 'settings': self.settings})
     else:
       self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.settings['active_mode_input'])))
 
@@ -109,7 +109,7 @@ class TurnOn(appapi.AppDaemon):
     self.log("[LIGHT MODE UPDATE] {} {}".format(entity, new))
     self.settings['light_mode'] = new
     if self.utils.app_is_active(self.settings):
-      self.utils.update_light_if_on(self.args['entities'], self.settings)
+      self.run_in(self.utils.update_light_if_on, 1, **{'entity_ids': self.args['entities'], 'settings': self.settings})
     else:
       self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.settings['active_mode_input'])))
 
@@ -117,7 +117,7 @@ class TurnOn(appapi.AppDaemon):
     self.log("[LIGHT SCENE UPDATE] {} {}".format(entity, new))
     self.settings['light_scene'] = new
     if self.utils.app_is_active(self.settings):
-      self.utils.update_light_if_on(self.args['entities'], self.settings)
+      self.run_in(self.utils.update_light_if_on, 1, **{'entity_ids': self.args['entities'], 'settings': self.settings})
     else:
       self.log("[NONE] Incorrect mode ({})".format(self.get_state(self.settings['active_mode_input'])))
 

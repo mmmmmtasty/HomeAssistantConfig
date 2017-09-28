@@ -26,7 +26,7 @@ Update House Modes:
   evening_start: '20:00:00'
   night_start: '23:00:00'
 
-Flic Triggered Night Mode Shutdown:
+Flic Night Mode:
   module: flic_triggered_mode_change
   class: FlicTriggeredModeChange
   shutdown_entity_ids:
@@ -40,8 +40,9 @@ Flic Triggered Night Mode Shutdown:
   off_transition_seconds: 10
   trigger_event: flic_click
   trigger_entity_id: flic_80e4da71f014
+  click_type: single
 
-Triggered Day Mode:
+Flic Day Mode:
   module: flic_triggered_mode_change
   class: FlicTriggeredModeChange
   house_mode: input_select.house_mode
@@ -71,7 +72,7 @@ Upstairs Brighten Lights:
 
 # Master
 Master Brightness Sliders:
-  module: reset_slider_new
+  module: reset_slider
   class: ResetSlider
   house_mode: input_select.house_mode
   house_mode_suffix: _brightness
@@ -84,7 +85,7 @@ Master Brightness Sliders:
     input_slider.upstairs_brightness:
       lock_boolean: input_boolean.locked_upstairs_brightness_change
 Master Color Temperature Sliders:
-  module: reset_slider_new
+  module: reset_slider
   class: ResetSlider
   house_mode: input_select.house_mode
   house_mode_suffix: _color_temperature
@@ -97,7 +98,7 @@ Master Color Temperature Sliders:
       lock_boolean: input_boolean.locked_upstairs_color_temperature_change
 
 Downstairs Brightness Sliders:
-  module: reset_slider_new
+  module: reset_slider
   class: ResetSlider
   house_mode: input_select.house_mode
   master_slider: input_slider.downstairs_brightness
@@ -113,7 +114,7 @@ Downstairs Brightness Sliders:
     input_slider.living_room_brightness:
       lock_boolean: input_boolean.locked_living_room_brightness_change
 Downstairs Color Temp Sliders:
-  module: reset_slider_new
+  module: reset_slider
   class: ResetSlider
   house_mode: input_select.house_mode
   master_slider: input_slider.downstairs_color_temperature
@@ -130,7 +131,7 @@ Downstairs Color Temp Sliders:
       lock_boolean: input_boolean.locked_living_room_color_temperature_change
 
 Upstairs Brightness Sliders:
-  module: reset_slider_new
+  module: reset_slider
   class: ResetSlider
   house_mode: input_select.house_mode
   master_slider: input_slider.upstairs_brightness
@@ -146,7 +147,7 @@ Upstairs Brightness Sliders:
     input_slider.spare_room_brightness:
       lock_boolean: input_boolean.locked_spare_room_brightness_change
 Upstairs Color Temp Sliders:
-  module: reset_slider_new
+  module: reset_slider
   class: ResetSlider
   house_mode: input_select.house_mode
   master_slider: input_slider.upstairs_color_temperature

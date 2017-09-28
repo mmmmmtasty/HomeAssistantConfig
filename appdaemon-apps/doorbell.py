@@ -1,8 +1,6 @@
 import appdaemon.appapi as appapi
 import time
 
-# Doorbell script to do Sonos and Hue light notification
-
 class Doorbell(appapi.AppDaemon):
 
   def initialize(self):

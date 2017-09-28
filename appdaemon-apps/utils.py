@@ -72,11 +72,14 @@ class Utils(appapi.AppDaemon):
       elif settings['light_mode'] == 'colorloop_split':
         pass
 
-    # Set a turn off time of now + turn_off_delay
-    self.set_delayed_turn_off_time(entity_ids, settings['turn_off_delay'], settings['off_transition_seconds'])
+      # Set a turn off time of now + turn_off_delay
+      self.set_delayed_turn_off_time(entity_id, settings['turn_off_delay'], settings['off_transition_seconds'])
 
-  # Set the turn off time for a single eneity_id. Expand if it is a group
+  # Set the turn off time for a single entity_id. Expand if it is a group
   def set_turn_off_time(self, entity_ids, turn_off_time, off_transition_seconds):
+    # Confirm that entity_ids is actually an array here
+    if not isinstance(entity_ids, list):
+      entity_ids = [entity_ids]
     # Make sure the turn_off keys exist in global_vars 
     if 'turn_off' not in self.global_vars:
       self.global_vars['turn_off'] = {}
@@ -104,25 +107,8 @@ class Utils(appapi.AppDaemon):
     self.set_turn_off_time(entity_ids, (self.datetime().timestamp() + int(turn_off_delay)), off_transition_seconds)
 
   # Apply updates to a light only if it is already on
-  def update_light_if_on(self, entity_ids, settings):
-    self.turn_on_light(entity_ids, settings, True)
-
-  def turn_off_entity(self, entity_ids, off_transition_seconds = None):
-    # Confirm that entity_ids is actually an array here
-    if not isinstance(entity_ids, list):
-      entity_ids = [entity_ids]
-
-    for entity_id in entity_ids:
-      domain, entity_name = self.split_entity(entity_id)
-      self.log("[TURN OFF INFO] {} State: {}".format(entity_id, self.get_state(entity_id)))
-      if off_transition_seconds is None or domain == 'switch': 
-        while self.get_state(entity_id) == 'on':
-          self.log("[FAST OFF] {}".format(entity_id))
-          self.turn_off(entity_id)
-      else:
-        while self.get_state(entity_id) == 'on':
-          self.log("[SLOW OFF] {} {} seconds".format(entity_id, off_transition_seconds))
-          self.turn_off(entity_id, transition = off_transition_seconds)
+  def update_light_if_on(self, kwargs):
+    self.turn_on_light(kwargs['entity_ids'], kwargs['settings'], True)
 
   def app_is_active(self, settings):
     if 'active_modes' in settings and 'active_mode_input' in settings:

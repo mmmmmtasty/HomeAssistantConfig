@@ -1,4 +1,5 @@
 import appdaemon.appapi as appapi
+import time
 
 # Check to see what needs to be turned off and turn it off
 #
@@ -11,16 +12,25 @@ class TurnerOfferer(appapi.AppDaemon):
     if "turn_off" in self.global_vars:
       for entity_id in self.global_vars['turn_off']:
         off_time = self.global_vars["turn_off"][entity_id]["off_time"]
+        #off_time_string = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(self.global_vars['turn_off'][entity_id]['off_time']))
+        #self.log("{} Off Time: {}".format(entity_id, off_time_string))
 
+        if off_time > self.datetime().timestamp() and off_time != 0.0:
+          off_time_string = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(off_time))
+          now_time_string = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()) 
+          #self.log("[NONE] {} {} > {}".format(entity_id, off_time_string, now_time_string))
+          
         if off_time < self.datetime().timestamp() and off_time != 0.0:
-          self.log("[TIMES UP] {} {} < {}".format(entity_id, off_time, self.datetime().timestamp()))
+          off_time_string = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(off_time))
+          now_time_string = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()) 
+          self.log("[TIMES UP] {} {} < {}".format(entity_id, off_time_string, now_time_string))
 
           if "off_transition_seconds" in self.global_vars["turn_off"][entity_id]:
             off_transition_seconds = self.global_vars['turn_off'][entity_id]['off_transition_seconds']
           else:
             off_transition_seconds = None
 
-          self.turn_off_entity({'entity_id': entity_id, 'off_transition_seconds': off_transition_seconds})
+          self.run_in(self.turn_off_entity, 1, **{'entity_id': entity_id, 'off_transition_seconds': off_transition_seconds})
 
           # Set the turn off time to be 0.0
           self.global_vars["turn_off"][entity_id]["off_time"] = 0.0
@@ -29,7 +39,6 @@ class TurnerOfferer(appapi.AppDaemon):
     off_transition_seconds = kwargs['off_transition_seconds']
     entity_id = kwargs['entity_id']
     domain, entity_name = self.split_entity(entity_id)
-    self.log("[STATE] {} {}".format(entity_id, self.get_state(entity_id)))
     if self.get_state(entity_id) == 'on':
       if off_transition_seconds is None or domain == 'switch': 
         self.log("[FAST OFF] {}".format(entity_id))

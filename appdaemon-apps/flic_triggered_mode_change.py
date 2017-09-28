@@ -9,6 +9,7 @@ class FlicTriggeredModeChange(appapi.AppDaemon):
 
   # Update the mode and shut down lights if required
   def mode_change(self, event_name, data, kwargs):
+    self.log(data)
     self.log("Mode change for {} to {} after {} triggered {}".format(self.args['house_mode'], self.args['new_mode'], data['button_name'], self.args['trigger_event']))
     # set night mode
     self.select_option(self.args["house_mode"], self.args["new_mode"]) 
