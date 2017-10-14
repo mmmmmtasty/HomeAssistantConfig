@@ -56,17 +56,17 @@ Turner Offerer:
   dependencies: utils
 
 Downstairs Brighten Lights:
-  brightness_slider: input_slider.downstairs_brightness
+  brightness_slider: input_number.downstairs_brightness
   class: BrightenLights
   constrain_input_select: input_select.house_mode,night,morning
-  max_brightness_slider: input_slider.evening_brightness
+  max_brightness_slider: input_number.evening_brightness
   module: brighten_lights
   sensors: binary_sensor.multisensor_kitchen_motion,binary_sensor.motion_living_room_motion,binary_sensor.motion_dining_room_motion,binary_sensor.motion_downstairs_hall_motion
 Upstairs Brighten Lights:
-  brightness_slider: input_slider.upstairs_brightness
+  brightness_slider: input_number.upstairs_brightness
   class: BrightenLights
   constrain_input_select: input_select.house_mode,night,morning
-  max_brightness_slider: input_slider.evening_brightness
+  max_brightness_slider: input_number.evening_brightness
   module: brighten_lights
   sensors: binary_sensor.motion_stairs_motion,binary_sensor.motion_upstairs_hall_motion
 
@@ -76,91 +76,91 @@ Master Brightness Sliders:
   class: ResetSlider
   house_mode: input_select.house_mode
   house_mode_suffix: _brightness
-  master_slider: input_slider.master_brightness
+  master_slider: input_number.master_brightness
   master: true
   reset_delay: 900
   slave_sliders:
-    input_slider.downstairs_brightness:
+    input_number.downstairs_brightness:
       lock_boolean: input_boolean.locked_downstairs_brightness_change
-    input_slider.upstairs_brightness:
+    input_number.upstairs_brightness:
       lock_boolean: input_boolean.locked_upstairs_brightness_change
 Master Color Temperature Sliders:
   module: reset_slider
   class: ResetSlider
   house_mode: input_select.house_mode
   house_mode_suffix: _color_temperature
-  master_slider: input_slider.master_color_temperature
+  master_slider: input_number.master_color_temperature
   master: true
   slave_sliders:
-    input_slider.downstairs_color_temperature:
+    input_number.downstairs_color_temperature:
       lock_boolean: input_boolean.locked_downstairs_color_temperature_change
-    input_slider.upstairs_color_temperature:
+    input_number.upstairs_color_temperature:
       lock_boolean: input_boolean.locked_upstairs_color_temperature_change
 
 Downstairs Brightness Sliders:
   module: reset_slider
   class: ResetSlider
   house_mode: input_select.house_mode
-  master_slider: input_slider.downstairs_brightness
+  master_slider: input_number.downstairs_brightness
   master: false
   reset_delay: 900
   slave_sliders:
-    input_slider.dining_room_brightness:
+    input_number.dining_room_brightness:
       lock_boolean: input_boolean.locked_dining_room_brightness_change
-    input_slider.downstairs_hall_brightness:
+    input_number.downstairs_hall_brightness:
       lock_boolean: input_boolean.locked_downstairs_hall_brightness_change
-    input_slider.kitchen_brightness:
+    input_number.kitchen_brightness:
       lock_boolean: input_boolean.locked_kitchen_brightness_change
-    input_slider.living_room_brightness:
+    input_number.living_room_brightness:
       lock_boolean: input_boolean.locked_living_room_brightness_change
 Downstairs Color Temp Sliders:
   module: reset_slider
   class: ResetSlider
   house_mode: input_select.house_mode
-  master_slider: input_slider.downstairs_color_temperature
+  master_slider: input_number.downstairs_color_temperature
   master: false
   reset_delay: 900
   slave_sliders:
-    input_slider.dining_room_color_temperature:
+    input_number.dining_room_color_temperature:
       lock_boolean: input_boolean.locked_dining_room_color_temperature_change
-    input_slider.downstairs_hall_color_temperature:
+    input_number.downstairs_hall_color_temperature:
       lock_boolean: input_boolean.locked_downstairs_hall_color_temperature_change
-    input_slider.kitchen_color_temperature:
+    input_number.kitchen_color_temperature:
       lock_boolean: input_boolean.locked_kitchen_color_temperature_change
-    input_slider.living_room_color_temperature:
+    input_number.living_room_color_temperature:
       lock_boolean: input_boolean.locked_living_room_color_temperature_change
 
 Upstairs Brightness Sliders:
   module: reset_slider
   class: ResetSlider
   house_mode: input_select.house_mode
-  master_slider: input_slider.upstairs_brightness
+  master_slider: input_number.upstairs_brightness
   master: false
   reset_delay: 900
   slave_sliders:
-    input_slider.office_brightness:
+    input_number.office_brightness:
       lock_boolean: input_boolean.locked_office_brightness_change
-    input_slider.upstairs_hall_brightness:
+    input_number.upstairs_hall_brightness:
       lock_boolean: input_boolean.locked_upstairs_hall_brightness_change
-    input_slider.stairs_brightness:
+    input_number.stairs_brightness:
       lock_boolean: input_boolean.locked_stairs_brightness_change
-    input_slider.spare_room_brightness:
+    input_number.spare_room_brightness:
       lock_boolean: input_boolean.locked_spare_room_brightness_change
 Upstairs Color Temp Sliders:
   module: reset_slider
   class: ResetSlider
   house_mode: input_select.house_mode
-  master_slider: input_slider.upstairs_color_temperature
+  master_slider: input_number.upstairs_color_temperature
   master: false
   reset_delay: 900
   slave_sliders:
-    input_slider.office_color_temperature:
+    input_number.office_color_temperature:
       lock_boolean: input_boolean.locked_office_color_temperature_change
-    input_slider.upstairs_hall_color_temperature:
+    input_number.upstairs_hall_color_temperature:
       lock_boolean: input_boolean.locked_upstairs_hall_color_temperature_change
-    input_slider.stairs_color_temperature:
+    input_number.stairs_color_temperature:
       lock_boolean: input_boolean.locked_stairs_color_temperature_change
-    input_slider.spare_room_color_temperature:
+    input_number.spare_room_color_temperature:
       lock_boolean: input_boolean.locked_spare_room_color_temperature_change
 
 # Dining Room
@@ -172,11 +172,11 @@ Dining Room Day Motion Lights:
     - binary_sensor.motion_dining_room_motion
   entities: 
     - light.dining_room
-  brightness_input: input_slider.dining_room_brightness
+  brightness_input: input_number.dining_room_brightness
   brightness_offset: '-70.0'
   light_mode_input: input_select.dining_room_light_mode
   light_scene_input: input_select.dining_room_scene
-  color_temperature_input: input_slider.downstairs_color_temperature
+  color_temperature_input: input_number.dining_room_color_temperature
   active_modes:
     - morning
     - day
@@ -193,10 +193,10 @@ Downstairs Hall Motion Lights:
     - binary_sensor.motion_downstairs_hall_motion
   entities: 
     - light.downstairs_hall
-  brightness_input: input_slider.downstairs_hall_brightness
+  brightness_input: input_number.downstairs_hall_brightness
   light_mode_input: input_select.downstairs_hall_light_mode
   light_scene_input: input_select.downstairs_hall_scene
-  color_temperature_input: input_slider.downstairs_hall_color_temperature
+  color_temperature_input: input_number.downstairs_hall_color_temperature
   active_modes:
     - morning
     - day
@@ -214,11 +214,11 @@ Kitchen Day Motion Lights:
     - binary_sensor.motion_kitchen_motion
   entities: 
     - light.kitchen
-  brightness_input: input_slider.kitchen_brightness
+  brightness_input: input_number.kitchen_brightness
   brightness_offset: '-20.0'
   light_mode_input: input_select.kitchen_light_mode
   light_scene_input: input_select.kitchen_scene
-  color_temperature_input: input_slider.downstairs_color_temperature
+  color_temperature_input: input_number.kitchen_color_temperature
   active_modes:
     - day
     - evening
@@ -234,11 +234,11 @@ Kitchen Night Motion Lights:
     - binary_sensor.multisensor_kitchen_motion
   entities:
     - group.lights_kitchen_night
-  brightness_input: input_slider.kitchen_brightness
+  brightness_input: input_number.kitchen_brightness
   brightness_offset: '-50.0'
   light_mode_input: input_select.kitchen_light_mode
   light_scene_input: input_select.kitchen_scene
-  color_temperature_input: input_slider.downstairs_color_temperature
+  color_temperature_input: input_number.kitchen_color_temperature
   active_modes:
     - night
     - morning
@@ -255,9 +255,9 @@ Living Room Motion Lights:
     - binary_sensor.motion_living_room_motion
   entities: 
     - switch.switch_living_room_lamp_switch
-  brightness_input: input_slider.living_room_brightness
+  brightness_input: input_number.living_room_brightness
   brightness_offset: 10.0
-  color_temperature_input: input_slider.downstairs_color_temperature
+  color_temperature_input: input_number.living_room_color_temperature
   light_mode_input: input_select.living_room_light_mode
   light_scene_input: input_select.living_room_scene
   turn_off_delay: '900'
@@ -273,11 +273,11 @@ Office Motion Lights:
     - binary_sensor.motion_office_motion
   entities: 
     - light.office
-  brightness_input: input_slider.office_brightness
+  brightness_input: input_number.office_brightness
   brightness_offset: '50.0'
   light_mode_input: input_select.office_light_mode
   light_scene_input: input_select.office_scene
-  color_temperature_input: input_slider.upstairs_color_temperature
+  color_temperature_input: input_number.office_color_temperature
   turn_off_delay: '900'
 
 # Spare Room
@@ -289,11 +289,11 @@ Spare Room Motion Lights:
     - binary_sensor.motion_spare_room_motion
   entities:
     - light.spare_bedroom
-  brightness_input: input_slider.upstairs_brightness
+  brightness_input: input_number.upstairs_brightness
   brightness_offset: '50.0'
   light_mode_input: input_select.spare_bedroom_light_mode
   light_scene_input: input_select.spare_bedroom_scene
-  color_temperature_input: input_slider.upstairs_color_temperature
+  color_temperature_input: input_number.spare_room_color_temperature
   turn_off_delay: '900'
 
 # Stairs
@@ -305,10 +305,10 @@ Stairs Motion Lights:
     - binary_sensor.motion_stairs_motion
   entities: 
     - light.stairs
-  brightness_input: input_slider.upstairs_brightness
+  brightness_input: input_number.upstairs_brightness
   light_mode_input: input_select.stairs_light_mode
   light_scene_input: input_select.stairs_scene
-  color_temperature_input: input_slider.upstairs_color_temperature
+  color_temperature_input: input_number.stairs_color_temperature
   turn_off_delay: '120'
 
 # Upstairs Hall
@@ -320,9 +320,9 @@ Upstairs Hall Motion Lights:
     - binary_sensor.motion_upstairs_hall_motion
   entities: 
     - light.upstairs_hall
-  brightness_input: input_slider.upstairs_brightness
+  brightness_input: input_number.upstairs_brightness
   brightness_offset: '50.0'
   light_mode_input: input_select.upstairs_hall_light_mode
   light_scene_input: input_select.upstairs_hall_scene
-  color_temperature_input: input_slider.downstairs_color_temperature
+  color_temperature_input: input_number.upstairs_hall_color_temperature
   turn_off_delay: '120'

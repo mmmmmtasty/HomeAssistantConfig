@@ -1,8 +1,8 @@
 title: Home
-widget_dimensions: [100, 100]
+widget_dimensions: [50, 50]
 widget_size: [1, 1]
 widget_margins: [5, 5]
-columns: 8
+columns: 16
 global_parameters:
   use_comma: 0
   precision: 1

@@ -5,7 +5,6 @@ widget_margins: [5, 5]
 columns: 16
 global_parameters:
     use_comma: 0
-    precision: 1
     use_hass_icon: 1
 
 clock:
@@ -16,11 +15,11 @@ dash_title:
   widget_type: label
   text: Downstairs Lights
 
-# Downstairs Hall
-downstairs_hall_light:
+# Office
+office_light:
   widget_type: light
-  entity: light.downstairs_hall
-  title: Downstairs Hall
+  entity: light.office
+  title: Office
   title_style: "color: red; font-size: 150%; font-weight: 250"
   icon_style_active: "display: none"
   icon_style_inactive: "display: none"
@@ -30,34 +29,34 @@ downstairs_hall_light:
   level_up_style: "display: none"
   level_down_style: "display: none"
   unit_style: "display: none"
-downstairs_hall_brightness:
+office_brightness:
   widget_type: new_input_slider
   title: Brightness
-  entity: input_slider.downstairs_hall_brightness
+  entity: input_slider.office_brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
-downstairs_hall_color_temperature:
+office_color_temperature:
   widget_type: new_input_slider
   title: Color Temperature
-  entity: input_slider.downstairs_hall_color_temperature
+  entity: input_slider.office_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
-downstairs_hall_light_mode:
+office_light_mode:
   widget_type: input_select
-  entity: input_select.downstairs_hall_light_mode
+  entity: input_select.office_light_mode
   select_parent_style: "position: unset"
-downstairs_hall_scene:
+office_scene:
   widget_type: input_select
-  entity: input_select.downstairs_hall_scene
+  entity: input_select.office_scene
   select_parent_style: "position: unset"
 
-# Dining Room
-dining_room_light:
+# Spare Room
+spare_room_light:
   widget_type: light
-  entity: light.dining_room
-  title: Dining Room
+  entity: light.spare_bedroom
+  title: Spare Room
   title_style: "color: red; font-size: 150%; font-weight: 250"
   icon_style_active: "display: none"
   icon_style_inactive: "display: none"
@@ -67,34 +66,34 @@ dining_room_light:
   level_up_style: "display: none"
   level_down_style: "display: none"
   unit_style: "display: none"
-dining_room_brightness:
+spare_room_brightness:
   widget_type: new_input_slider
   title: Brightness
-  entity: input_slider.dining_room_brightness
+  entity: input_slider.spare_room_brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
-dining_room_color_temperature:
+spare_room_color_temperature:
   widget_type: new_input_slider
   title: Color Temperature
-  entity: input_slider.dining_room_color_temperature
+  entity: input_slider.spare_room_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
-dining_room_light_mode:
+spare_room_light_mode:
   widget_type: input_select
-  entity: input_select.dining_room_light_mode
+  entity: input_select.spare_bedroom_light_mode
   select_parent_style: "position: unset"
-dining_room_scene:
+spare_room_scene:
   widget_type: input_select
-  entity: input_select.dining_room_scene
+  entity: input_select.spare_bedroom_scene
   select_parent_style: "position: unset"
 
-# Kitchen
-kitchen_light:
+# Stairs
+stairs_light:
   widget_type: light
-  entity: light.kitchen
-  title: Kitchen
+  entity: light.stairs
+  title: Stairs
   title_style: "color: red; font-size: 150%; font-weight: 250"
   icon_style_active: "display: none"
   icon_style_inactive: "display: none"
@@ -104,34 +103,34 @@ kitchen_light:
   level_up_style: "display: none"
   level_down_style: "display: none"
   unit_style: "display: none"
-kitchen_brightness:
+stairs_brightness:
   widget_type: new_input_slider
   title: Brightness
-  entity: input_slider.kitchen_brightness
+  entity: input_slider.stairs_brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
-kitchen_color_temperature:
+stairs_color_temperature:
   widget_type: new_input_slider
   title: Color Temperature
-  entity: input_slider.kitchen_color_temperature
+  entity: input_slider.stairs_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
-kitchen_light_mode:
+stairs_light_mode:
   widget_type: input_select
-  entity: input_select.kitchen_light_mode
+  entity: input_select.stairs_light_mode
   select_parent_style: "position: unset"
-kitchen_scene:
+stairs_scene:
   widget_type: input_select
-  entity: input_select.kitchen_scene
+  entity: input_select.stairs_scene
   select_parent_style: "position: unset"
 
-# Living Room
-living_room_light:
-  widget_type: switch
-  entity: group.lights_living_room
-  title: Living Room
+# Upstairs Hall
+upstairs_hall_light:
+  widget_type: light
+  entity: light.upstairs_hall
+  title: Upstairs Hall
   title_style: "color: red; font-size: 150%; font-weight: 250"
   icon_style_active: "display: none"
   icon_style_inactive: "display: none"
@@ -141,34 +140,34 @@ living_room_light:
   level_up_style: "display: none"
   level_down_style: "display: none"
   unit_style: "display: none"
-living_room_brightness:
+upstairs_hall_brightness:
   widget_type: new_input_slider
   title: Brightness
-  entity: input_slider.living_room_brightness
+  entity: input_slider.upstairs_hall_brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
-living_room_color_temperature:
+upstairs_hall_color_temperature:
   widget_type: new_input_slider
   title: Color Temperature
-  entity: input_slider.living_room_color_temperature
+  entity: input_slider.upstairs_hall_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
-living_room_light_mode:
+upstairs_hall_light_mode:
   widget_type: input_select
-  entity: input_select.living_room_light_mode
+  entity: input_select.upstairs_hall_light_mode
   select_parent_style: "position: unset"
-living_room_scene:
+upstairs_hall_scene:
   widget_type: input_select
-  entity: input_select.living_room_scene
+  entity: input_select.upstairs_hall_scene
   select_parent_style: "position: unset"
 
 layout:
   - include: header
-  - dining_room_light(4x1),downstairs_hall_light(4x1),kitchen_light(4x1),living_room_light(4x1)
-  - dining_room_brightness(4x1),downstairs_hall_brightness(4x1),kitchen_brightness(4x1),living_room_brightness(4x1)
-  - dining_room_color_temperature(4x1),downstairs_hall_color_temperature(4x1),kitchen_color_temperature(4x1),living_room_color_temperature(4x1)
-  - dining_room_light_mode(4x1),downstairs_hall_light_mode(4x1),kitchen_light_mode(4x1),living_room_light_mode(4x1)
-  - dining_room_scene(4x1),downstairs_hall_scene(4x1),kitchen_scene(4x1),living_room_scene(4x1)
+  - office_light(4x1),spare_room_light(4x1),stairs_light(4x1),upstairs_hall_light(4x1)
+  - office_brightness(4x1),spare_room_brightness(4x1),stairs_brightness(4x1),upstairs_hall_brightness(4x1)
+  - office_color_temperature(4x1),spare_room_color_temperature(4x1),stairs_color_temperature(4x1),upstairs_hall_color_temperature(4x1)
+  - office_light_mode(4x1),spare_room_light_mode(4x1),stairs_light_mode(4x1),upstairs_hall_light_mode(4x1)
+  - office_scene(4x1),spare_room_scene(4x1),stairs_scene(4x1),upstairs_hall_scene(4x1)
   - include: footer 

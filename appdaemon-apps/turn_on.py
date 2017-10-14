@@ -86,7 +86,7 @@ class TurnOn(appapi.AppDaemon):
   # Check to see if the sensor is on, if so, make sure the light delay gets renewed
   def renew_delay(self, kwargs):
     for sensor_id in self.args['sensors']:
-      if self.get_state(sensor_id) == "on":
+      if self.get_state(sensor_id) == "on" and self.utils.app_is_active(self.settings):
         self.utils.set_delayed_turn_off_time(self.args['entities'], self.settings['turn_off_delay'], self.settings['off_transition_seconds'])
 
   def brightness_update(self, entity, attribute, old, new, kwargs):

@@ -5,11 +5,18 @@ nav_home:
   icon_inactive: mdi-home
   skin: MJ
 
-nav_lights:
+nav_downstairs_lights:
   widget_type: navigate
   title: Downstairs
   title2: Lights
   dashboard: Downstairs_Lights
+  skin: MJ
+
+nav_upstairs_lights:
+  widget_type: navigate
+  title: Upstairs
+  title2: Lights
+  dashboard: Upstairs_Lights
   skin: MJ
 
 nav_defaults:
@@ -22,4 +29,4 @@ reload:
   widget_type: reload
   title: Reload
 layout:
-  - nav_home(2x2),nav_lights(2x2),nav_defaults(2x2),reload(2x2)
+  - nav_home(2x2),nav_downstairs_lights(2x2),nav_upstairs_lights(2x2),nav_defaults(2x2),reload(2x2)

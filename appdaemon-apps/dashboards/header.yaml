@@ -9,6 +9,14 @@ clock:
   date_style: "color: white"
   time_style: "color: white"
 
+weather_hourly_summary:
+  widget_type: sensor
+  entity: sensor.dark_sky_hourly_summary
+  value_style: "font-size: 60%; color: green"
+  text_style: "font-size: 60%; color: red"
+  state_text_style: "font-size: 60%; color: blue"
+  unit_style: "font-size: 60%; color: purple"
+
 layout:
-  - clock(4x2),dash_title(8x2),house_mode(2x2)
+  - clock(4x2),dash_title(8x2),weather_hourly_summary(2x2),house_mode(2x2)
   - 

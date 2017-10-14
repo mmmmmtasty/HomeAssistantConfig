@@ -43,7 +43,12 @@ class TurnerOfferer(appapi.AppDaemon):
       if off_transition_seconds is None or domain == 'switch': 
         self.log("[FAST OFF] {}".format(entity_id))
         self.turn_off(entity_id)
+        # Run again for good measure
+        self.turn_off(entity_id)
+        self.run_in(self.turn_off_entity, 1, **{'entity_id': entity_id, 'off_transition_seconds': None})
       else:
         self.log("[SLOW OFF] {} {} seconds".format(entity_id, off_transition_seconds))
         self.turn_off(entity_id, transition = off_transition_seconds)
-      self.run_in(self.turn_off_entity, 1, **{'entity_id': entity_id, 'off_transition_seconds': None})
+        # Run again for good measure
+        self.turn_off(entity_id, transition = off_transition_seconds)
+        self.run_in(self.turn_off_entity, 1, **{'entity_id': entity_id, 'off_transition_seconds': off_transition_seconds})

@@ -32,10 +32,11 @@ class ResetSlider(appapi.AppDaemon):
         house_mode = self.get_state(self.args['house_mode']) 
         if house_mode in ['morning','night']:
           #self.log("[SLIDER RESET DELAY] {} changed. Resetting to value of {} in {} seconds".format(entity, self.args["master_slider"], self.args["reset_delay"]))  
-          # Cancel any existing timers 
-          self.cancel_timer(self.handle[entity])
+          # Cancel any existing timers
+          if entity in self.handles:
+            self.cancel_timer(self.handles[entity])
           # Set a new timer
-          self.handle[entity] = self.run_in(self.reset_slave_slider, self.args['reset_delay'], **{'slider': entity})
+          self.handles[entity] = self.run_in(self.reset_slave_slider, self.args['reset_delay'], **{'slider': entity})
         else:
           # Otherwise we just lock the slider
           #self.log("[SLIDER LOCK] {} House is in '{}' mode. Locking until house mode change".format(entity, house_mode))

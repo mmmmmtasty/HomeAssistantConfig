@@ -1,62 +1,106 @@
 title: Defaults
-widget_dimensions: [100, 100]
+widget_dimensions: [50, 50]
 widget_size: [1, 1]
 widget_margins: [5, 5]
-columns: 8
+columns: 16
 global_parameters:
   use_comma: 0
-  precision: 1
   use_hass_icon: 1
 
 dash_title:
   widget_type: label
   text: Defaults
 
+day_title:
+  widget_type: label
+  title: Day 
+  title_style: "color: red; font-size: 150%; font-weight: 250"
+
 day_brightness:
-  widget_type: input_slider
+  widget_type: new_input_slider
   entity: input_slider.day_brightness
-  title: Day Brightness
-  step: 100
+  title: Brightness
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
 
 day_color_temperature:
-  widget_type: input_slider
+  widget_type: new_input_slider
   entity: input_slider.day_color_temperature
-  title: Day Color Temperature
+  title: Color Temperature
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
+
+morning_title:
+  widget_type: label
+  title: Morning 
+  title_style: "color: red; font-size: 150%; font-weight: 250"
 
 morning_brightness:
-  widget_type: input_slider
+  widget_type: new_input_slider
   entity: input_slider.morning_brightness
-  title: Morning Brightness
+  title: Brightness
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
 
 morning_color_temperature:
-  widget_type: input_slider
+  widget_type: new_input_slider
   entity: input_slider.morning_color_temperature
-  title: Morning Color Temperature
+  title: Color Temperature
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
+
+evening_title:
+  widget_type: label
+  title: Evening 
+  title_style: "color: red; font-size: 150%; font-weight: 250"
 
 evening_brightness:
-  widget_type: input_slider
+  widget_type: new_input_slider
   entity: input_slider.evening_brightness
-  title: Evening Brightness
+  title: Brightness
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
 
 evening_color_temperature:
-  widget_type: input_slider
+  widget_type: new_input_slider
   entity: input_slider.evening_color_temperature
-  title: Evening Color Temperature
+  title: Color Temperature
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
+
+night_title:
+  widget_type: label
+  title: Night 
+  title_style: "color: red; font-size: 150%; font-weight: 250"
 
 night_brightness:
-  widget_type: input_slider
+  widget_type: new_input_slider
   entity: input_slider.night_brightness
-  title: Night Brightness
+  title: Brightness
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
 
 night_color_temperature:
-  widget_type: input_slider
+  widget_type: new_input_slider
   entity: input_slider.night_color_temperature
-  title: Night Color Temperature
+  title: Color Temperature
+  value_style: "display: none"
+  maxvalue_style: "display: none"
+  minvalue_style: "display: none"
 
 
 layout:
   - include: header
-  - morning_brightness(2x1),day_brightness(2x1),evening_brightness(2x1),night_brightness(2x1)
-  - morning_color_temperature(2x1),day_color_temperature(2x1),evening_color_temperature(2x1),night_color_temperature(2x1)
+  - morning_title(4x1),day_title(4x1),evening_title(4x1),night_title(4x1)
+  - morning_brightness(4x1),day_brightness(4x1),evening_brightness(4x1),night_brightness(4x1)
+  - morning_color_temperature(4x1),day_color_temperature(4x1),evening_color_temperature(4x1),night_color_temperature(4x1)
+  -
   -
   - include: footer 
