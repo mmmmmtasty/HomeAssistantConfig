@@ -21,9 +21,21 @@ kitchen_sonos:
   title: Kitchen Sonos
   step: 0.01
 
+northern:
+  widget_type: sensor
+  title: Northern Line
+  entity: sensor.northern
+
+victoria:
+  widget_type: sensor
+  title: Victoria Line
+  entity: sensor.victoria
+
 layout:
   - include: header
   - weather(2x2),kitchen_sonos(3x3)
   -
+  -
+  - northern(2x2),victoria(2x2)
   -
   - include: footer 
