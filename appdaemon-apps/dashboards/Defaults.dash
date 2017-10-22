@@ -18,19 +18,23 @@ day_title:
 
 day_brightness:
   widget_type: new_input_slider
-  entity: input_slider.day_brightness
+  entity: input_number.day_brightness
   title: Brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 
 day_color_temperature:
   widget_type: new_input_slider
-  entity: input_slider.day_color_temperature
+  entity: input_number.day_color_temperature
   title: Color Temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 
 morning_title:
   widget_type: label
@@ -39,19 +43,23 @@ morning_title:
 
 morning_brightness:
   widget_type: new_input_slider
-  entity: input_slider.morning_brightness
+  entity: input_number.morning_brightness
   title: Brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 
 morning_color_temperature:
   widget_type: new_input_slider
-  entity: input_slider.morning_color_temperature
+  entity: input_number.morning_color_temperature
   title: Color Temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 
 evening_title:
   widget_type: label
@@ -60,19 +68,23 @@ evening_title:
 
 evening_brightness:
   widget_type: new_input_slider
-  entity: input_slider.evening_brightness
+  entity: input_number.evening_brightness
   title: Brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 
 evening_color_temperature:
   widget_type: new_input_slider
-  entity: input_slider.evening_color_temperature
+  entity: input_number.evening_color_temperature
   title: Color Temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 
 night_title:
   widget_type: label
@@ -81,19 +93,23 @@ night_title:
 
 night_brightness:
   widget_type: new_input_slider
-  entity: input_slider.night_brightness
+  entity: input_number.night_brightness
   title: Brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 
 night_color_temperature:
   widget_type: new_input_slider
-  entity: input_slider.night_color_temperature
+  entity: input_number.night_color_temperature
   title: Color Temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 
 
 layout:

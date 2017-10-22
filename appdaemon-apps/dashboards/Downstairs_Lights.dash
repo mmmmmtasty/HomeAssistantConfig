@@ -1,4 +1,3 @@
-title: Home
 widget_dimensions: [50, 50]
 widget_size: [1, 1]
 widget_margins: [5, 5]
@@ -7,10 +6,6 @@ global_parameters:
     use_comma: 0
     precision: 1
     use_hass_icon: 1
-
-clock:
-  widget_type: clock
-  time_format: 24hir
 
 dash_title:
   widget_type: label
@@ -33,25 +28,29 @@ downstairs_hall_light:
 downstairs_hall_brightness:
   widget_type: new_input_slider
   title: Brightness
-  entity: input_slider.downstairs_hall_brightness
+  entity: input_number.downstairs_hall_brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 downstairs_hall_color_temperature:
   widget_type: new_input_slider
   title: Color Temperature
-  entity: input_slider.downstairs_hall_color_temperature
+  entity: input_number.downstairs_hall_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 downstairs_hall_light_mode:
   widget_type: input_select
   entity: input_select.downstairs_hall_light_mode
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 downstairs_hall_scene:
   widget_type: input_select
   entity: input_select.downstairs_hall_scene
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 
 # Dining Room
 dining_room_light:
@@ -70,25 +69,29 @@ dining_room_light:
 dining_room_brightness:
   widget_type: new_input_slider
   title: Brightness
-  entity: input_slider.dining_room_brightness
+  entity: input_number.dining_room_brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 dining_room_color_temperature:
   widget_type: new_input_slider
   title: Color Temperature
-  entity: input_slider.dining_room_color_temperature
+  entity: input_number.dining_room_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 dining_room_light_mode:
   widget_type: input_select
   entity: input_select.dining_room_light_mode
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 dining_room_scene:
   widget_type: input_select
   entity: input_select.dining_room_scene
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 
 # Kitchen
 kitchen_light:
@@ -107,25 +110,29 @@ kitchen_light:
 kitchen_brightness:
   widget_type: new_input_slider
   title: Brightness
-  entity: input_slider.kitchen_brightness
+  entity: input_number.kitchen_brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 kitchen_color_temperature:
   widget_type: new_input_slider
   title: Color Temperature
-  entity: input_slider.kitchen_color_temperature
+  entity: input_number.kitchen_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 kitchen_light_mode:
   widget_type: input_select
   entity: input_select.kitchen_light_mode
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 kitchen_scene:
   widget_type: input_select
   entity: input_select.kitchen_scene
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 
 # Living Room
 living_room_light:
@@ -144,25 +151,29 @@ living_room_light:
 living_room_brightness:
   widget_type: new_input_slider
   title: Brightness
-  entity: input_slider.living_room_brightness
+  entity: input_number.living_room_brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 living_room_color_temperature:
   widget_type: new_input_slider
   title: Color Temperature
-  entity: input_slider.living_room_color_temperature
+  entity: input_number.living_room_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 living_room_light_mode:
   widget_type: input_select
   entity: input_select.living_room_light_mode
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 living_room_scene:
   widget_type: input_select
   entity: input_select.living_room_scene
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 
 layout:
   - include: header

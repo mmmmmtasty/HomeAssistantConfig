@@ -12,9 +12,6 @@ dash_title:
   widget_type: label
   text: Home
 
-weather:
-  widget_type: weather
-
 kitchen_sonos:
   widget_type: media_player
   entity: media_player.kitchen
@@ -22,20 +19,26 @@ kitchen_sonos:
   step: 0.01
 
 northern:
-  widget_type: sensor
-  title: Northern Line
+  widget_type: london_underground
+  title: Northern
   entity: sensor.northern
+  state_text_style: "display: none"
+  text_style: "font-size: 100%"
+  widget_style: "background-color: #000000"
 
 victoria:
-  widget_type: sensor
-  title: Victoria Line
+  widget_type: london_underground
+  title: Victoria
   entity: sensor.victoria
+  state_text_style: "display: none"
+  text_style: "font-size: 100%"
+  widget_style: "background-color: #0098D4"
 
 layout:
   - include: header
-  - weather(2x2),kitchen_sonos(3x3)
-  -
-  -
   - northern(2x2),victoria(2x2)
+  -
+  -
+  - 
   -
   - include: footer 

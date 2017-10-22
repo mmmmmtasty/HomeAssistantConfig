@@ -32,25 +32,29 @@ office_light:
 office_brightness:
   widget_type: new_input_slider
   title: Brightness
-  entity: input_slider.office_brightness
+  entity: input_number.office_brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 office_color_temperature:
   widget_type: new_input_slider
   title: Color Temperature
-  entity: input_slider.office_color_temperature
+  entity: input_number.office_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 office_light_mode:
   widget_type: input_select
   entity: input_select.office_light_mode
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 office_scene:
   widget_type: input_select
   entity: input_select.office_scene
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 
 # Spare Room
 spare_room_light:
@@ -69,25 +73,29 @@ spare_room_light:
 spare_room_brightness:
   widget_type: new_input_slider
   title: Brightness
-  entity: input_slider.spare_room_brightness
+  entity: input_number.spare_room_brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 spare_room_color_temperature:
   widget_type: new_input_slider
   title: Color Temperature
-  entity: input_slider.spare_room_color_temperature
+  entity: input_number.spare_room_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 spare_room_light_mode:
   widget_type: input_select
   entity: input_select.spare_bedroom_light_mode
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 spare_room_scene:
   widget_type: input_select
   entity: input_select.spare_bedroom_scene
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 
 # Stairs
 stairs_light:
@@ -106,25 +114,29 @@ stairs_light:
 stairs_brightness:
   widget_type: new_input_slider
   title: Brightness
-  entity: input_slider.stairs_brightness
+  entity: input_number.stairs_brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 stairs_color_temperature:
   widget_type: new_input_slider
   title: Color Temperature
-  entity: input_slider.stairs_color_temperature
+  entity: input_number.stairs_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 stairs_light_mode:
   widget_type: input_select
   entity: input_select.stairs_light_mode
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 stairs_scene:
   widget_type: input_select
   entity: input_select.stairs_scene
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 
 # Upstairs Hall
 upstairs_hall_light:
@@ -143,25 +155,29 @@ upstairs_hall_light:
 upstairs_hall_brightness:
   widget_type: new_input_slider
   title: Brightness
-  entity: input_slider.upstairs_hall_brightness
+  entity: input_number.upstairs_hall_brightness
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 upstairs_hall_color_temperature:
   widget_type: new_input_slider
   title: Color Temperature
-  entity: input_slider.upstairs_hall_color_temperature
+  entity: input_number.upstairs_hall_color_temperature
   value_style: "display: none"
   maxvalue_style: "display: none"
   minvalue_style: "display: none"
+  slidercontainer_style: "top: 20px"
+  slider_style: "height: 0px"
 upstairs_hall_light_mode:
   widget_type: input_select
   entity: input_select.upstairs_hall_light_mode
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 upstairs_hall_scene:
   widget_type: input_select
   entity: input_select.upstairs_hall_scene
-  select_parent_style: "position: unset"
+  selectcontainer_style: "position: unset"
 
 layout:
   - include: header

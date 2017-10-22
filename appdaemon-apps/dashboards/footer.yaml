@@ -3,27 +3,27 @@ nav_home:
   title: Home
   dashboard: Home
   icon_inactive: mdi-home
-  skin: MJ
+  #skin: MJ
 
 nav_downstairs_lights:
   widget_type: navigate
   title: Downstairs
   title2: Lights
   dashboard: Downstairs_Lights
-  skin: MJ
+  #skin: MJ
 
 nav_upstairs_lights:
   widget_type: navigate
   title: Upstairs
   title2: Lights
   dashboard: Upstairs_Lights
-  skin: MJ
+  #skin: MJ
 
 nav_defaults:
   widget_type: navigate
   title: Defaults
   dashboard: Defaults
-  skin: MJ
+  #skin: MJ
 
 reload:
   widget_type: reload

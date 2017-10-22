@@ -10,12 +10,9 @@ clock:
   time_style: "color: white"
 
 weather_hourly_summary:
-  widget_type: sensor
-  entity: sensor.dark_sky_hourly_summary
-  value_style: "font-size: 60%; color: green"
-  text_style: "font-size: 60%; color: red"
-  state_text_style: "font-size: 60%; color: blue"
-  unit_style: "font-size: 60%; color: purple"
+  widget_type: weather_summary
+  entity: sensor.dark_sky_summary
+  text_style: "font-size: 350%"
 
 layout:
   - clock(4x2),dash_title(8x2),weather_hourly_summary(2x2),house_mode(2x2)
