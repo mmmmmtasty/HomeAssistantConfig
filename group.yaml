@@ -59,13 +59,13 @@ sonos_doorbell:
     - media_player.dining_room
     - media_player.kitchen
 
-#flic_buttons:
-#  name: Flic Buttons
-#  entities: 
-#    - binary_sensor.flic_80e4da71f014
-#    - binary_sensor.flic_80e4da7218b4
-#    - binary_sensor.flic_80e4da726071
-#    - binary_sensor.flic_80e4da71ffe0
+flic_buttons:
+  name: Flic Buttons
+  entities: 
+    - binary_sensor.flic_80e4da71f014
+    - binary_sensor.flic_80e4da7218b4
+    - binary_sensor.flic_80e4da726071
+    - binary_sensor.flic_80e4da71ffe0
 nest_camera_dining_room:
   name: Dining Room Nest Camera
   entities:
