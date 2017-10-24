@@ -39,7 +39,7 @@ class ResetSlider(appapi.AppDaemon):
           self.handles[entity] = self.run_in(self.reset_slave_slider, self.args['reset_delay'], **{'slider': entity})
         else:
           # Otherwise we just lock the slider
-          #self.log("[SLIDER LOCK] {} House is in '{}' mode. Locking until house mode change".format(entity, house_mode))
+          # self.log("[SLIDER LOCK] {} House is in '{}' mode. Locking until house mode change".format(entity, house_mode))
           self.turn_on(entity_id = self.args['slave_sliders'][entity]['lock_boolean'])
 
   # Set the value of the slave slider to match the value of its master
@@ -57,10 +57,10 @@ class ResetSlider(appapi.AppDaemon):
     # Generate the name of the default slider from the house_mode but only if this is the master
     if 'master' in self.args:
       if self.args['master'] == True:
-        input_slider = "input_slider.{}{}".format(new, self.args['house_mode_suffix'])
-        self.run_in(self.master_mode_callback, 2, input_slider = input_slider)
+        input_number = "input_number.{}{}".format(new, self.args['house_mode_suffix'])
+        self.run_in(self.master_mode_callback, 2, input_number = input_number)
 
   # Function required to facilitate using the self.run_in above
   def master_mode_callback(self, kwargs):
-    #self.log("[MASTER SLIDER RESET] House mode change: resetting {} to value of {}".format(self.args['master_slider'], kwargs["input_slider"]))
-    self.select_value(self.args['master_slider'], self.get_state(kwargs['input_slider'])) 
+    #self.log("[MASTER SLIDER RESET] House mode change: resetting {} to value of {}".format(self.args['master_slider'], kwargs["input_number"]))
+    self.select_value(self.args['master_slider'], self.get_state(kwargs['input_number'])) 
