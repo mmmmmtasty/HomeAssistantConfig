@@ -1,0 +1,23 @@
+morning_start:
+    name: Morning Start
+    has_date: false
+    has_time: true
+    initial: '1970-01-01 05:00'
+
+day_start:
+    name: Day Start
+    has_date: false
+    has_time: true
+    initial: '1970-01-01 07:00'
+
+evening_start:
+    name: Evening Start
+    has_date: false
+    has_time: true
+    initial: '1970-01-01 20:00'
+
+night_start:
+    name: Night Start
+    has_date: false
+    has_time: true
+    initial: '1970-01-01 23:00'

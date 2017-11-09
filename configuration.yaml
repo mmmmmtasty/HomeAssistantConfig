@@ -89,11 +89,11 @@ binary_sensor flic:
 # ------------- Scenes ------------ #
 
 input_boolean: !include input_boolean.yaml
+input_datetime: !include input_datetime.yaml
 input_select: !include input_select.yaml
 input_number: !include input_number.yaml
 group: !include group.yaml
 scene: !include scene.yaml
-#automation: !include automation.yaml
 script: !include script.yaml 
 switch: !include switch.yaml 
 binary_sensor: !include binary_sensor.yaml

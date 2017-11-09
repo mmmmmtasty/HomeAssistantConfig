@@ -21,10 +21,10 @@ Update House Modes:
   module: update_house_mode
   class: UpdateHouseMode
   house_mode: input_select.house_mode
-  morning_start: 05:00:00
-  day_start: 07:00:00
-  evening_start: '20:00:00'
-  night_start: '23:00:00'
+  morning_start: input_datetime.morning_start
+  day_start: input_datetime.day_start
+  evening_start: input_datetime.evening_start
+  night_start: input_datetime.night_start
 
 Flic Night Mode:
   module: flic_triggered_mode_change
