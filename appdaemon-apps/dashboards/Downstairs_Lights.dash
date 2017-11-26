@@ -1,7 +1,8 @@
-widget_dimensions: [50, 50]
-widget_size: [1, 1]
+widget_dimensions: [40, 40]
+widget_size: [5, 5]
 widget_margins: [5, 5]
-columns: 16
+columns: 42
+rows: 26
 global_parameters:
     use_comma: 0
     precision: 1

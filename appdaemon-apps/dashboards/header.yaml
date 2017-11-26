@@ -2,12 +2,13 @@ house_mode:
   widget_type: input_select
   title: House Mode
   entity: input_select.house_mode
+  title_style: "font-size: 300%"
 
 clock:
   widget_type: clock
   time_format: 24hr
-  date_style: "color: white"
-  time_style: "color: white"
+  date_style: "color: white; font-size: 200%; font-weight: bold"
+  time_style: "color: white; font-size: 500%"
 
 weather_hourly_summary:
   widget_type: weather_summary
@@ -15,5 +16,6 @@ weather_hourly_summary:
   text_style: "font-size: 350%"
 
 layout:
-  - clock(4x2),dash_title(8x2),weather_hourly_summary(2x2),house_mode(2x2)
-  - 
+  - clock(8x3),dash_title(20x3),weather_hourly_summary(10x3),house_mode(4x3)
+  -
+  -

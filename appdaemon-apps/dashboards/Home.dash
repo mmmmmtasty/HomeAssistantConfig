@@ -1,8 +1,8 @@
-title: Home
-widget_dimensions: [50, 50]
-widget_size: [1, 1]
+widget_dimensions: [40, 40]
+widget_size: [5, 5]
 widget_margins: [5, 5]
-columns: 16
+columns: 42
+rows: 26
 global_parameters:
   use_comma: 0
   precision: 1
@@ -11,6 +11,7 @@ global_parameters:
 dash_title:
   widget_type: label
   text: Home
+  value_style: "font-size: 500%"
 
 kitchen_sonos:
   widget_type: media_player
@@ -34,11 +35,31 @@ victoria:
   text_style: "font-size: 100%"
   widget_style: "background-color: #0098D4"
 
+work_directions:
+  widget_type: iframe
+  url_list: 
+     - https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJIS2vudoddkgROiNCBpRC8MY&destination=place_id:ChIJwRnZalIDdkgR8oP6fWB1T6w&key=AIzaSyDM2ZiEo-LHNUPwQhmBwl0xO64tZ_rd4Ag&mode=transit
+  refresh: 300
+
 layout:
   - include: header
-  - northern(2x2),victoria(2x2)
+  - northern,victoria,work_directions(15x15)
   -
   -
-  - 
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
   -
   - include: footer 

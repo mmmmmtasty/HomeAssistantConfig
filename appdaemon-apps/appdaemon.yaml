@@ -3,6 +3,8 @@ AppDaemon:
   errorfile: /home/pi/appdaemon/log/stderror.log
   logfile: /home/pi/appdaemon/log/stdout.log
   threads: '20'
+  ad_port: 5051
+  api_port: 5052
 HADashboard:
   dash_compile_on_start: '1'
   dash_dir: /home/homeassistant/.homeassistant/appdaemon-apps/dashboards

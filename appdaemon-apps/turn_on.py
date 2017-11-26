@@ -5,6 +5,9 @@ import appdaemon.appapi as appapi
 class TurnOn(appapi.AppDaemon):
 
   def initialize(self):
+    # Register REST endpoint
+    self.register_endpoint(self.rest_motion)
+
     # Load Utils and Defaults
     self.utils = self.get_app('Utils')
     self.settings = self.get_app('Defaults').get_defaults()
@@ -64,6 +67,13 @@ class TurnOn(appapi.AppDaemon):
 
     # Check every 10 seconds to see if entities should remain on
     self.run_every(self.renew_delay, self.datetime(), 10)
+  
+    # Listen to the state of the entities in case they are changed by an external party
+    for entity in self.args['entities']:
+      self.listen_state(self.light_on, entity)
+  
+  def rest_motion(self, data):
+    return {}, 200
 
   # Turn lights on if the sensor changes state
   def motion(self, entity, attribute, old, new, kwargs):
@@ -88,6 +98,11 @@ class TurnOn(appapi.AppDaemon):
     for sensor_id in self.args['sensors']:
       if self.get_state(sensor_id) == "on" and self.utils.app_is_active(self.settings):
         self.utils.set_delayed_turn_off_time(self.args['entities'], self.settings['turn_off_delay'], self.settings['off_transition_seconds'])
+
+  def light_on(self, entity, attribute, old, new, kwargs):
+    if new == 'on':
+      # Ensure that the light has been turned on with the correct settings
+      self.run_in(self.utils.update_light_if_on, 1, **{'entity_ids': self.args['entities'], 'settings': self.settings})
 
   def brightness_update(self, entity, attribute, old, new, kwargs):
     self.log("[BRIGHTNESS UPDATE] {} {}".format(entity, new))

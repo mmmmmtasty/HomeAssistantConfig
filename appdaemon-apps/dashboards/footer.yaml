@@ -3,30 +3,32 @@ nav_home:
   title: Home
   dashboard: Home
   icon_inactive: mdi-home
-  #skin: MJ
 
 nav_downstairs_lights:
   widget_type: navigate
-  title: Downstairs
-  title2: Lights
+  title: Downstairs Lights
   dashboard: Downstairs_Lights
-  #skin: MJ
+  title_style: "font-size: 200%"
 
 nav_upstairs_lights:
   widget_type: navigate
-  title: Upstairs
-  title2: Lights
+  title: Upstairs Lights
   dashboard: Upstairs_Lights
-  #skin: MJ
+  title_style: "font-size: 200%"
 
 nav_defaults:
   widget_type: navigate
   title: Defaults
   dashboard: Defaults
-  #skin: MJ
+  title_style: "font-size: 200%"
 
 reload:
   widget_type: reload
   title: Reload
+  title_style: "font-size: 200%"
+
 layout:
-  - nav_home(2x2),nav_downstairs_lights(2x2),nav_upstairs_lights(2x2),nav_defaults(2x2),reload(2x2)
+  - nav_home(4x4),nav_downstairs_lights(4x4),nav_upstairs_lights(4x4),nav_defaults(4x4),reload(4x4)
+  -
+  -
+  -
