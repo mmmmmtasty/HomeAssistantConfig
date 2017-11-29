@@ -78,16 +78,16 @@ class TurnOn(appapi.AppDaemon):
   # Turn lights on if the sensor changes state
   def motion(self, entity, attribute, old, new, kwargs):
     #TODO: Consider if illuminance should be in a helper function
-    self.log("[MOTION] {} {}".format(entity, self.args["entities"]))
+    #self.log("[MOTION] {} {}".format(entity, self.args["entities"]))
     # Don't turn on if the room is too bright
     if "illuminance_sensor_id" in self.args and "illuminance_max_lux" in self.args:
       illuminance = int(self.get_state(self.args["illuminance_sensor_id"]))
       max_illuminance = int(self.args["illuminance_max_lux"]) 
       if illuminance > max_illuminance:
-        self.log("[BRIGHTNESS FAIL] {}: {} > {}".format(self.args["illuminance_sensor_id"], illuminance, max_illuminance))
+        #self.log("[BRIGHTNESS FAIL] {}: {} > {}".format(self.args["illuminance_sensor_id"], illuminance, max_illuminance))
         return
-      else:
-        self.log("[BRIGHTNESS PASS] {}: {} < {}".format(self.args['illuminance_sensor_id'], illuminance, max_illuminance))
+      #else:
+        #self.log("[BRIGHTNESS PASS] {}: {} < {}".format(self.args['illuminance_sensor_id'], illuminance, max_illuminance))
     if self.utils.app_is_active(self.settings):
       self.utils.turn_on_light(self.args['entities'], self.settings)
     else:
@@ -100,9 +100,11 @@ class TurnOn(appapi.AppDaemon):
         self.utils.set_delayed_turn_off_time(self.args['entities'], self.settings['turn_off_delay'], self.settings['off_transition_seconds'])
 
   def light_on(self, entity, attribute, old, new, kwargs):
-    if new == 'on':
-      # Ensure that the light has been turned on with the correct settings
-      self.run_in(self.utils.update_light_if_on, 1, **{'entity_ids': self.args['entities'], 'settings': self.settings})
+    self.log("{} | {} | {} | []".format(attribute, old, new, kwargs))
+    if new == 'on' and old == 'off':
+      if self.utils.app_is_active(self.settings):
+        # Ensure that the light has been turned on with the correct settings
+        self.run_in(self.utils.update_light_if_on, 1, **{'entity_ids': self.args['entities'], 'settings': self.settings})
 
   def brightness_update(self, entity, attribute, old, new, kwargs):
     self.log("[BRIGHTNESS UPDATE] {} {}".format(entity, new))

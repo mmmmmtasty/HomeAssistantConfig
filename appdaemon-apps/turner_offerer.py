@@ -9,10 +9,10 @@ class TurnerOfferer(appapi.AppDaemon):
     self.run_every(self.triggered, self.datetime(), 5)
 
   def triggered(self, kwargs):
-    if "turn_off" in self.global_vars:
-      for entity_id in self.global_vars['turn_off']:
-        off_time = self.global_vars["turn_off"][entity_id]["off_time"]
-        #off_time_string = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(self.global_vars['turn_off'][entity_id]['off_time']))
+    if 'settings' in self.global_vars:
+      for entity_id in self.global_vars['settings']:
+        off_time = self.global_vars['settings'][entity_id]['off_time']
+        #off_time_string = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(self.global_vars['settings'][entity_id]['off_time']))
         #self.log("{} Off Time: {}".format(entity_id, off_time_string))
 
         if off_time > self.datetime().timestamp() and off_time != 0.0:
@@ -25,15 +25,15 @@ class TurnerOfferer(appapi.AppDaemon):
           now_time_string = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()) 
           self.log("[TIMES UP] {} {} < {}".format(entity_id, off_time_string, now_time_string))
 
-          if "off_transition_seconds" in self.global_vars["turn_off"][entity_id]:
-            off_transition_seconds = self.global_vars['turn_off'][entity_id]['off_transition_seconds']
+          if "off_transition_seconds" in self.global_vars['settings'][entity_id]:
+            off_transition_seconds = self.global_vars['settings'][entity_id]['off_transition_seconds']
           else:
             off_transition_seconds = None
 
           self.run_in(self.turn_off_entity, 1, **{'entity_id': entity_id, 'off_transition_seconds': off_transition_seconds})
 
           # Set the turn off time to be 0.0
-          self.global_vars["turn_off"][entity_id]["off_time"] = 0.0
+          self.global_vars['settings'][entity_id]['off_time'] = 0.0
  
   def turn_off_entity(self, kwargs):
     off_transition_seconds = kwargs['off_transition_seconds']

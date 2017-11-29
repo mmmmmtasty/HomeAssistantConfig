@@ -26,21 +26,21 @@ class FlicTriggeredModeChange(appapi.AppDaemon):
         entity_ids = self.get_state(self.args["entity_id"], attribute = 'all')['attributes']['entity_id']
      
        # Make sure the turn_off keys exist in global_vars 
-      if 'turn_off' not in self.global_vars:
-        self.global_vars['turn_off'] = {}
+      if 'settings' not in self.global_vars:
+        self.global_vars['settings'] = {}
       
       # Write a turn off time for each expanded entity
       for entity_id in entity_ids:
         # Make sure a key exists for this entity
-        if entity_id not in self.global_vars["turn_off"]:
-          self.global_vars['turn_off'][entity_id] = {}
+        if entity_id not in self.global_vars['settings']:
+          self.global_vars['settings'][entity_id] = {}
         # Set a turn off time of (now + delay)
         new_timestamp = (self.datetime().timestamp() + int(self.args["delay"]))
         time_string = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(new_timestamp))
         self.log("Setting new off time for {} ({})".format(entity_id, time_string))
-        self.global_vars["turn_off"][entity_id]['off_time'] = new_timestamp 
+        self.global_vars['settings'][entity_id]['off_time'] = new_timestamp 
         # If we were provided an off transition time then include that as well
         off_transition_seconds = 5
         if 'off_transition_seconds' in self.args:
            off_transition_seconds = self.args["off_transition_seconds"]
-        self.global_vars["turn_off"][entity_id]['off_transition_seconds'] = off_transition_seconds
+        self.global_vars['settings'][entity_id]['off_transition_seconds'] = off_transition_seconds

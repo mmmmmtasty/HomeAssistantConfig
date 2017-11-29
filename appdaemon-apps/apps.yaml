@@ -36,7 +36,7 @@ Flic Night Mode:
     - switch.switch_living_room_lamp_switch
   house_mode: input_select.house_mode
   new_mode: night
-  delay: 60
+  delay: 30
   off_transition_seconds: 10
   trigger_event: flic_click
   trigger_entity_id: flic_80e4da71f014
