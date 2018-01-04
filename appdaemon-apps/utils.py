@@ -43,29 +43,29 @@ class Utils(appapi.AppDaemon):
         action = 'UPDATE'
         if self.get_state(entity_id) == 'off':
           action = 'NONE'
-          self.log('[{}] [{}] Currently off'.format(action, entity_id))
+          #self.log('[{}] [{}] Currently off'.format(action, entity_id))
           continue
         if domain == 'switch':
           action = 'NONE'
-          self.log('[{}] [{}] Updates not relevant for switches'.format(action, entity_id))
+          #self.log('[{}] [{}] Updates not relevant for switches'.format(action, entity_id))
           continue
 
       # If this is a switch then don't send the extra parameters
       if domain == 'switch':
-        self.log('[{}] [{}] Switch, no parameters required'.format(action, entity_id))
+        #self.log('[{}] [{}] Switch, no parameters required'.format(action, entity_id))
         self.turn_on(entity_id)
         continue
       
       # Otherwise treat it as a light or group of lights
       if settings['light_mode'] == 'temperature':
-        self.log('[{}] [{}] color_temp {} and brightness {}'.format(action, entity_id, settings['color_temperature'], settings['brightness']))
+        #self.log('[{}] [{}] color_temp {} and brightness {}'.format(action, entity_id, settings['color_temperature'], settings['brightness']))
         self.turn_on(entity_id, color_temp = settings['color_temperature'], brightness = settings['brightness'], transition = on_transition_seconds )
       elif settings['light_mode'] == 'color':
-        self.log('[{}] [{}] xy_colour {},{} and brightness {}'.format(action, entity_id, settings['x_color'], settings['y_color'], settings['brightness']))
+        #self.log('[{}] [{}] xy_colour {},{} and brightness {}'.format(action, entity_id, settings['x_color'], settings['y_color'], settings['brightness']))
         self.turn_on(entity_id, xy_color = [settings['x_color'],settings['y_color']], brightness = settings['brightness'], transition = on_transition_seconds )
       elif settings['light_mode'] == 'scene':
         group_name = self.friendly_name(entity_id)
-        self.log('[{}] [{}] Hue Scene: {}'.format(action, group_name, settings['light_scene']))
+        #self.log('[{}] [{}] Hue Scene: {}'.format(action, group_name, settings['light_scene']))
         self.call_service('light/hue_activate_scene', group_name = group_name, scene_name = settings['light_scene'])
       elif settings['light_mode'] == 'colorloop_sync':
         pass
@@ -81,7 +81,7 @@ class Utils(appapi.AppDaemon):
     if not isinstance(entity_ids, list):
       entity_ids = [entity_ids]
     # Make sure the turn_off keys exist in global_vars 
-    if 'turn_off' not in self.global_vars:
+    if 'settings' not in self.global_vars:
       self.global_vars['settings'] = {}
 
     for entity_id in entity_ids:

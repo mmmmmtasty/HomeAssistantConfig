@@ -1,10 +1,15 @@
+Defaults:
+  class: Defaults
+  module: defaults
+
 Utils:
   class: Utils
   module: utils
 
-Defaults:
-  class: Defaults
-  module: defaults
+UtilsNew:
+  class: Utils
+  module: utils_new
+  dependencies: defaults
 
 Dining Room Doorbell:
   class: Doorbell
@@ -29,11 +34,13 @@ Update House Modes:
 Flic Night Mode:
   module: flic_triggered_mode_change
   class: FlicTriggeredModeChange
+  dependencies: utils_new
   shutdown_entity_ids:
     - light.dining_room
     - light.kitchen
     - light.downstairs_hall
-    - switch.switch_living_room_lamp_switch
+    # - light.living_room
+    # - switch.switch_living_room_lamp_switch
   house_mode: input_select.house_mode
   new_mode: night
   delay: 30
@@ -53,7 +60,7 @@ Flic Day Mode:
 Turner Offerer:
   class: TurnerOfferer
   module: turner_offerer
-  dependencies: utils
+  dependencies: utils_new
 
 Downstairs Brighten Lights:
   brightness_slider: input_number.downstairs_brightness
@@ -184,25 +191,24 @@ Dining Room Day Motion Lights:
   active_mode_input: input_select.house_mode
   turn_off_delay: '3600'
 
-# Downstairs Hall
-Downstairs Hall Motion Lights:
-  module: turn_on
-  class: TurnOn
-  dependencies: utils,defaults
+Downstairs Hall Light Controller:
+  module: light_controller
+  class: LightController
+  dependencies: defaults,utils_new
   sensors:
     - binary_sensor.motion_downstairs_hall_motion
   entities: 
     - light.downstairs_hall
-  brightness_input: input_number.downstairs_hall_brightness
+  clt_input: input_number.downstairs_hall_color_temperature
+  brt_input: input_number.downstairs_hall_brightness
   light_mode_input: input_select.downstairs_hall_light_mode
   light_scene_input: input_select.downstairs_hall_scene
-  color_temperature_input: input_number.downstairs_hall_color_temperature
   active_modes:
     - morning
     - day
     - evening
   active_mode_input: input_select.house_mode
-  turn_off_delay: '300'
+  off_delay: '300'
 
 # Kitchen
 Kitchen Day Motion Lights:
@@ -246,83 +252,110 @@ Kitchen Night Motion Lights:
   turn_off_delay: '900'
 
 # Living Room
-Living Room Motion Lights:
-  module: turn_on
-  class: TurnOn
-  dependencies: utils,defaults
-  sensors: 
-    - binary_sensor.multisensor_living_room_motion
-    - binary_sensor.motion_living_room_motion
-  entities: 
-    - switch.switch_living_room_lamp_switch
-  brightness_input: input_number.living_room_brightness
-  brightness_offset: 10.0
-  color_temperature_input: input_number.living_room_color_temperature
-  light_mode_input: input_select.living_room_light_mode
-  light_scene_input: input_select.living_room_scene
-  turn_off_delay: '900'
-  illuminance_max_lux: '50'
-  illuminance_sensor_id: sensor.multisensor_living_room_illuminance
+  # Living Room Motion Lights:
+  # module: turn_on
+  # class: TurnOn
+  # dependencies: utils,defaults
+  # sensors: 
+  #   - binary_sensor.multisensor_living_room_motion
+  #   - binary_sensor.motion_living_room_motion
+  # entities: 
+  #   - switch.switch_living_room_lamp_switch
+  # brightness_input: input_number.living_room_brightness
+  # brightness_offset: 10.0
+  # color_temperature_input: input_number.living_room_color_temperature
+  # light_mode_input: input_select.living_room_light_mode
+  # light_scene_input: input_select.living_room_scene
+  # turn_off_delay: '900'
+  # illuminance_max_lux: '50'
+  # illuminance_sensor_id: sensor.multisensor_living_room_illuminance
 
 # Office
 Office Motion Lights:
-  module: turn_on
-  class: TurnOn
-  dependencies: utils,defaults
+  module: light_controller
+  class: LightController
+  dependencies: defaults,utils_new
   sensors: 
     - binary_sensor.motion_office_motion
   entities: 
     - light.office
-  brightness_input: input_number.office_brightness
-  brightness_offset: '50.0'
+  brt_input: input_number.office_brightness
+  brt_offset: '50.0'
+  clt_input: input_number.office_color_temperature
   light_mode_input: input_select.office_light_mode
   light_scene_input: input_select.office_scene
-  color_temperature_input: input_number.office_color_temperature
-  turn_off_delay: '900'
+  off_delay: '900'
 
 # Spare Room
-Spare Room Motion Lights:
-  module: turn_on
-  class: TurnOn
-  dependencies: utils,defaults
-  sensors: 
-    - binary_sensor.motion_spare_room_motion
-  entities:
-    - light.spare_bedroom
-  brightness_input: input_number.upstairs_brightness
-  brightness_offset: '50.0'
-  light_mode_input: input_select.spare_bedroom_light_mode
-  light_scene_input: input_select.spare_bedroom_scene
-  color_temperature_input: input_number.spare_room_color_temperature
-  turn_off_delay: '900'
+# Spare Room Motion Lights:
+#   module: turn_on
+#   class: TurnOn
+#   dependencies: utils,defaults
+#   sensors: 
+#     - binary_sensor.motion_spare_room_motion
+#   entities:
+#     - light.spare_bedroom
+#   brightness_input: input_number.upstairs_brightness
+#   brightness_offset: '50.0'
+#   light_mode_input: input_select.spare_bedroom_light_mode
+#   light_scene_input: input_select.spare_bedroom_scene
+#   color_temperature_input: input_number.spare_room_color_temperature
+#   turn_off_delay: '900'
 
 # Stairs
+# Stairs Motion Lights:
+#   module: turn_on
+#   class: TurnOn
+#   dependencies: utils,defaults
+#   sensors: 
+#     - binary_sensor.motion_stairs_motion
+#   entities: 
+#     - light.stairs
+#   brightness_input: input_number.upstairs_brightness
+#   light_mode_input: input_select.stairs_light_mode
+#   light_scene_input: input_select.stairs_scene
+#   color_temperature_input: input_number.stairs_color_temperature
+#   turn_off_delay: '120'
 Stairs Motion Lights:
-  module: turn_on
-  class: TurnOn
-  dependencies: utils,defaults
+  module: light_controller
+  class: LightController
+  dependencies: defaults,utils_new
   sensors: 
     - binary_sensor.motion_stairs_motion
   entities: 
     - light.stairs
-  brightness_input: input_number.upstairs_brightness
+  brt_input: input_number.upstairs_brightness
+  clt_input: input_number.stairs_color_temperature
   light_mode_input: input_select.stairs_light_mode
   light_scene_input: input_select.stairs_scene
-  color_temperature_input: input_number.stairs_color_temperature
-  turn_off_delay: '120'
+  off_delay: '120'
 
 # Upstairs Hall
+# Upstairs Hall Motion Lights:
+#   module: turn_on
+#   class: TurnOn
+#   dependencies: utils,defaults
+#   sensors: 
+#     - binary_sensor.motion_upstairs_hall_motion
+#   entities: 
+#     - light.upstairs_hall
+#   brightness_input: input_number.upstairs_brightness
+#   brightness_offset: '50.0'
+#   light_mode_input: input_select.upstairs_hall_light_mode
+#   light_scene_input: input_select.upstairs_hall_scene
+#   color_temperature_input: input_number.upstairs_hall_color_temperature
+#   turn_off_delay: '120'
 Upstairs Hall Motion Lights:
-  module: turn_on
-  class: TurnOn
-  dependencies: utils,defaults
+  module: light_controller
+  class: LightController
+  dependencies: defaults,utils_new
   sensors: 
     - binary_sensor.motion_upstairs_hall_motion
   entities: 
     - light.upstairs_hall
-  brightness_input: input_number.upstairs_brightness
-  brightness_offset: '50.0'
+  brt_input: input_number.upstairs_brightness
+  brt_offset: '50.0'
+  clt_input: input_number.upstairs_hall_color_temperature
   light_mode_input: input_select.upstairs_hall_light_mode
   light_scene_input: input_select.upstairs_hall_scene
-  color_temperature_input: input_number.upstairs_hall_color_temperature
-  turn_off_delay: '120'
+  off_delay: '120'
